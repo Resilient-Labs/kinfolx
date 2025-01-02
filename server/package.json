@@ -1,0 +1,24 @@
+{
+  "name": "kinfolx-backend",
+  "version": "1.0.0",
+  "description": "Backend for kinfolx",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server",
+    "dev": "node --watch server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Resilient-Labs/kinfolx.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@clerk/clerk-react": "^5.21.0",
+    "env": "^0.0.2",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.3",
+    "morgan": "^1.10.0"
+  }
+}
