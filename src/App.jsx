@@ -1,14 +1,21 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
+import { useEffect } from 'react';
 import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0);
+  //sample code to make sure backend is connected. 
+  const fetchTest = async() => {
+    const res = await fetch('/api/test'); 
+    const result = await res.json(); 
+    console.log(result); 
+  }
+
+  useEffect(() => {
+    fetchTest()
+  }, [])
 
   return (
     <>
-      <div>Hello Kinfolk!!!</div>
+      <div>Hello Kinfolx!!!</div>
     </>
   );
 }
