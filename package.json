@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "vite --host 0.0.0.0",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
