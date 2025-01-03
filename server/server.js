@@ -1,27 +1,24 @@
-import express from 'express';
-import logger from 'morgan';
-import { config } from 'dotenv';
-import { ClerkExpressRequireAuth } from '@clerk/clerk-sdk-node';
+import express from 'express'
+import logger from 'morgan'
+import { config } from 'dotenv'
+import { ClerkExpressRequireAuth } from '@clerk/clerk-sdk-node'
 
-config({ path: './config/.env' });
+config({ path: './config/.env' })
 
-//to check if our env connection is correct
-console.log(process.env.DB_STRING);
+const app = express()
+const PORT = process.env.PORT || 3000
 
-const app = express();
-const PORT = process.env.PORT || 3000;
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(logger('dev'));
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+app.use(logger('dev'))
 
 app.get('/api/test', ClerkExpressRequireAuth(), async (req, res) => {
-  return res.json({ 'itWorks': 'true' });
-});
+    return res.json({ itWorks: 'true' })
+})
 
 app.listen(PORT, () => {
-  console.log(`[server]: Server is running at http://localhost:${PORT}`);
-});
+    console.log(`[server]: Server is running at http://localhost:${PORT}`)
+})
 
 // Get user's chats (Example usage)
 // app.get("/api/userchats", ClerkExpressRequireAuth(), async (req, res) => {
