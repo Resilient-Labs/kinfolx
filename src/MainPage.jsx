@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import './Main.css';
+import './MainPage.css';
 
 function MainPage() {
   //sample code to make sure backend is connected. 
