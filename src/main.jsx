@@ -1,13 +1,17 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import './index.css';
-import MainPage from './MainPage.jsx';
-import './index.css';
+//react router
 import { createBrowserRouter, RouterProvider } from 'react-router';
+//clerk 
+import { ClerkProvider } from '@clerk/clerk-react';
+//components
+import MainPage from './MainPage.jsx';
 import SignInPage from './components/signInPage/signInPage.jsx';
 import SignUpPage from './components/signUpPage/signUpPage.jsx';
 import RootLayout from './layouts/rootLayout/RootLayout.jsx';
-import { ClerkProvider } from '@clerk/clerk-react';
+
+
+import './index.css';
 
 //this is related to clerk
 // Import your Publishable Key
@@ -18,7 +22,6 @@ if (!PUBLISHABLE_KEY) {
 }
 
 //this is related to frontend routing
-//what about sign OUT route? 
 const router = createBrowserRouter([
   {
     path: '/',
