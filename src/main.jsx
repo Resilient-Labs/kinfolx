@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 //react router
 import { createBrowserRouter, RouterProvider } from 'react-router'
 //clerk
-import { ClerkProvider } from '@clerk/react-router'
+import { ClerkProvider } from '@clerk/clerk-react'
 //components
 import MainPage from './MainPage.jsx'
 import SignInPage from './components/signInPage/signInPage.jsx'
