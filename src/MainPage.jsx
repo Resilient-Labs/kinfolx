@@ -4,7 +4,7 @@ import './MainPage.css'
 function MainPage() {
     //sample code to make sure backend is connected.
     const fetchTest = async () => {
-        const res = await fetch('/api/test')
+        const res = await fetch('/api/protected')
         if (!res.ok) {
             throw new Error('Something went wrong')
         }
