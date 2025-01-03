@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "format": "prettier --write \"**/*.{js,jsx}\""
+    "format": "prettier --write \"**/*.{js,jsx,css}\""
   },
   "dependencies": {
     "@clerk/clerk-react": "^5.21.0",
