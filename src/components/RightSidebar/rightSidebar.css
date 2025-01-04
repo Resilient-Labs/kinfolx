@@ -1,0 +1,39 @@
+.right-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.top-companies,
+.worst-companies {
+    background-color: #292929;
+    padding: 1rem;
+    border: 1px solid #444;
+    border-radius: 4px;
+}
+.top-list,
+.worst-list {
+    color: #aaa;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+}
+.top-list li,
+.worst-list li {
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: #161616;
+    padding: 1rem;
+    font-size: 1.6rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.top-list,
+.worst-list {
+    color: #aaa;
+    text-align: center;
+    padding: 1rem;
+}
