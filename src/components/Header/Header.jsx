@@ -1,6 +1,11 @@
 import React from 'react'
 import './header.css'
-import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react'
+import {
+    SignedIn,
+    SignedOut,
+    SignInButton,
+    UserButton,
+} from '@clerk/clerk-react'
 
 export default function Header() {
     return (
@@ -35,7 +40,7 @@ export default function Header() {
                     <SignedIn>
                         <UserButton />
                     </SignedIn>
-                {/* </div> */}
+                    {/* </div> */}
                 </div>
             </nav>
         </header>
