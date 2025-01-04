@@ -6,6 +6,9 @@ import {
     SignInButton,
     UserButton,
 } from '@clerk/clerk-react'
+import Header from '../../components/Header/Header'
+import Footer from '../../components/Footer/Footer'
+
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
 if (!PUBLISHABLE_KEY) {
@@ -15,24 +18,9 @@ if (!PUBLISHABLE_KEY) {
 const RootLayout = () => {
     return (
         <div className="rootLayout">
-            <header>
-                <Link to="/" className="logo">
-                    {/* //add logo here */}
-                    <img src="" alt="" />
-                    <span>Kinfolx</span>
-                </Link>
-                <div className="user">
-                    <SignedOut>
-                        <SignInButton />
-                    </SignedOut>
-                    <SignedIn>
-                        <UserButton />
-                    </SignedIn>
-                </div>
-            </header>
-            <main>
-                <Outlet />
-            </main>
+            <Header/>
+            <Outlet />
+            <Footer/>
         </div>
     )
 }
