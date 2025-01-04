@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router'
 //clerk
 import { ClerkProvider } from '@clerk/clerk-react'
 //components
-import MainPage from './MainPage.jsx'
+import Home from './pages/Home/Home.jsx'
 import SignInPage from './components/signInPage/signInPage.jsx'
 import SignUpPage from './components/signUpPage/signUpPage.jsx'
 import RootLayout from './layouts/rootLayout/RootLayout.jsx'
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <MainPage />,
+                element: <Home />,
             },
             { path: '/sign-in/*', element: <SignInPage /> },
             { path: '/sign-up/*', element: <SignUpPage /> },
