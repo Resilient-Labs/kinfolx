@@ -1,0 +1,49 @@
+.left-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.favorite-companies {
+    background-color: #292929;
+    padding: 1rem;
+    border: 1px solid #444;
+    border-radius: 4px;
+}
+.favorite-list {
+    color: #aaa;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+}
+.favorite-list li {
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: #161616;
+    padding: 1rem;
+    font-size: 1.6rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+/* Buttons */
+.action-btn {
+    border: none;
+    padding: 1rem;
+    font-size: 1.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s;
+    font-family: inherit;
+    background-color: #413f9f;
+    color: white;
+    border-radius: 4px;
+}
+
+.action-btn:hover,
+.action-btn:active {
+    background-color: #282763;
+}
