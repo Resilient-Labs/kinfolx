@@ -9,8 +9,10 @@ import Home from './pages/Home/Home.jsx'
 import SignInPage from './components/signInPage/signInPage.jsx'
 import SignUpPage from './components/signUpPage/signUpPage.jsx'
 import RootLayout from './layouts/rootLayout/RootLayout.jsx'
+import Company from './pages/Company/Company.jsx'
 
 import './index.css'
+
 
 //this is related to clerk
 // Import your Publishable Key
@@ -32,6 +34,7 @@ const router = createBrowserRouter([
             },
             { path: '/sign-in/*', element: <SignInPage /> },
             { path: '/sign-up/*', element: <SignUpPage /> },
+            { path: '/company/', element: <Company/> },
         ],
     },
 ])
