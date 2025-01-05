@@ -9,6 +9,7 @@ import Home from './pages/Home/Home.jsx'
 import SignInPage from './components/signInPage/signInPage.jsx'
 import SignUpPage from './components/signUpPage/signUpPage.jsx'
 import RootLayout from './layouts/rootLayout/RootLayout.jsx'
+import Profile from './pages/Profile/Profile.jsx'
 
 import './index.css'
 
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
             },
             { path: '/sign-in/*', element: <SignInPage /> },
             { path: '/sign-up/*', element: <SignUpPage /> },
+            { path: '/profile', element: <Profile /> },
         ],
     },
 ])
