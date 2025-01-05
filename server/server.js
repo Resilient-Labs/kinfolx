@@ -4,9 +4,9 @@ import { config } from 'dotenv';
 import { requireAuth } from '@clerk/express'
 
 //Routers
-import companyRouter from './routes/company';
-import userRouter from './routes/user'
-import reviewRouter from './routes/reviews'
+import companyRouter from './routes/company.js';
+import userRouter from './routes/user.js'
+import reviewRouter from './routes/reviews.js'
 
 //config file
 config({ path: './config/.env' })

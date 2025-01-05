@@ -1,4 +1,4 @@
-const express = require("express");
+import express from 'express';
 const reviewRouter = express.Router();
 // const upload = require("../middleware/multer");
 // const postsController = require("../controllers/posts");
