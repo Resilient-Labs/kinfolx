@@ -1,7 +1,7 @@
 const cloudinary = require("../middleware/cloudinary");
 const Review = require("../models/Reviews");
 
-module.exports = {
+ const reviewController = {
   getProfile: async (req, res) => {
     try {
       const posts = await Post.find({ user: req.user.id });
@@ -74,3 +74,5 @@ module.exports = {
     }
   },
 };
+
+export default reviewController; 
