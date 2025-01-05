@@ -2,7 +2,9 @@ import express from 'express';
 import logger from 'morgan';
 import { config } from 'dotenv';
 import { ClerkExpressRequireAuth } from '@clerk/clerk-sdk-node';
-
+const companyRouter = require("./routes/company");
+const reviewRouter = require("./routes/reviews");
+const userRouter = require("./routes/user");
 config({ path: './config/.env' });
 
 //to check if our env connection is correct
@@ -35,3 +37,7 @@ app.listen(PORT, () => {
 //         res.status(500).send("Error fetching user chats!");
 //     }
 // });
+
+app.use('/api/company', companyRouter) 
+app.use('/api/review', reviewRouter)
+app.use('api/user', userRouter) 
