@@ -1,0 +1,180 @@
+/* global styles */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    height: 100%;
+    font-family: "Consolas", "Courier New", "Lucida Console", Arial, Helvetica, sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: 2rem; /* base font size is 2rem (relative to 62.5% = 10px) */
+}
+
+.header {
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.logo {
+    margin-right: 1rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.search-bar {
+    display: flex;
+    flex: 1;
+    max-width: 30rem;
+    margin-right: 2rem;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1.6rem;
+}
+
+.nav-links,
+.auth-links {
+    display: flex;
+    gap: 5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a,
+.auth-links a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 1.6rem;
+}
+
+.nav-links a:hover,
+.auth-links a:hover {
+    text-decoration: underline;
+}
+
+
+.home-container {
+    flex: 1;
+    padding: 2rem;
+}
+
+.footer {
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+}
+
+
+.review-form-container {
+    background-color: #1f1f1f;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto; 
+    text-align: center;
+}
+
+.review-form-container h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.review-form-container label {
+    display: block;
+    text-align: left;
+    margin: 1rem 0 0.5rem;
+}
+
+.review-form-container input,
+.review-form-container select,
+.review-form-container textarea,
+.review-form-container button {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #444;
+    background-color: #292929;
+    color: #e0e0e0;
+}
+
+.review-form-container textarea {
+    resize: none;
+}
+
+.review-form-container button {
+    background-color: #413f9f;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.review-form-container button:hover {
+    background-color: #282763;
+}
+
+/* Star ratings */
+.rating-section {
+    margin-bottom: 1rem;
+}
+
+/* Container for 5 stars + number rating */
+.star-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.star-rating img.star {
+    width: 32px;
+    height: auto;
+    cursor: pointer;
+    opacity: 0.5; 
+    transition: opacity 0.3s;
+}
+
+/* change to filled yellow star when clicked/hovered */
+.star-rating img.star.filled {
+    opacity: 1;
+    content: url("star-yellow.png");
+}
+
+.star-count {
+    margin-left: 0.5rem;
+    font-weight: bold;
+    min-width: 1ch;
+    text-align: center;
+    display: inline-block;
+}
