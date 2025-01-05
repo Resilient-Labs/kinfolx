@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import './Home.css'
 import LeftSidebar from '../../components/LeftSidebar/LeftSidebar'
 import Feed from '../../components/Feed/Feed'
