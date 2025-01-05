@@ -1,4 +1,3 @@
-import React from 'react'
 import './header.css'
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react'
 
