@@ -1,11 +1,5 @@
-import { Link, Outlet } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import './rootLayout.css'
-import {
-    SignedIn,
-    SignedOut,
-    SignInButton,
-    UserButton,
-} from '@clerk/clerk-react'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 
@@ -19,7 +13,7 @@ const RootLayout = () => {
     return (
         <div className="rootLayout">
             <Header/>
-            <Outlet />
+            <Outlet /> 
             <Footer/>
         </div>
     )
