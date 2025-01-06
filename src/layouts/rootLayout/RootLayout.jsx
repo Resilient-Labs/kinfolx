@@ -19,7 +19,7 @@ const RootLayout = () => {
     return (
         <div className="rootLayout">
             <Header/>
-            <Outlet />
+            <Outlet /> 
             <Footer/>
         </div>
     )

@@ -15,10 +15,10 @@ export default function Header() {
                 />
                 <ul className="nav-links">
                     <li>
-                        <a href="/home">Home</a>
+                        <a href="/">Home</a>
                     </li>
                     <li>
-                        <a href="/company">Company</a>
+                        <a href="/companies">Companies</a>
                     </li>
                     <li>
                         <a href="/profile">Profile</a>
