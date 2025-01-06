@@ -58,29 +58,7 @@ const ReviewList = () => {
   
   return (
     <div>
-      <label htmlFor="company-select">Select a company:</label>
-      <select
-        id="company-select"
-        value={selectedCompany}
-        onChange={(e) => setSelectedCompany(e.target.value)}
-      >
-        <option value="" disabled>
-          Choose an existing company
-        </option>
-        <option value="Facebook">Facebook</option>
-        <option value="Google">Google</option>
-        <option value="Apple">Apple</option>
-      </select>
-
-      <input
-        type="text"
-        id="new-company"
-        placeholder="Or add a new company name"
-        value={newCompany}
-        onChange={(e) => setNewCompany(e.target.value)}
-      />
-
-<div className="rating-section">
+      <div className="rating-section">
         {categories.map((category) => (
           <div key={category} className="rating-category">
             <label>{category.split('-').join(' ')}:</label>
@@ -104,9 +82,6 @@ const ReviewList = () => {
           </div>
         ))}
       </div>
-
-
-
 
       <textarea
         id="comment"

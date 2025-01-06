@@ -7,7 +7,7 @@
     padding: 2rem;
     width: 100%;
     max-width: 400px;
-    margin: 0 auto; 
+    margin: 0 auto;
     text-align: center;
 }
 
@@ -22,7 +22,7 @@
     margin: 1rem 0 0.5rem;
 }
 .review-form-container input,
-.review-form-container select{
+.review-form-container select {
     width: 100%;
     padding: 0.8rem;
     margin-bottom: 1rem;
