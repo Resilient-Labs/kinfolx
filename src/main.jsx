@@ -12,6 +12,7 @@ import RootLayout from './layouts/rootLayout/RootLayout.jsx'
 import Profile from './pages/Profile/Profile.jsx'
 import Review from './pages/Review/Review.jsx'
 import Companies from './pages/Companies/Companies.jsx'
+import Company from "./pages/Company/Company.jsx"
 
 import './index.css'
 
@@ -37,6 +38,7 @@ const router = createBrowserRouter([
             { path: '/sign-up/*', element: <SignUpPage /> },
             { path: '/profile', element: <Profile /> },
             { path: '/companies', element: <Companies /> },
+            { path: '/company', element: <Company /> },
             { path: '/review', element: <Review /> },
         ],
     },

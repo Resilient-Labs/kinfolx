@@ -11,10 +11,9 @@ const categories = [
   "salaries",
 ];
 
-const ReviewList = () => {
+const ReviewList = (props) => {
   const [ratings, setRatings] = useState({});
   const [comment, setComment] = useState("");
-  const [selectedCompany, setSelectedCompany] = useState("");
   const [newCompany, setNewCompany] = useState("");
 
   const handleMouseOver = (category, value) => {
@@ -39,7 +38,7 @@ const ReviewList = () => {
   };
 
   const handleSubmit = () => {
-    const companyName = newCompany || selectedCompany;
+    const companyName = props.company;
 
     if (!companyName) {
       alert("Please select or add a company name.");
