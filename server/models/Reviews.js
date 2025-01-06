@@ -1,5 +1,5 @@
-import mongoose from 'mongoose';
-const { Schema } = mongoose;
+import mongoose from 'mongoose'
+const { Schema } = mongoose
 
 //This review model includes:
 // A reference to the user who created the review.
@@ -18,7 +18,7 @@ const ReviewSchema = new Schema(
             required: true,
         }, // Link to Company model
         questions: {
-            position: {type: String, required: true}, //users job position
+            position: { type: String, required: true }, //users job position
             accountability: { type: Number, required: true }, // Scale 1-5
             representation: { type: Number, required: true }, // Scale 1-5
             workLifeBalance: { type: Number, required: true }, // Scale 1-5
