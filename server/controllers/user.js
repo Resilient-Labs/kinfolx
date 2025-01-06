@@ -4,14 +4,14 @@ import User from '../models/User.js'
 const userController = {
     addUser: async (req, res, next) => {
         try {
-            const userId = req.auth.userId
-            if (!userId) {
+            const clerkId = req.auth.userId
+            if (!clerkId) {
                 return res.status(400).json({ msg: 'Sign in first' })
             }
-          const user = await clerkClient.users.getUser(userId); 
+          const user = await clerkClient.users.getUser(clerkId); 
 
           await User.updateOne(
-                { clerkId: userId },
+                { clerkId: clerkId },
                 {
                     $set: {
                         clerkId: user.id,
