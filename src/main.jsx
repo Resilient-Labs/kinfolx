@@ -14,6 +14,7 @@ import Review from './pages/Review/Review.jsx'
 import Companies from './pages/Companies/Companies.jsx'
 import Company from './pages/Company/Company.jsx'
 
+
 import './index.css'
 
 //this is related to clerk
