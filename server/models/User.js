@@ -1,5 +1,5 @@
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
+import mongoose from 'mongoose';
+const { Schema } = mongoose;
 
 //This User Model includes:
 //An array list of favorite companies (companyIds).
@@ -16,7 +16,7 @@ const UserSchema = new Schema({
     reviews: [{ type: Schema.Types.ObjectId, ref: 'Review' }], // User's reviews
 })
 
-module.exports = mongoose.model('User', UserSchema)
+export default mongoose.model('User', UserSchema);
 
 //original shema:
 // const UserSchema = new mongoose.Schema({

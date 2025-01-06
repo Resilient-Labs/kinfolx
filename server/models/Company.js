@@ -1,5 +1,5 @@
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
+import mongoose from 'mongoose';
+const { Schema } = mongoose;
 
 //The company model includes:
 //A predefined list of companies added to MongoDB initially. This will change if we decide to go a different direction with how a company is determiend (i.e. a user can add their own company)
@@ -20,4 +20,4 @@ const CompanySchema = new Schema({
 })
 
 // Export the model
-module.exports = mongoose.model('Company', CompanySchema)
+export default mongoose.model('Company', CompanySchema);

@@ -1,5 +1,5 @@
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
+import mongoose from 'mongoose';
+const { Schema } = mongoose;
 
 //This review model includes:
 // A reference to the user who created the review.
@@ -24,14 +24,14 @@ const ReviewSchema = new Schema(
             careerGrowth: { type: Number, required: true }, // Scale 1-10
             diversityScale: { type: Number, required: true }, // Scale 1-10
             companyCulture: { type: Number, required: true }, // Scale 1-10
-            salaries: { type: Number, required: true }, // Scale 1-10
+            salary: { type: Number, required: true }, // Scale 1-10
         },
         comment: { type: String, maxlength: 500 }, // Optional comment
     },
     { timestamps: true },
 ) // Automatically adds createdAt and updatedAt fields
 
-module.exports = mongoose.model('Review', ReviewSchema)
+export default mongoose.model('Review', ReviewSchema)
 
 //original schema:
 // const ReviewSchema = new mongoose.Schema({
