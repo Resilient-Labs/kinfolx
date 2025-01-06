@@ -1,0 +1,38 @@
+import { clerkClient } from '@clerk/express'
+import User from '../models/User.js'
+
+const userController = {
+    addUser: async (req, res, next) => {
+        try {
+            const userId = req.auth.userId
+            if (!userId) {
+                return res.status(400).json({ msg: 'Sign in first' })
+            }
+          const user = await clerkClient.users.getUser(userId); 
+
+          await User.updateOne(
+                { clerkId: userId },
+                {
+                    $set: {
+                        clerkId: user.id,
+                        email: user.emailAddresses[0]?.emailAddress,
+                        username: user.username,
+                    },
+                },
+                { upsert: true }, 
+            )
+        } catch (error) {
+            next(error)
+        }
+  },
+  getAllUsers: async (req, res, next) => {
+    try {
+      const allUsers = await User.find({}); 
+      console.log(allUsers);
+    } catch (error) {
+      next(error)
+    }
+  }
+}
+
+export default userController
