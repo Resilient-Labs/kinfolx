@@ -7,16 +7,13 @@ const { Schema } = mongoose;
 //let me know if this works for what we need or not:
 
 const CompanySchema = new Schema({
-    companyId: { type: String, required: true, unique: true },
     name: { type: String, required: true },
-    location: { type: String, required: true },
-    blurb: { type: String },
     industry: { type: String },
-    salary: { type: Number },
+    founded: { type: String, required: true },
+    location: { type: String }, //might not use?
+    summary: { type: String },
     size: { type: String },
     reviews: [{ type: Schema.Types.ObjectId, ref: 'Review' }], // Reference to Review model
-    createdAt: { type: Date, default: Date.now },
-    updatedAt: { type: Date, default: Date.now },
 })
 
 // Export the model

@@ -18,13 +18,14 @@ const ReviewSchema = new Schema(
             required: true,
         }, // Link to Company model
         questions: {
-            accountability: { type: Number, required: true }, // Scale 1-10
-            representation: { type: Number, required: true }, // Scale 1-10
-            workLifeBalance: { type: Number, required: true }, // Scale 1-10
-            careerGrowth: { type: Number, required: true }, // Scale 1-10
-            diversityScale: { type: Number, required: true }, // Scale 1-10
-            companyCulture: { type: Number, required: true }, // Scale 1-10
-            salary: { type: Number, required: true }, // Scale 1-10
+            position: {type: String, required: true}, //users job position
+            accountability: { type: Number, required: true }, // Scale 1-5
+            representation: { type: Number, required: true }, // Scale 1-5
+            workLifeBalance: { type: Number, required: true }, // Scale 1-5
+            careerGrowth: { type: Number, required: true }, // Scale 1-5
+            diversityScale: { type: Number, required: true }, // Scale 1-5
+            companyCulture: { type: Number, required: true }, // Scale 1-5
+            salary: { type: Number, required: true }, // Scale 1-5
         },
         comment: { type: String, maxlength: 500 }, // Optional comment
     },
