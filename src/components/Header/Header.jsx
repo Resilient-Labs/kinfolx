@@ -1,4 +1,3 @@
-import React from 'react'
 import './header.css'
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react'
 
@@ -16,10 +15,10 @@ export default function Header() {
                 />
                 <ul className="nav-links">
                     <li>
-                        <a href="/home">Home</a>
+                        <a href="/">Home</a>
                     </li>
                     <li>
-                        <a href="/company">Company</a>
+                        <a href="/companies">Companies</a>
                     </li>
                     <li>
                         <a href="/profile">Profile</a>

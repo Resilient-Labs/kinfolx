@@ -1,5 +1,11 @@
 import { Outlet } from 'react-router-dom'
 import './rootLayout.css'
+// import {
+//     SignedIn,
+//     SignedOut,
+//     SignInButton,
+//     UserButton,
+// } from '@clerk/clerk-react'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 
