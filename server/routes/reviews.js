@@ -1,5 +1,5 @@
-import express from 'express';
-const reviewRouter = express.Router();
+import express from 'express'
+const reviewRouter = express.Router()
 // const upload = require("../middleware/multer");
 // const postsController = require("../controllers/posts");
 // const { ensureAuth, ensureGuest } = require("../middleware/auth");
@@ -14,4 +14,4 @@ const reviewRouter = express.Router();
 // router.delete("/deletePost/:id", postsController.deletePost);
 
 // module.exports = router;
-export default reviewRouter;
+export default reviewRouter
