@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     container: ghcr.io/railwayapp/cli:latest
     env:
-      SERVICE_ID: 8f84c469-d673-46b8-96be-a77b9868870f
+      SERVICE_ID: e938e5be-e2a1-4492-b411-edf7dd8d2d96
       RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
     steps:
       - uses: actions/checkout@v3
