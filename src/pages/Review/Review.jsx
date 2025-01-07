@@ -5,17 +5,18 @@ import './review.css'
 const Review = () => {
   const [selectedCompany, setSelectedCompany] = useState("");
   const [position, setPosition] = useState('')
-  const [companies, setCompanies] = useState([]); // State to store companies
+  const [companies, setCompanies] = useState([]);
 
   useEffect(() => {
     const fetchCompanies = async () => {
         try {
             const response = await fetch("/api/company");
+            console.log({response});
             if (!response.ok) throw new Error("Failed to fetch companies.");
 
             const data = await response.json();
-            console.log({data})
-            setCompanies(data); // Update the companies state
+            console.log(data.companies)
+            setCompanies(data.companies); 
 
             
         } catch (error) {
@@ -38,8 +39,7 @@ const Review = () => {
                   Choose an existing company
               </option>
 
-              {companies.map((company)=>(<option value="{company.name}">{company.name}</option>))}
-    
+              {companies.map((company)=>(<option key={company.name} value={company.name}>{company.name}</option>))}
               
           </select>
           
