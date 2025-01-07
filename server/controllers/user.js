@@ -24,15 +24,29 @@ const userController = {
         } catch (error) {
             next(error)
         }
-    },
-    getAllUsers: async (req, res, next) => {
-        try {
-            const allUsers = await User.find({})
-            console.log(allUsers)
-        } catch (error) {
-            next(error)
-        }
-    },
+  },
+  getAllUsers: async (req, res, next) => {
+    try {
+      const allUsers = await User.find({}); 
+      console.log(allUsers);
+    } catch (error) {
+      next(error)
+    }
+  },
+  addFavoriteCompany: async (req, res, next) => {
+    try {
+      
+    } catch (error) {
+      next(error)
+    }
+  },
+  getFavoritesCompanies: async (req, res, next) => {
+    try {
+      const favorites = await User.find({ clerkId: req.auth.userId }).select('favoriteCompanies')
+    } catch (error) {
+      next(error)
+    }
+  }
 }
 
 export default userController
