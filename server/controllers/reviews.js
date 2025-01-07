@@ -10,7 +10,7 @@ const reviewController = {
        //get all reviews
       const reviews = await Review.find({})
       console.log(reviews)
-       //display it in the componet for the reviews
+       //display it in the feed componet for the reviews
        res.json(reviews); // Send reviews as JSON response
     } catch (error) {
       next(error)
