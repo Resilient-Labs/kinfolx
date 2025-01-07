@@ -10,8 +10,4 @@ const connectDB = async () => {
         process.exit(1)
     }
 }
-<<<<<<< HEAD
 export default connectDB
-=======
-export default connectDB
->>>>>>> 4d73f27 (#46)
