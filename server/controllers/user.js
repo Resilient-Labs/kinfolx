@@ -8,9 +8,9 @@ const userController = {
             if (!clerkId) {
                 return res.status(400).json({ msg: 'Sign in first' })
             }
-          const user = await clerkClient.users.getUser(clerkId); 
+            const user = await clerkClient.users.getUser(clerkId)
 
-          await User.updateOne(
+            await User.updateOne(
                 { clerkId: clerkId },
                 {
                     $set: {
@@ -19,20 +19,20 @@ const userController = {
                         username: user.username,
                     },
                 },
-                { upsert: true }, 
+                { upsert: true },
             )
         } catch (error) {
             next(error)
         }
-  },
-  getAllUsers: async (req, res, next) => {
-    try {
-      const allUsers = await User.find({}); 
-      console.log(allUsers);
-    } catch (error) {
-      next(error)
-    }
-  }
+    },
+    getAllUsers: async (req, res, next) => {
+        try {
+            const allUsers = await User.find({})
+            console.log(allUsers)
+        } catch (error) {
+            next(error)
+        }
+    },
 }
 
 export default userController
