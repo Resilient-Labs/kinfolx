@@ -1,76 +1,80 @@
-const cloudinary = require('../middleware/cloudinary')
-const Review = require('../models/Reviews')
+import Review from '../models/Reviews.js'
+import Company from '../models/Company.js'
+
+//possible controller for reviews
 
 const reviewController = {
-    getProfile: async (req, res) => {
+    createReview: async (req, res) => {
         try {
-            const posts = await Post.find({ user: req.user.id })
-            res.render('profile.ejs', { posts: posts, user: req.user })
-        } catch (err) {
-            console.log(err)
-        }
-    },
-    getFeed: async (req, res) => {
-        try {
-            const posts = await Post.find().sort({ createdAt: 'desc' }).lean()
-            res.render('feed.ejs', { posts: posts })
-        } catch (err) {
-            console.log(err)
-        }
-    },
-    getPost: async (req, res) => {
-        try {
-            const post = await Post.findById(req.params.id)
-            res.render('post.ejs', { post: post, user: req.user })
-        } catch (err) {
-            console.log(err)
-        }
-    },
-    createPost: async (req, res) => {
-        try {
-            // Upload image to cloudinary
-            const result = await cloudinary.uploader.upload(req.file.path)
+            const { ratings, comment } = req.body
+            const { companyId } = req.params
 
-            await Post.create({
-                title: req.body.title,
-                image: result.secure_url,
-                cloudinaryId: result.public_id,
-                caption: req.body.caption,
-                likes: 0,
+            // Convert ratings to numbers
+            const numericRatings = {}
+            for (const [key, value] of Object.entries(ratings)) {
+                numericRatings[key] = Number(value)
+            }
+
+            // Fetch company details
+            const company = await Company.findById(companyId)
+            if (!company) {
+                return res.status(400).send('Company name is required')
+            }
+            await Review.create({
+                companyId,
+                companyName: company.name,
+                ratings: numericRatings,
+                comment,
                 user: req.user.id,
             })
-            console.log('Post has been added!')
-            res.redirect('/profile')
+            console.log('Review has been added!')
+            res.redirect('/reviews')
+            console.log(Review)
         } catch (err) {
             console.log(err)
+            res.status(500).send('Error creating review')
         }
     },
-    likePost: async (req, res) => {
+    getUserReview: async (req, res) => {
         try {
-            await Post.findOneAndUpdate(
-                { _id: req.params.id },
-                {
-                    $inc: { likes: 1 },
-                },
+            const userId = req.params.userId
+            const reviews = await Review.find({ userId }).populate('companyId')
+            res.json(reviews)
+        } catch (err) {
+            console.log(err)
+            res.status(500).send('Error fetching user review')
+        }
+    },
+    editReview: async (req, res) => {
+        try {
+            const { ratings, comment } = req.body
+            const { companyId, reviewId } = req.params
+
+            // Convert ratings to numbers
+            const numericRatings = {}
+            for (const [key, value] of Object.entries(ratings)) {
+                numericRatings[key] = Number(value)
+            }
+
+            // Fetch company details
+            const company = await Company.findById(companyId)
+            if (!company) {
+                return res.status(404).send('Company not found')
+            }
+
+            const review = await Review.findOneAndUpdate(
+                { _id: reviewId, companyId, user: req.user.id },
+                { ratings: numericRatings, comment },
+                { new: true },
             )
-            console.log('Likes +1')
-            res.redirect(`/post/${req.params.id}`)
+            if (!review) {
+                return res.status(404).send('Review not found')
+            }
+            console.log('Review has been updated!')
+            res.redirect('/reviews')
         } catch (err) {
             console.log(err)
-        }
-    },
-    deletePost: async (req, res) => {
-        try {
-            // Find post by id
-            let post = await Post.findById({ _id: req.params.id })
-            // Delete image from cloudinary
-            await cloudinary.uploader.destroy(post.cloudinaryId)
-            // Delete post from db
-            await Post.remove({ _id: req.params.id })
-            console.log('Deleted Post')
-            res.redirect('/profile')
-        } catch (err) {
-            res.redirect('/profile')
+            res.status(500).send('Error updating review')
         }
     },
 }
