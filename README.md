@@ -36,7 +36,9 @@ npm run dev
    The backend server is loading from `http://localhost:3000`
 
 ### Environment Variables
+
 =======
+
 1. Start the backend server:
 
 ```bash
@@ -54,7 +56,6 @@ npm run dev
 
 3. Open your browser and go to `http://localhost:5173`
    The backend server is loading from `http://localhost:3000`
->>>>>>> 3ddd9d9 (company controller updates)
 
 One ENV goes inside of the config file inside the server and the other ENV is in the root
 
