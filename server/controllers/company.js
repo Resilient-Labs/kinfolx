@@ -10,7 +10,7 @@ const companyController = {
             next(error)
         }
     },
-    
+
     //fetches a specific company (and all of its data):
     getCompany: async (req, res, next) => {
         try {

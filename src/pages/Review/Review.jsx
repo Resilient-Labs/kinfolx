@@ -35,9 +35,7 @@ const Review = () => {
               onChange={(e) => setSelectedCompany(e.target.value)}
               id="company-select"
           >
-              <option defaultValue={""} disabled>
-                  Choose an existing company
-              </option>
+              <option value="" defaultValue> Choose an existing company </option>
 
               {companies.map((company)=>(<option key={company.name} value={company.name}>{company.name}</option>))}
               
@@ -45,9 +43,8 @@ const Review = () => {
           
           {/* Roles Dropdown */}
           <select onChange={(e) => setPosition(e.target.value)} id="position-select">
-              <option value="" disabled defaultValue>
-                  Choose your position at your company
-              </option>
+              <option value="" defaultValue> Choose your position at your company </option>
+
               <option value="Technical + Operations">
                   Technical + Operations
               </option>
