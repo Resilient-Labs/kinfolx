@@ -36,7 +36,7 @@ app.get(
 //route middleware
 app.use('/api/company', companyRouter)
 app.use('/api/review', reviewRouter)
-app.use('/api/user',  requireAuth({ signInUrl: '/sign-in' }), userRouter) 
+app.use('/api/user', requireAuth({ signInUrl: '/sign-in' }), userRouter)
 
 app.listen(PORT, () => {
     console.log(`[server]: Server is running at http://localhost:${PORT}`)
