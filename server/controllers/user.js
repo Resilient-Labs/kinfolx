@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-const userController = {
-    addUser: (req, res) => {
-      
-    }, 
-    addFavoriteCompany: (req, res) => {
-        
-    }
-  }
-  
-  export default userController; 
-=======
 import { clerkClient } from '@clerk/express'
 import User from '../models/User.js'
 
@@ -48,4 +36,3 @@ const userController = {
 }
 
 export default userController
->>>>>>> 9720463ea6c04301b27af29611db85cab5fa2f8c
