@@ -1,7 +1,7 @@
 import Company from '../models/Company.js'
 
 const companyController = {
-    //fetches all companies:
+    //fetches all companies: MIGHT NOT WORK WITHOUT FRONT END?
     getAllCompanies: async (req, res, next) => {
         try {
             const companies = await Company.find({})
@@ -61,7 +61,7 @@ const companyController = {
         }
     },
 
-    //Fetches 5 worst companies, sorted in ascending order
+    //Fetches 5 worst companies, sorted in ascending order using mongoDB
     getWorstCompanies: async (req, res, next) => {
         try {
             const companies = await Company.aggregate([
