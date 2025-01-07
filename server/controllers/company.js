@@ -5,10 +5,9 @@ const companyController = {
         try {
             const companies = await Company.find({})
             console.log(companies)
-            res.json({companies})
+            res.json({ companies })
         } catch (error) {
             next(error)
-            
         }
     },
 }
