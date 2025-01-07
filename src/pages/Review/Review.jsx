@@ -1,11 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ReviewList from "../../components/ReviewList/ReviewList.jsx"
 import './review.css'
 
 const Review = () => {
   const [selectedCompany, setSelectedCompany] = useState("");
   const [position, setPosition] = useState('')
+  const [companies, setCompanies] = useState([]); // State to store companies
 
+  useEffect(() => {
+    const fetchCompanies = async () => {
+        try {
+            const response = await fetch("/api/company");
+            if (!response.ok) throw new Error("Failed to fetch companies.");
+
+            const data = await response.json();
+            console.log({data})
+            setCompanies(data); // Update the companies state
+
+            
+        } catch (error) {
+            console.error("Error fetching companies:", error);
+        }
+    };
+
+    fetchCompanies();
+}, []);
   return (
       <main className="review-form-container">
           <h1>Review Form</h1>
@@ -18,13 +37,15 @@ const Review = () => {
               <option defaultValue={""} disabled>
                   Choose an existing company
               </option>
-              <option value="Facebook">Facebook</option>
-              <option value="Google">Google</option>
-              <option value="Apple">Apple</option>
+
+              {companies.map((company)=>(<option value="{company.name}">{company.name}</option>))}
+    
+              
           </select>
+          
           {/* Roles Dropdown */}
           <select onChange={(e) => setPosition(e.target.value)} id="position-select">
-              <option value="" disabled selected>
+              <option value="" disabled defaultValue>
                   Choose your position at your company
               </option>
               <option value="Technical + Operations">
