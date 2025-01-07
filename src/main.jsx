@@ -6,12 +6,14 @@ import { createBrowserRouter, RouterProvider } from 'react-router'
 import { ClerkProvider } from '@clerk/clerk-react'
 //components
 import Home from './pages/Home/Home.jsx'
-import SignInPage from './components/signInPage/signInPage.jsx'
-import SignUpPage from './components/signUpPage/signUpPage.jsx'
+import SignInPage from './components/signInPage/SignInPage.jsx'
+import SignUpPage from './components/signUpPage/SignUpPage.jsx'
 import RootLayout from './layouts/rootLayout/RootLayout.jsx'
 import Profile from './pages/Profile/Profile.jsx'
 import Review from './pages/Review/Review.jsx'
 import Companies from './pages/Companies/Companies.jsx'
+import Company from './pages/Company/Company.jsx'
+
 
 import './index.css'
 
@@ -37,6 +39,7 @@ const router = createBrowserRouter([
             { path: '/sign-up/*', element: <SignUpPage /> },
             { path: '/profile', element: <Profile /> },
             { path: '/companies', element: <Companies /> },
+            { path: '/company', element: <Company /> },
             { path: '/review', element: <Review /> },
         ],
     },

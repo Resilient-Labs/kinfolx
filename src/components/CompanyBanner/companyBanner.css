@@ -1,0 +1,61 @@
+/* Company Info */
+.company-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #292929;
+    border-radius: 4px;
+    border: 1px solid #444;
+}
+
+.company-logo {
+    width: 8rem;
+    height: 8rem;
+    background-color: #444;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    color: #e0e0e0;
+    text-align: center;
+}
+
+.company-tabs {
+    display: flex;
+    gap: 2rem;
+    flex: 1;
+    justify-content: center;
+}
+
+.company-tabs .tab {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 1.6rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.company-tabs .tab:hover {
+    background-color: #444;
+}
+
+.action-btn {
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s;
+    font-family: inherit;
+    background-color: #413f9f;
+    color: white;
+    border-radius: 4px;
+}
+
+.action-btn:hover {
+    background-color: #282763;
+}

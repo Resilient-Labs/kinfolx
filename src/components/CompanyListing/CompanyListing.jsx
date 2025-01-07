@@ -3,26 +3,26 @@ import './companyListing.css'
 const CompanyListing = () => {
     return (
         <section className="company-grid">
-            <div className="company-card">Amazon</div>
-            <div className="company-card">Microsoft</div>
-            <div className="company-card">Google</div>
-            <div className="company-card">Meta</div>
-            <div className="company-card">Apple</div>
-            <div className="company-card">Salesforce</div>
-            <div className="company-card">Intel</div>
-            <div className="company-card">Uber</div>
-            <div className="company-card">Capital One</div>
-            <div className="company-card">LinkedIn</div>
-            <div className="company-card">JPMorgan Chase</div>
-            <div className="company-card">Walmart</div>
-            <div className="company-card">Goldman Sachs</div>
-            <div className="company-card">Deloitte</div>
-            <div className="company-card">KPMG</div>
-            <div className="company-card">Tesla</div>
-            <div className="company-card">Netflix</div>
-            <div className="company-card">Bank of America</div>
-            <div className="company-card">EY</div>
-            <div className="company-card">Morgan Stanley</div>
+            <div className="company-card"><a href='/company'>Amazon</a></div>
+            <div className="company-card"><a href='/company'>Microsoft</a></div>
+            <div className="company-card"><a href='/company'>Google</a></div>
+            <div className="company-card"><a href='/company'>Meta</a></div>
+            <div className="company-card"><a href='/company'>Apple</a></div>
+            <div className="company-card"><a href='/company'>Salesforce</a></div>
+            <div className="company-card"><a href='/company'>Intel</a></div>
+            <div className="company-card"><a href='/company'>Uber</a></div>
+            <div className="company-card"><a href='/company'>Capital One</a></div>
+            <div className="company-card"><a href='/company'>LinkedIn</a></div>
+            <div className="company-card"><a href='/company'>JPMorgan Chase</a></div>
+            <div className="company-card"><a href='/company'>Walmart</a></div>
+            <div className="company-card"><a href='/company'>Goldman Sachs</a></div>
+            <div className="company-card"><a href='/company'>Deloitte</a></div>
+            <div className="company-card"><a href='/company'>KPMG</a></div>
+            <div className="company-card"><a href='/company'>Tesla</a></div>
+            <div className="company-card"><a href='/company'>Netflix</a></div>
+            <div className="company-card"><a href='/company'>Bank of America</a></div>
+            <div className="company-card"><a href='/company'>EY</a></div>
+            <div className="company-card"><a href='/company'>Morgan Stanley</a></div>
         </section>
 
 

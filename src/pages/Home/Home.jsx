@@ -1,22 +1,39 @@
-import './Home.css'
+import './home.css'
 import LeftSidebar from '../../components/LeftSidebar/LeftSidebar'
 import Feed from '../../components/Feed/Feed'
 import RightSidebar from '../../components/RightSidebar/RightSidebar'
+import { useUser } from '@clerk/clerk-react'
+import { useEffect } from 'react'
 
 function Home() {
-    //sample code to make sure backend is connected.
-    // const fetchTest = async () => {
-    //     const res = await fetch('/api/protected')
-    //     if (!res.ok) {
-    //         throw new Error('Something went wrong')
-    //     }
-    //     const result = await res.json()
-    //     console.log(result)
-    // }
+    const { isLoaded, user } = useUser()
 
-    // useEffect(() => {
-    //     fetchTest()
-    // }, [])
+    useEffect(() => {
+        if (!isLoaded || !user) {
+            return
+        }
+        
+        //add the user to the database
+        const addUserToDataBase = async () => {
+            try {
+                const response = await fetch('/api/user', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ clerkId: user.id }),
+                })
+                
+    
+                if (!response.ok) {
+                    console.error('Failed to add user to database')
+                }
+            } catch (error) {
+                console.error('Error adding user to database', error)
+            }
+        }
+        addUserToDataBase()
+    }, [isLoaded, user])
 
     return (
         <main className="home-container">
