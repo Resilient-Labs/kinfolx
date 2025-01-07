@@ -92,6 +92,11 @@ const companyController = {
             next(error)
         }
     },
+    searchCompany: async (req, res, next ) => {
+        let companies = await Company.aggregate([
+            
+        ])
+    }
 }
 
 export default companyController
@@ -101,3 +106,7 @@ export default companyController
 // do we want to add the ability to limit the number of results that return when a user searches for all  companies?
 
 // Should we add query params so that we can filter through specfic companies returned based on specific atributes?
+
+
+    
+
