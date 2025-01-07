@@ -1,5 +1,5 @@
 const cloudinary = require('../middleware/cloudinary')
-import Review from "../models/Review.js"
+import Review from '../models/Review.js'
 
 const reviewController = {
     deleteReview: async (req, res) => {
