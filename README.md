@@ -1,16 +1,13 @@
-<<<<<<< HEAD
 # Kinfolx
 
 ## An app that allows you rate companies based on their diversity & company culture.
-=======
+
 Kinfolx: An app that allows you rate companies based on their diversity & company culture.
 
 Make sure to use npm install to install all Dependencies.
->>>>>>> 3ddd9d9 (company controller updates)
 
 View our app live : https://kinfolx-production.up.railway.app/
 
-<<<<<<< HEAD
 ## Instructions to run the code locally
 
 Make sure to use `npm install` to install all Dependencies.
