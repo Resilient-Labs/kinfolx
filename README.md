@@ -2,6 +2,10 @@
 
 ## An app that allows you rate companies based on their diversity & company culture.
 
+Kinfolx: An app that allows you rate companies based on their diversity & company culture.
+
+Make sure to use npm install to install all Dependencies.
+
 View our app live : https://kinfolx-production.up.railway.app/
 
 ## Instructions to run the code locally

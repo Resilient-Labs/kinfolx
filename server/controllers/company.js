@@ -4,15 +4,15 @@ const companyController = {
     //fetches all companies: MIGHT NOT WORK WITHOUT FRONT END?
     getAllCompanies: async (req, res, next) => {
         try {
-            const companies = await Company.find({})
-            console.log(companies)
+            const companies = await Company.find()
             res.json({ companies })
         } catch (error) {
             next(error)
         }
     },
-    
-    //fetches a specfic company (and all of its data):
+
+    //fetches a specific company (and all of its data):
+
     getCompany: async (req, res, next) => {
         try {
             const { id } = req.params // Get the company ID from the route parameters
