@@ -43,7 +43,6 @@ export default function RightSidebar() {
             <section className="top-companies">
                 <h3>Best Rated Companies</h3>
                 <ul className="top-list">
-                    {/* update to dynamically populate */}
                     {bestCompanies.slice(0,3).map((bestCompany)=>(<li key={bestCompany.name}>{bestCompany.name}</li>))}
 
                 </ul>
@@ -51,7 +50,6 @@ export default function RightSidebar() {
             <section className="worst-companies">
                 <h3>Worst Rated Companies</h3>
                 <ul className="worst-list">
-                    {/* update to dynamically populate */}
                     {worstCompanies.slice(0,3).map((worstCompany)=>(<li key={worstCompany.name}>{worstCompany.name}</li>))}
                 </ul>
             </section>
