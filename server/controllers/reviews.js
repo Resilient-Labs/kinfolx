@@ -9,6 +9,7 @@ const reviewController = {
             const { companyId, ratings, comment, position } = req.body
             console.log(req.body)
             const userId = req.user.id
+            console.log(req.user.id)
 
             // Ensure company exists
             const company = await Company.findById(companyId)
