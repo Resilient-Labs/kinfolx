@@ -15,7 +15,7 @@ const companyController = {
     getCompany: async (req, res, next) => {
         try {
             const { id } = req.params // Get the company ID from the route parameters
-            const company = await Company.findById(id).populate('reviews') // Fetch company and populate reviews
+            const company = await Company.findById(id) // Fetch company and populate reviews
 
             if (!company) {
                 return res.status(404).json({ message: 'Company not found' })
