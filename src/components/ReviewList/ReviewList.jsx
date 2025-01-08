@@ -107,8 +107,8 @@ const ReviewList =  (props) => {
                                         value <=
                                         (ratings[`${category}-hover`] ||
                                             ratings[category])
-                                            ? '/img/star-yellow.png'
-                                            : '/img/star-white-transp.png'
+                                            ? './img/star-yellow.png'
+                                            : './img/star-white-transp.png'
                                     }
                                     alt="star"
                                     className="star"
