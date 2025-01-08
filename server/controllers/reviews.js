@@ -52,11 +52,11 @@ const reviewController = {
         try {
             const { reviewId } = req.params
 
-             // NOTE: assuming we're getting companyId from src/components/ReviewList.jsx (POST fetch statement)
-             const { newRatings, comment, position } = req.body
- 
-             // Edit review - Find review by ID and update
-             const updatedReview =  await Review.findByIdAndUpdate(
+            // NOTE: assuming we're getting companyId from src/components/ReviewList.jsx (POST fetch statement)
+            const { newRatings, comment, position } = req.body
+
+            // Edit review - Find review by ID and update
+            const updatedReview = await Review.findByIdAndUpdate(
                 reviewId,
                 {
                     $set: {
@@ -71,15 +71,15 @@ const reviewController = {
                         comment,
                     },
                 },
-                { new: true } // Return the updated document
-            );
+                { new: true }, // Return the updated document
+            )
 
             if (!updatedReview) {
-                return res.status(404).send('Review not found');
+                return res.status(404).send('Review not found')
             }
- 
-             console.log('Review has been edited!')
-             res.status(201).send('Review edited successfully')
+
+            console.log('Review has been edited!')
+            res.status(201).send('Review edited successfully')
         } catch (err) {
             console.log(err)
             res.status(500).send('Error updating review')
