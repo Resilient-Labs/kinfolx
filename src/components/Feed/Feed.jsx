@@ -141,11 +141,11 @@ export default function Feed() {
                 const response = await fetch(`/api/review`)
                 if (!response.ok) throw new Error('Failed to fetch posts.')
                 const data = await response.json()
-                if (data.length === 0) {
+                if (data.UserReviews.length === 0) {
                     // If no reviews fetched, use fallback reviews
                     setReviews(fallbackReviews)
                 } else {
-                    setReviews(data)
+                    setReviews(data.UserReviews)
                 }
             } catch (error) {
                 console.error('Error fetching posts:', error)
