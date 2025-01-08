@@ -15,7 +15,7 @@ const Review = () => {
             if (!response.ok) throw new Error("Failed to fetch companies.");
 
             const data = await response.json();
-            console.log(data.companies)
+            console.log(data)
             setCompanies(data.companies); 
 
             
@@ -37,7 +37,7 @@ const Review = () => {
           >
               <option value="" defaultValue> Choose an existing company </option>
 
-              {companies.map((company)=>(<option key={company.name} value={company.name}>{company.name}</option>))}
+              {companies.map((company)=>(<option key={company._id} value={company._id}>{company.name}</option>))}
               
           </select>
           
