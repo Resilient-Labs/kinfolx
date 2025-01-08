@@ -4,9 +4,9 @@ import User from '../models/User.js'
 const reviewController = {
     getUserReviews: async (req, res, next) => {
         try {
-            const clerkId = req.auth.userId 
-            const user = User.find({ clerkId }); 
-            const userId = user._id;
+            const clerkId = req.auth.userId
+            const user = User.find({ clerkId })
+            const userId = user._id
             const userReviews = await Reviews.find({ userId })
             res.json({ userReviews })
         } catch (error) {
