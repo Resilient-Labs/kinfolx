@@ -153,3 +153,8 @@ body,
     font-size: 2rem;
     height: 100vh;
 }
+
+@font-face {
+    font-family:"Ahsing" ;
+    src: "public/ahsing-regular.otf" ;
+}
