@@ -14,7 +14,7 @@ const CompanySchema = new Schema({
     summary: { type: String },
     size: { type: String },
     reviews: [{ type: Schema.Types.ObjectId, ref: 'Review' }], // References Review model
-    companyLogo: { type: String }, 
+    companyLogo: { type: String },
 })
 
 // Export the model
