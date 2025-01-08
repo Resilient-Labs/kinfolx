@@ -18,7 +18,7 @@ const reviewController = {
     editReview: async (req, res) => {
         try {
             const { ratings, comment } = req.body
-            const { companyId, reviewId } = req.params
+            const {reviewId } = req.params
 
             // Convert ratings to numbers
             const numericRatings = {}
