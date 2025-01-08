@@ -5,6 +5,7 @@ import User from '../models/User.js'
 const reviewController = {
     createReview: async (req, res) => {
         try {
+<<<<<<< HEAD
             // NOTE: assuming we're getting companyId from src/components/ReviewList.jsx (POST fetch statement)
             const { companyId } = req.params
             const { companyName, newRatings, comment, position } = req.body
@@ -20,12 +21,23 @@ const reviewController = {
             const foundCompanyId = await Company.findById(companyId)
             if (!foundCompanyId) {
                 return res.status(404).send('Company ID not found')
+=======
+            const { companyId, ratings, comment, position } = req.body
+            console.log(req.body)
+            const userId = req.user.id
+
+            // Ensure company exists
+            const company = await Company.findById(companyId)
+            if (!company) {
+                return res.status(404).send('Company not found')
+>>>>>>> 432c8ec (added possible controller for createReview #16)
             }
 
             // Create new review
             const newReview = new Review({
                 userId,
                 companyId,
+<<<<<<< HEAD
                 companyName,
                 questions: {
                     position,
@@ -37,6 +49,9 @@ const reviewController = {
                     companyCulture: newRatings.companyCulture,
                     salary: newRatings.salaries,
                 },
+=======
+                questions: { ...ratings, position },
+>>>>>>> 432c8ec (added possible controller for createReview #16)
                 comment,
             })
 
@@ -47,8 +62,12 @@ const reviewController = {
             console.log(err)
             res.status(500).send('Error creating review')
         }
+<<<<<<< HEAD
     },
     editReview: async (req, res) => {
+=======
+    }, editReview: async (req, res) => {
+>>>>>>> 432c8ec (added possible controller for createReview #16)
         try {
         } catch (err) {
             console.log(err)
