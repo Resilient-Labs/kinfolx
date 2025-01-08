@@ -34,10 +34,10 @@ const Company = () => {
         console.log(company)
     return (
         <main className="company-container">
-            <CompanyBanner />
+            <CompanyBanner companyName={company.name} />
             <section className="content">
-                <CompanyOverview />
-                <CompanyReviewSummary />
+                <CompanyOverview {...company} />
+                <CompanyReviewSummary {...company} />
                 <CompanySalaries />
             </section>
         </main>
