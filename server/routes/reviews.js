@@ -1,7 +1,6 @@
 import express from 'express'
 import reviewController from '../controllers/reviews.js'
 const reviewRouter = express.Router()
-import reviewController from '../controllers/reviews.js'
 
 reviewRouter.get('/:id', reviewController.getUserReviews);
 // const upload = require("../middleware/multer");
