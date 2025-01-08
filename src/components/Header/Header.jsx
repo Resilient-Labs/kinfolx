@@ -1,5 +1,6 @@
 import './header.css'
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react'
+import SearchBar from '../searchBar/searchBar'
 
 export default function Header() {
     return (
@@ -8,11 +9,7 @@ export default function Header() {
                 <div className="logo">
                     <a href="/">INSERT LOGO</a>
                 </div>
-                <input
-                    type="text"
-                    placeholder="Search"
-                    className="search-bar"
-                />
+                <SearchBar />
                 <ul className="nav-links">
                     <li>
                         <a href="/">Home</a>
@@ -28,6 +25,7 @@ export default function Header() {
                     {/* <a href="/signup">Sign Up</a>
                     <a href="/login">Login</a> */}
                     {/* <div className="user"> */}
+                  
                     <SignedOut>
                         <SignInButton />
                     </SignedOut>
