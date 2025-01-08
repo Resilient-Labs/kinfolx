@@ -5,15 +5,16 @@ import User from '../models/User.js'
 const reviewController = {
     createReview: async (req, res) => {
         try {
+            // NOTE: assuming we're getting companyId from src/components/ReviewList.jsx (POST fetch statement)
             const { companyId } = req.params
-            const { newRatings, comment, position } = req.body 
+            const { newRatings, comment, position } = req.body
 
             // lookup clerkId to get userId
-            const clerkId = req.auth.userId 
-            console.log("Clerk ID: " + clerkId)
-            const user = await User.findOne({clerkId})
+            const clerkId = req.auth.userId
+            console.log('Clerk ID: ' + clerkId)
+            const user = await User.findOne({ clerkId })
             const userId = user._id
-            console.log("User ID: " + userId)
+            console.log('User ID: ' + userId)
 
             // Ensure company exists (when passed companyId in req.body) <---------------- bring back when done testing!
             const foundCompanyId = await Company.findById(companyId)
@@ -45,9 +46,9 @@ const reviewController = {
             console.log(err)
             res.status(500).send('Error creating review')
         }
-    }, editReview: async (req, res) => {
+    },
+    editReview: async (req, res) => {
         try {
-            
         } catch (err) {
             console.log(err)
             res.status(500).send('Error updating review')
