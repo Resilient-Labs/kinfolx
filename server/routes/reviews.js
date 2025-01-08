@@ -1,17 +1,9 @@
-import express from 'express'
-const reviewRouter = express.Router()
-// const upload = require("../middleware/multer");
-// const postsController = require("../controllers/posts");
-// const { ensureAuth, ensureGuest } = require("../middleware/auth");
+import express from 'express';
+const reviewRouter = express.Router();
+import reviewsController from '../controllers/reviews'
 
-//Post Routes - simplified for now
-// router.get("/:id", ensureAuth, postsController.getPost);
+//ensure they are logged in aka clerk
+reviewRouter.get('/allCompanyReviews', reviewsController.getAllCompanyReviews)
 
-// router.post("/createPost", upload.single("file"), postsController.createPost);
 
-// router.put("/likePost/:id", postsController.likePost);
-
-// router.delete("/deletePost/:id", postsController.deletePost);
-
-// module.exports = router;
-export default reviewRouter
+export default reviewRouter;
