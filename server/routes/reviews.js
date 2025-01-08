@@ -1,6 +1,6 @@
 import express from 'express';
 const reviewRouter = express.Router();
-const reviewsController = require('../controllers/reviews')
+import reviewsController from '../controllers/reviews'
 
 //ensure they are logged in aka clerk
 reviewRouter.get('/allCompanyReviews', reviewsController.getAllCompanyReviews)
