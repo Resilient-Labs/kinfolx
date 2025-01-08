@@ -12,7 +12,7 @@ function Home() {
         if (!isLoaded || !user) {
             return
         }
-        
+
         //add the user to the database
         const addUserToDataBase = async () => {
             try {
@@ -23,8 +23,7 @@ function Home() {
                     },
                     body: JSON.stringify({ clerkId: user.id }),
                 })
-                
-    
+
                 if (!response.ok) {
                     console.error('Failed to add user to database')
                 }

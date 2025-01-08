@@ -98,16 +98,16 @@ const companyController = {
             let companies = await Company.aggregate([
                 {
                     $search: {
-                        index: "kinfolk-search",
+                        index: 'kinfolk-search',
                         text: {
                             query: req.body.search,
                             path: {
-                                wildcard: "*"
-                            }
-                        }
-                    }
-                }
-            ]);
+                                wildcard: '*',
+                            },
+                        },
+                    },
+                },
+            ])
             // if (companies.length === 1) {
             //     // If exactly one company matches, return it
             //     res.json({ redirect: true, company: companies[0] });
@@ -115,11 +115,11 @@ const companyController = {
             //     // Otherwise, return the list of companies
             //     res.json({ redirect: false, companies });
             // }
-            res.json(companies); // Send the companies data as JSON response
+            res.json(companies) // Send the companies data as JSON response
         } catch (error) {
-            next(error); // Handle errors appropriately
+            next(error) // Handle errors appropriately
         }
-    }
+    },
 }
 
 export default companyController
@@ -129,7 +129,3 @@ export default companyController
 // do we want to add the ability to limit the number of results that return when a user searches for all  companies?
 
 // Should we add query params so that we can filter through specfic companies returned based on specific atributes?
-
-
-    
-

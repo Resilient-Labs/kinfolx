@@ -4,12 +4,10 @@ import ProfileInfo from '../../components/ProfileInfo/ProfileInfo.jsx'
 import CompanyReviews from '../../components/CompanyReviews/CompanyReviews.jsx'
 
 function Profile() {
-
-
     return (
         <main className="profile-container">
             <ProfileInfo />
-            <section className='reviews'>
+            <section className="reviews">
                 <CompanyReviews />
                 <CompanyReviews />
             </section>
@@ -18,16 +16,3 @@ function Profile() {
 }
 
 export default Profile
-
-
-
-
-
-
-
-
-
-
-
-
-

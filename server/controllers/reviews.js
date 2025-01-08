@@ -7,7 +7,7 @@ const reviewController = {
             if (!id) {
                 return res.status(400).json({ msg: 'user id is required' })
             }
-            const userReviews = await Reviews.find({ userId: id });
+            const userReviews = await Reviews.find({ userId: id })
             res.json({ userReviews })
         } catch (error) {
             console.log('Error getting user reviews')
@@ -23,7 +23,7 @@ const reviewController = {
             const reviews = await Reviews.find({})
             console.log(reviews)
             //display it in the feed component for the reviews
-            res.json(reviews); // Send reviews as JSON response
+            res.json(reviews) // Send reviews as JSON response
         } catch (error) {
             next(error)
         }
@@ -48,7 +48,7 @@ const reviewController = {
                 message: 'Server error while deleting review',
             })
         }
-    }
+    },
 
     // getPost: async (req, res) => {
     //     try {
