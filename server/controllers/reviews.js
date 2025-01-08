@@ -7,7 +7,7 @@ const reviewController = {
         try {
             // NOTE: assuming we're getting companyId from src/components/ReviewList.jsx (POST fetch statement)
             const { companyId } = req.params
-            const { newRatings, comment, position } = req.body
+            const { companyName, newRatings, comment, position } = req.body
 
             // lookup clerkId to get userId
             const clerkId = req.auth.userId
@@ -26,6 +26,7 @@ const reviewController = {
             const newReview = new Review({
                 userId,
                 companyId,
+                companyName,
                 questions: {
                     position,
                     accountability: newRatings.accountability,
