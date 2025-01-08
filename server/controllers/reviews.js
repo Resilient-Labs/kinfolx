@@ -5,36 +5,24 @@ import Company from '../models/Company.js'
 
 const reviewController = {
     
-    getUserReview: async (req, res) => {
-        try {
-            const userId = req.params.userId
-            const reviews = await Review.find({ userId }).populate('companyId')
-            res.json(reviews)
-        } catch (err) {
-            console.log(err)
-            res.status(500).send('Error fetching user review')
-        }
-    },
     editReview: async (req, res) => {
         try {
             const { ratings, comment } = req.body
             const {reviewId } = req.params
 
             // Convert ratings to numbers
-            const numericRatings = {}
-            for (const [key, value] of Object.entries(ratings)) {
-                numericRatings[key] = Number(value)
-            }
+          let newRatings = {}
+        for(let rating in ratings){
+            if(ratings[rating] !== undefined){
+                newRatings[rating] = ratings[rating]
 
-            // Fetch company details
-            const company = await Company.findById(companyId)
-            if (!company) {
-                return res.status(404).send('Company not found')
             }
+        }
+        console.log(newRatings)
 
             const review = await Review.findOneAndUpdate(
-                { _id: reviewId, companyId, user: req.user.id },
-                { ratings: numericRatings, comment },
+                { _id: reviewId, userId: req.user.id },
+                { questions: newRatings, comment },
                 { new: true },
             )
             if (!review) {
