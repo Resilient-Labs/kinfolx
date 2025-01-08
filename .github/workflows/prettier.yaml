@@ -37,5 +37,3 @@ jobs:
         run: pnpm check
       - name: Auto-commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          token: ${{ secrets.WORKFLOW_TOKEN }}
