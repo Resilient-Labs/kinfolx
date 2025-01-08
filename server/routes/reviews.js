@@ -13,7 +13,8 @@ import reviewController from '../controllers/reviews.js'
 
 const router = express.Router()
 
-router.post('/:companyId/:reviewId', reviewController.editReview)
+router.post('/:companyId', reviewController.createReview) 
+router.put('/:reviewId', reviewController.editReview)
 
 export default router
 >>>>>>> ac19760 (#2 started edit controller and route)
