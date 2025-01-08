@@ -17,8 +17,8 @@ const ReviewSchema = new Schema(
             ref: 'Company',
             required: true,
         }, // Link to Company model
+        position: { type: String, required: true }, //users job position
         questions: {
-            position: { type: String, required: true }, //users job position
             accountability: { type: Number, required: true }, // Scale 1-5
             representation: { type: Number, required: true }, // Scale 1-5
             workLifeBalance: { type: Number, required: true }, // Scale 1-5
