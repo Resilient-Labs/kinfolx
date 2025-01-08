@@ -12,6 +12,7 @@ const companyController = {
     },
 
     //fetches a specific company (and all of its data):
+
     getCompany: async (req, res, next) => {
         try {
             const { id } = req.params // Get the company ID from the route parameters
