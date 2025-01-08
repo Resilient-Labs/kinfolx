@@ -1,5 +1,5 @@
-const cloudinary = require("../middleware/cloudinary");
-const Review = require("../models/Reviews");
+// import cloudinary from "../middleware/cloudinary";
+import Review from "../models/Reviews.js";
 
 
 const reviewController = {
