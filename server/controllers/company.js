@@ -92,10 +92,32 @@ const companyController = {
             next(error)
         }
     },
-    searchCompany: async (req, res, next ) => {
-        let companies = await Company.aggregate([
-            
-        ])
+    searchCompany: async (req, res, next) => {
+        try {
+            let companies = await Company.aggregate([
+                {
+                    $search: {
+                        index: "kinfolk-search",
+                        text: {
+                            query: req.body.search,
+                            path: {
+                                wildcard: "*"
+                            }
+                        }
+                    }
+                }
+            ]);
+            // if (companies.length === 1) {
+            //     // If exactly one company matches, return it
+            //     res.json({ redirect: true, company: companies[0] });
+            // } else {
+            //     // Otherwise, return the list of companies
+            //     res.json({ redirect: false, companies });
+            // }
+            res.json(companies); // Send the companies data as JSON response
+        } catch (error) {
+            next(error); // Handle errors appropriately
+        }
     }
 }
 
