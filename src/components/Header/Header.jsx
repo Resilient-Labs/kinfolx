@@ -11,7 +11,7 @@ export default function Header() {
         <header className="header">
             <nav className="navbar">
                 <div className="logo">
-                    <a href="/">INSERT LOGO</a>
+                    <a href="/">Kinfolx</a>
                 </div>
                 <input
                     type="text"
