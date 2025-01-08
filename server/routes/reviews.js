@@ -1,6 +1,7 @@
 import express from 'express'
 import reviewController from '../controllers/reviews.js'
 const reviewRouter = express.Router()
+import reviewController from '../controllers/reviews.js'
 
 reviewRouter.get('/:id', reviewController.getUserReviews);
 // const upload = require("../middleware/multer");
@@ -10,4 +11,8 @@ reviewRouter.get('/:id', reviewController.getUserReviews);
 //ensure they are logged in aka clerk
 reviewRouter.get('/allCompanyReviews', reviewController.getAllCompanyReviews)
 
-export default reviewRouter;
+// delete a review by reviewId
+reviewRouter.delete('/:reviewId', reviewController.deleteReview)
+
+// module.exports = router;
+export default reviewRouter
