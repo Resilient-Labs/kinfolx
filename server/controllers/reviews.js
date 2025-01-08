@@ -8,6 +8,7 @@ const reviewController = {
             const user = await User.find({ clerkId })
             const userId = user[0]._id
             console.log({ userId })
+
             const userReviews = await Reviews.find({ userId })
             res.json({ userReviews })
         } catch (error) {
@@ -89,6 +90,36 @@ const reviewController = {
     },
     editReview: async (req, res) => {
         try {
+            const { reviewId } = req.params
+
+            // NOTE: assuming we're getting companyId from src/components/ReviewList.jsx (POST fetch statement)
+            const { newRatings, comment, position } = req.body
+
+            // Edit review - Find review by ID and update
+            const updatedReview = await Review.findByIdAndUpdate(
+                reviewId,
+                {
+                    $set: {
+                        'questions.position': position,
+                        'questions.accountability': newRatings.accountability,
+                        'questions.representation': newRatings.representation,
+                        'questions.workLifeBalance': newRatings.workLifeBalance,
+                        'questions.careerGrowth': newRatings.careerGrowth,
+                        'questions.diversityScale': newRatings.diversityScale,
+                        'questions.companyCulture': newRatings.companyCulture,
+                        'questions.salary': newRatings.salaries,
+                        comment,
+                    },
+                },
+                { new: true }, // Return the updated document
+            )
+
+            if (!updatedReview) {
+                return res.status(404).send('Review not found')
+            }
+
+            console.log('Review has been edited!')
+            res.status(201).send('Review edited successfully')
         } catch (err) {
             console.log(err)
             res.status(500).send('Error updating review')
