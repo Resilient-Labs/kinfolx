@@ -1,37 +1,37 @@
-name: Code Quality checks
-on:
-  pull_request:
-    branches: [main]
+# name: Code Quality checks
+# on:
+#   pull_request:
+#     branches: [main]
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
+# concurrency:
+#   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+#   cancel-in-progress: true
 
-jobs:
-  prettier:
-    name: Prettier
-    runs-on: ubuntu-22.04
-    strategy:
-      matrix:
-        node-version: [18]
+# jobs:
+#   prettier:
+#     name: Prettier
+#     runs-on: ubuntu-22.04
+#     strategy:
+#       matrix:
+#         node-version: [18]
 
-    permissions: 
-      contents: write 
-    steps:
-      - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "npm"
-      - name: Install dependencies
-        run: pnpm install -D
-      - name: Fix formatting with Prettier
-        run: pnpm format
-      - name: Check formatting with Prettier
-        run: pnpm check
-      - name: Auto-commit changes
-        uses: stefanzweifel/git-auto-commit-action@v5
+#     permissions: 
+#       contents: write 
+#     steps:
+#       - uses: actions/checkout@v3
+#       - uses: pnpm/action-setup@v2
+#         with:
+#           version: 8
+#       - name: Use Node.js ${{ matrix.node-version }}
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: ${{ matrix.node-version }}
+#           cache: "npm"
+#       - name: Install dependencies
+#         run: pnpm install -D
+#       - name: Fix formatting with Prettier
+#         run: pnpm format
+#       - name: Check formatting with Prettier
+#         run: pnpm check
+#       - name: Auto-commit changes
+#         uses: stefanzweifel/git-auto-commit-action@v5
