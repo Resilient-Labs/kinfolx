@@ -5,7 +5,6 @@ const userRouter = express.Router()
 
 userRouter.post('/', userController.addUser); 
 userRouter.get('/', userController.getAllUsers);
-userRouter.get('/favorites', userController.getFavoritesCompanies)
-userRouter.post('/favorites', userController.addFavoriteCompany) 
-
+userRouter.get('/favorites', userController.getFavoriteCompanies) 
+userRouter.post('/favorites/:companyId', userController.addFavoriteCompany) 
 export default userRouter
