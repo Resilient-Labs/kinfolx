@@ -70,7 +70,6 @@ const ReviewList =  (props) => {
         }
 
         console.log({reviewData})
-        alert('Review submitted successfully!')
 
 
 
