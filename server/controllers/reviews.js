@@ -5,9 +5,9 @@ const reviewController = {
     getUserReviews: async (req, res, next) => {
         try {
             const clerkId = req.auth.userId
-            const user = await User.find({ clerkId });
-            const userId = user[0]._id;
-            console.log({userId})
+            const user = await User.find({ clerkId })
+            const userId = user[0]._id
+            console.log({ userId })
             const userReviews = await Reviews.find({ userId })
             res.json({ userReviews })
         } catch (error) {
