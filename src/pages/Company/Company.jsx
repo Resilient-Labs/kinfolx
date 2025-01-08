@@ -9,29 +9,27 @@ import { useState, useEffect } from 'react'
 const Company = () => {
     const [company, setCompany] = useState([])
     let params = useParams()
-    console.log({params})
+    console.log({ params })
 
-       useEffect(() => {
-            const fetchCompany = async () => {
-                try {
-                    const response = await fetch(`/api/company/${params.id}`);
-                    console.log({response});
-                    if (!response.ok) throw new Error("Failed to fetch company.");
-        
-                    const data = await response.json();
-                    console.log(data)
-                    setCompany(data); 
-                    
-                    
-                } catch (error) {
-                    console.error("Error fetching companies:", error);
-                }
-            };
-        
-            fetchCompany();
-        }, [params.id]);
+    useEffect(() => {
+        const fetchCompany = async () => {
+            try {
+                const response = await fetch(`/api/company/${params.id}`)
+                console.log({ response })
+                if (!response.ok) throw new Error('Failed to fetch company.')
 
-        console.log(company)
+                const data = await response.json()
+                console.log(data)
+                setCompany(data)
+            } catch (error) {
+                console.error('Error fetching companies:', error)
+            }
+        }
+
+        fetchCompany()
+    }, [params.id])
+
+    console.log(company)
     return (
         <main className="company-container">
             <CompanyBanner companyName={company.name} />

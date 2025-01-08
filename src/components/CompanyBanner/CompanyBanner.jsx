@@ -1,6 +1,6 @@
 import './companyBanner.css'
 
- const CompanyBanner = (props) => {
+const CompanyBanner = (props) => {
     return (
         <section className="company-info">
             <div className="company-logo">Company Logo</div>
