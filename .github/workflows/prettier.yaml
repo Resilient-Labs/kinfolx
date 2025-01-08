@@ -19,6 +19,8 @@ jobs:
       contents: write 
     steps:
       - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.WORKFLOW_TOKEN }}
       - uses: pnpm/action-setup@v2
         with:
           version: 8
@@ -35,5 +37,3 @@ jobs:
         run: pnpm check
       - name: Auto-commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          token: ${{ secrets.WORKFLOW_TOKEN }}
