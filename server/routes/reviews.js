@@ -1,17 +1,9 @@
 import express from 'express'
-import reviewController from '../controllers/reviews.js'
 const reviewRouter = express.Router()
+import reviewController from '../controllers/reviews.js'
+// const { ensureAuth } = require(../something)
 
-reviewRouter.get('/', reviewController.getUserReviews)
-// const upload = require("../middleware/multer");
-// const postsController = require("../controllers/posts");
-// const { ensureAuth, ensureGuest } = require("../middleware/auth");
+reviewRouter.post('/:companyId', reviewController.createReview)
+reviewRouter.put('/:reviewId', reviewController.editReview)
 
-//ensure they are logged in aka clerk
-reviewRouter.get('/allCompanyReviews', reviewController.getAllCompanyReviews)
-
-// delete a review by reviewId
-reviewRouter.delete('/:reviewId', reviewController.deleteReview)
-
-// module.exports = router;
 export default reviewRouter
