@@ -1,7 +1,6 @@
 // import React from 'react'
 import '../ProfileInfo/profileInfo.css'
 
-
 const ProfileInfo = () => {
     return (
         <section className="profile-info">
