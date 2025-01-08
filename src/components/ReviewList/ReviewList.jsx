@@ -1,15 +1,15 @@
 import { useState } from "react";
 import './reviewList.css';
 
-const categories = {
-  "accountability": "Evaluate how effectively individuals and teams take responsibility for their actions and deliverables.",
-  "representation": "Assess the visibility and inclusion of diverse voices and perspectives within the organization.",
-  "workLifeBalance": "Measure how well the organization supports employees in balancing professional responsibilities with personal life.",
-  "careerGrowth": "Gauge the opportunities for professional development, skill-building, and upward mobility within the company.",
-  "diversityScale": "Rate the extent to which the organization fosters and promotes diversity in its workforce.",
-  "companyCulture": "Reflect on the values, attitudes, and overall environment that define the workplace experience.",
-  "salaries": "Provide feedback on the fairness and competitiveness of compensation offered by the company.",
-};
+const categories = [
+  "accountability",
+  "representation",
+  "workLifeBalance",
+  "careerGrowth",
+  "diversityScale",
+  "companyCulture",
+  "salaries",
+];
 
 
 const ReviewList =  (props) => {
@@ -40,7 +40,7 @@ const ReviewList =  (props) => {
     }
 
     const handleSubmit = async () => {
-        const companyName = props.company
+        const companyId = props.company
         const position = props.position
         let newRatings = {}
         for(let rating in ratings){
@@ -52,13 +52,14 @@ const ReviewList =  (props) => {
         console.log(newRatings)
         
         const reviewData = {
-            companyName,
+            companyId,
             position,
             newRatings,
             comment,
+            
         };
         
-        if (!companyName || !position) {
+        if (!companyId || !position) {
             alert('Please select or add a company name and role.')
             return
         }
@@ -74,7 +75,7 @@ const ReviewList =  (props) => {
 
 
         try {
-            const response = await fetch(`/api/review/${companyName}`, {
+            const response = await fetch(`/api/review/${companyId}`, {
                  method: 'POST',
                  headers: {
                      'Content-Type': 'application/json',
@@ -95,10 +96,9 @@ const ReviewList =  (props) => {
     return (
         <div>
             <div className="rating-section">
-                {Object.entries(categories).map(([category, caption]) => (
+                {categories.map((category) => (
                     <div key={category} className="rating-category">
                         <label>{category.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/^./, str => str.toUpperCase())}:</label>
-                        <p className="sub-caption">{caption}</p>
                         <div className="star-rating">
                             {[1, 2, 3, 4, 5].map((value) => (
                                 <img
