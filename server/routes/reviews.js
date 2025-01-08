@@ -8,6 +8,6 @@ reviewRouter.get('/:id', reviewController.getUserReviews);
 // const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 //ensure they are logged in aka clerk
-reviewRouter.get('/allCompanyReviews', reviewsController.getAllCompanyReviews)
+reviewRouter.get('/allCompanyReviews', reviewController.getAllCompanyReviews)
 
 export default reviewRouter;
