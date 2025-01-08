@@ -20,7 +20,7 @@ const reviewController = {
      //maybe need the company id and review id
        //const { companyId } = req.params;
        //get all reviews
-      const reviews = await Review.find({})
+      const reviews = await Reviews.find({})
       console.log(reviews)
        //display it in the feed component for the reviews
        res.json(reviews); // Send reviews as JSON response
@@ -34,7 +34,7 @@ const reviewController = {
           const { reviewId } = req.params
 
           // find & delete review in db
-          const deletedReview = await Review.findByIdAndDelete(reviewId)
+          const deletedReview = await Reviews.findByIdAndDelete(reviewId)
 
           if (!deletedReview) {
               return res.status(404).json({ message: 'Review not found' })
@@ -48,7 +48,7 @@ const reviewController = {
               message: 'Server error while deleting review',
           })
       }
-  },
+  }
 
     // getPost: async (req, res) => {
     //     try {
@@ -105,5 +105,5 @@ const reviewController = {
     //         res.redirect('/profile')
     //     }
     // },
-}
+
 export default reviewController

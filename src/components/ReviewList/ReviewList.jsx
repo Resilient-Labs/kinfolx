@@ -15,7 +15,6 @@ const categories = [
 const ReviewList =  (props) => {
     const [ratings, setRatings] = useState({})
     const [comment, setComment] = useState('')
-    // const [newCompany, setNewCompany] = useState("");
     
     console.log(ratings)
 
