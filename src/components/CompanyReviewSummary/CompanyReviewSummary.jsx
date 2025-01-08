@@ -57,6 +57,3 @@ const CompanyReviewSummary = (props) => {
 }
 
 export default CompanyReviewSummary
-
-
-

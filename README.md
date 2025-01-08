@@ -36,6 +36,7 @@ npm run dev
    The backend server is loading from `http://localhost:3000`
 
 ### Environment Variables
+
 One ENV goes inside of the config file inside the server and the other ENV is in the root
 
 ```
@@ -45,4 +46,4 @@ CLERK_SECRET_KEY=clerk_secret_key_here
 CLERK_PUBLISHABLE_KEY=clerk_publishable_key_here
 ```
 
-Front end needs "VITE_" prefixing all keys
+Front end needs "VITE\_" prefixing all keys

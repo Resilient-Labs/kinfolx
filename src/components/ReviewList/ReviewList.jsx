@@ -1,22 +1,20 @@
-import { useState } from "react";
-import './reviewList.css';
+import { useState } from 'react'
+import './reviewList.css'
 
 const categories = [
-  "accountability",
-  "representation",
-  "workLifeBalance",
-  "careerGrowth",
-  "diversityScale",
-  "companyCulture",
-  "salaries",
-];
+    'accountability',
+    'representation',
+    'workLifeBalance',
+    'careerGrowth',
+    'diversityScale',
+    'companyCulture',
+    'salaries',
+]
 
-
-const ReviewList =  (props) => {
+const ReviewList = (props) => {
     const [ratings, setRatings] = useState({})
     const [comment, setComment] = useState('')
-    // const [newCompany, setNewCompany] = useState("");
-    
+
     console.log(ratings)
 
     const handleMouseOver = (category, value) => {
@@ -44,21 +42,20 @@ const ReviewList =  (props) => {
         const companyName = props.company
         const position = props.position
         let newRatings = {}
-        for(let rating in ratings){
-            if(ratings[rating] !== undefined){
+        for (let rating in ratings) {
+            if (ratings[rating] !== undefined) {
                 newRatings[rating] = ratings[rating]
-
             }
         }
         console.log(newRatings)
-        
+
         const reviewData = {
             companyName,
             position,
             newRatings,
             comment,
-        };
-        
+        }
+
         if (!companyName || !position) {
             alert('Please select or add a company name and role.')
             return
@@ -69,36 +66,38 @@ const ReviewList =  (props) => {
             return
         }
 
-        console.log({reviewData})
+        console.log({ reviewData })
         alert('Review submitted successfully!')
-
-
 
         try {
             const response = await fetch(`/api/review/${companyName}`, {
-                 method: 'POST',
-                 headers: {
-                     'Content-Type': 'application/json',
-                 },
-                 body: JSON.stringify(reviewData),
-            });
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(reviewData),
+            })
             if (!response.ok) {
-                console.log({reviewData})
-                throw new Error (`Response status: ${response.status}`)
+                console.log({ reviewData })
+                throw new Error(`Response status: ${response.status}`)
             }
             const responseData = await response.json()
-            console.log(`Response received: ${responseData}`);
+            console.log(`Response received: ${responseData}`)
         } catch (error) {
-             console.log(error)
+            console.log(error)
         }
-
     }
     return (
         <div>
             <div className="rating-section">
                 {categories.map((category) => (
                     <div key={category} className="rating-category">
-                        <label>{category.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/^./, str => str.toUpperCase())}:</label>
+                        <label>
+                            {category
+                                .replace(/([a-z])([A-Z])/g, '$1 $2')
+                                .replace(/^./, (str) => str.toUpperCase())}
+                            :
+                        </label>
                         <div className="star-rating">
                             {[1, 2, 3, 4, 5].map((value) => (
                                 <img
@@ -139,6 +138,6 @@ const ReviewList =  (props) => {
             </button>
         </div>
     )
-};
+}
 
-export default ReviewList;
+export default ReviewList
