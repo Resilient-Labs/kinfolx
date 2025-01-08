@@ -49,7 +49,6 @@ const reviewController = {
             })
         }
     }
-}
 
     // getPost: async (req, res) => {
     //     try {
@@ -106,5 +105,5 @@ const reviewController = {
     //         res.redirect('/profile')
     //     }
     // },
-
+}
 export default reviewController
