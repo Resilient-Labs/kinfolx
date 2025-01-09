@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './leftSidebar.css'
+import AddReviewBtn from '../AddReviewBtn/AddReviewBtn'
 
 export default function LeftSidebar() {
     const [favoriteCompanies, setFavoriteCompanies] = useState([])
@@ -21,9 +22,7 @@ export default function LeftSidebar() {
 
     return (
         <aside className="left-sidebar">
-            <a href="/review" className="action-btn add-review">
-                Add Review
-            </a>
+          <AddReviewBtn/>
             <section className="favorite-companies">
                 <h3>Favorite Companies</h3>
                 <ul className="favorite-list">
