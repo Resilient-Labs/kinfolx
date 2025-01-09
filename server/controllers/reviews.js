@@ -136,7 +136,7 @@ const reviewController = {
                 reviewId,
                 {
                     $set: {
-                        'questions.position': position,
+                        'position': position,
                         'questions.accountability': newRatings.accountability,
                         'questions.representation': newRatings.representation,
                         'questions.workLifeBalance': newRatings.workLifeBalance,
