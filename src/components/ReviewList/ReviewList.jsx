@@ -63,7 +63,7 @@ const ReviewList =  (props) => {
             return
         }
 
-        if (categories.some((category) => !ratings[category])) {
+        if (Object.keys(categories).some((category) => !ratings[category])) {
             alert('Please rate all categories before submitting.')
             return
         }
