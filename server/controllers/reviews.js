@@ -58,7 +58,7 @@ const reviewController = {
             const { reviewId } = req.params
 
             // find & delete review in db
-            const deletedReview = await Review.findByIdAndDelete(reviewId)
+            const deletedReview = await Reviews.findByIdAndDelete(reviewId)
 
             if (!deletedReview) {
                 return res.status(404).json({ message: 'Review not found' })
