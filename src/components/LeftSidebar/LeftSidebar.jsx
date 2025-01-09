@@ -4,6 +4,7 @@ import AddReviewBtn from '../AddReviewBtn/AddReviewBtn'
 
 export default function LeftSidebar() {
     const [favoriteCompanies, setFavoriteCompanies] = useState([])
+
     useEffect(() => {
         const fetchFavoriteCompanies = async () => {
             try {
@@ -11,8 +12,8 @@ export default function LeftSidebar() {
                 if (!response.ok)
                     throw new Error('Failed to fetch favorite companies.')
                 const data = await response.json()
-                console.log(data.favorites)
-                setFavoriteCompanies(data.favorites)
+                console.log(data)
+                setFavoriteCompanies(data) 
             } catch (error) {
                 console.error('Error fetching favorite companies:', error)
             }
@@ -22,13 +23,13 @@ export default function LeftSidebar() {
 
     return (
         <aside className="left-sidebar">
-          <AddReviewBtn/>
+            <AddReviewBtn />
             <section className="favorite-companies">
                 <h3>Favorite Companies</h3>
                 <ul className="favorite-list">
-                    {favoriteCompanies.slice(0, 5).map((favoriteCompanies, index) => (
+                    {favoriteCompanies.slice(0,5).map((company, index) => (
                         <li key={`favoriteCompany${index}`}>
-                            {favoriteCompanies.name}
+                            {company.name}
                         </li>
                     ))}
                 </ul>
