@@ -1,20 +1,21 @@
-import { useState } from 'react'
-import './reviewList.css'
+import { useState } from "react";
+import './reviewList.css';
 
-const categories = [
-    'accountability',
-    'representation',
-    'workLifeBalance',
-    'careerGrowth',
-    'diversityScale',
-    'companyCulture',
-    'salaries',
-]
+const categories = {
+  "accountability": "Evaluate how effectively individuals and teams take responsibility for their actions and deliverables.",
+  "representation": "Assess the visibility and inclusion of diverse voices and perspectives within the organization.",
+  "workLifeBalance": "Measure how well the organization supports employees in balancing professional responsibilities with personal life.",
+  "careerGrowth": "Gauge the opportunities for professional development, skill-building, and upward mobility within the company.",
+  "diversityScale": "Rate the extent to which the organization fosters and promotes diversity in its workforce.",
+  "companyCulture": "Reflect on the values, attitudes, and overall environment that define the workplace experience.",
+  "salaries": "Provide feedback on the fairness and competitiveness of compensation offered by the company.",
+};
 
-const ReviewList = (props) => {
+
+const ReviewList =  (props) => {
     const [ratings, setRatings] = useState({})
     const [comment, setComment] = useState('')
-
+    
     console.log(ratings)
 
     const handleMouseOver = (category, value) => {
@@ -42,61 +43,62 @@ const ReviewList = (props) => {
         const companyId = props.company
         const position = props.position
         let newRatings = {}
-        for (let rating in ratings) {
-            if (ratings[rating] !== undefined) {
+        for(let rating in ratings){
+            if(ratings[rating] !== undefined){
                 newRatings[rating] = ratings[rating]
+
             }
         }
         console.log(newRatings)
-
+        
         const reviewData = {
             companyId,
             position,
             newRatings,
             comment,
-        }
-
+        };
+        
         if (!companyId || !position) {
             alert('Please select or add a company name and role.')
             return
         }
 
-        if (categories.some((category) => !ratings[category])) {
+        if (Object.keys(categories).some((category) => !ratings[category])) {
             alert('Please rate all categories before submitting.')
             return
         }
 
-        console.log({ reviewData })
+        console.log({reviewData})
+        alert('Review submitted successfully!')
+
+
 
         try {
             const response = await fetch(`/api/review/${companyId}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(reviewData),
-            })
+                 method: 'POST',
+                 headers: {
+                     'Content-Type': 'application/json',
+                 },
+                 body: JSON.stringify(reviewData),
+            });
             if (!response.ok) {
-                console.log({ reviewData })
-                throw new Error(`Response status: ${response.status}`)
+                console.log({reviewData})
+                throw new Error (`Response status: ${response.status}`)
             }
             const responseData = await response.json()
-            console.log(`Response received: ${responseData}`)
+            console.log(`Response received: ${responseData}`);
         } catch (error) {
-            console.log(error)
+             console.log(error)
         }
+
     }
     return (
         <div>
             <div className="rating-section">
-                {categories.map((category) => (
+                {Object.entries(categories).map(([category, caption]) => (
                     <div key={category} className="rating-category">
-                        <label>
-                            {category
-                                .replace(/([a-z])([A-Z])/g, '$1 $2')
-                                .replace(/^./, (str) => str.toUpperCase())}
-                            :
-                        </label>
+                        <label>{category.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/^./, str => str.toUpperCase())}:</label>
+                        <p className="sub-caption">{caption}</p>
                         <div className="star-rating">
                             {[1, 2, 3, 4, 5].map((value) => (
                                 <img
@@ -105,8 +107,8 @@ const ReviewList = (props) => {
                                         value <=
                                         (ratings[`${category}-hover`] ||
                                             ratings[category])
-                                            ? '/img/star-yellow.png'
-                                            : '/img/star-white-transp.png'
+                                            ? './img/star-yellow.png'
+                                            : './img/star-white-transp.png'
                                     }
                                     alt="star"
                                     className="star"
@@ -137,6 +139,7 @@ const ReviewList = (props) => {
             </button>
         </div>
     )
-}
+};
 
-export default ReviewList
+export default ReviewList;
+
