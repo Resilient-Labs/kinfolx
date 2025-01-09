@@ -1,4 +1,5 @@
 import './header.css'
+import SearchBar from '../SearchBar/SearchBar'
 import {
     SignedIn,
     SignedOut,
@@ -13,11 +14,7 @@ export default function Header() {
                 <div className="logo">
                     <a href="/">Kinfolx</a>
                 </div>
-                <input
-                    type="text"
-                    placeholder="Search"
-                    className="search-bar"
-                />
+                <SearchBar />
                 <ul className="nav-links">
                     <li>
                         <a href="/">Home</a>

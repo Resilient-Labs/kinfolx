@@ -10,9 +10,7 @@ const companyController = {
             next(error)
         }
     },
-
     //fetches a specific company (and all of its data):
-
     getCompany: async (req, res, next) => {
         try {
             const { id } = req.params // Get the company ID from the route parameters
@@ -27,7 +25,6 @@ const companyController = {
             next(error)
         }
     },
-
     // fetches top 5 companies from DB with the highest review scores:
     getBestCompanies: async (req, res, next) => {
         try {
@@ -138,14 +135,13 @@ const companyController = {
                     },
                 },
             ])
-            // if (companies.length === 1) {
-            //     // If exactly one company matches, return it
-            //     res.json({ redirect: true, company: companies[0] });
-            // } else {
-            //     // Otherwise, return the list of companies
-            //     res.json({ redirect: false, companies });
-            // }
-            res.json(companies) // Send the companies data as JSON response
+            if (companies.length === 1) {
+                // If exactly one company matches, return it
+                res.json({ redirect: true, company: companies[0] });
+            } else {
+                // Otherwise, return the list of companies
+                res.json({ redirect: false, companies });
+            }
         } catch (error) {
             next(error) // Handle errors appropriately
         }
