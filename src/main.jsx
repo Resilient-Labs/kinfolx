@@ -14,7 +14,6 @@ import Review from './pages/Review/Review.jsx'
 import Companies from './pages/Companies/Companies.jsx'
 import Company from './pages/Company/Company.jsx'
 
-
 import './index.css'
 
 //this is related to clerk
@@ -39,7 +38,8 @@ const router = createBrowserRouter([
             { path: '/sign-up/*', element: <SignUpPage /> },
             { path: '/profile', element: <Profile /> },
             { path: '/companies', element: <Companies /> },
-            { path: '/company', element: <Company /> },
+            // { path: '/company', element: <Company /> },
+            { path: '/company/:id', element: <Company /> },
             { path: '/review', element: <Review /> },
         ],
     },

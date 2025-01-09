@@ -1,12 +1,17 @@
 import './header.css'
-import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react'
+import {
+    SignedIn,
+    SignedOut,
+    SignInButton,
+    UserButton,
+} from '@clerk/clerk-react'
 
 export default function Header() {
     return (
         <header className="header">
             <nav className="navbar">
                 <div className="logo">
-                    <a href="/">INSERT LOGO</a>
+                    <a href="/">Kinfolx</a>
                 </div>
                 <input
                     type="text"
@@ -34,7 +39,7 @@ export default function Header() {
                     <SignedIn>
                         <UserButton />
                     </SignedIn>
-                {/* </div> */}
+                    {/* </div> */}
                 </div>
             </nav>
         </header>

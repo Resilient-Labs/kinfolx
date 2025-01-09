@@ -8,9 +8,9 @@ const userController = {
             if (!clerkId) {
                 return res.status(400).json({ msg: 'Sign in first' })
             }
-          const user = await clerkClient.users.getUser(clerkId); 
+            const user = await clerkClient.users.getUser(clerkId)
 
-          await User.updateOne(
+            await User.updateOne(
                 { clerkId: clerkId },
                 {
                     $set: {
@@ -19,7 +19,7 @@ const userController = {
                         username: user.username,
                     },
                 },
-                { upsert: true }, 
+                { upsert: true },
             )
         } catch (error) {
             next(error)
@@ -40,17 +40,15 @@ const userController = {
       const companyId = req.params.companyId
       user.favorites.push(companyId)
       console.log(user._id)
-
       console.log(favoriteCompany);
       res.status(200).json({message : 'Company added to favorites'})
     } catch (error) {
       next(error)
     }
   },
-  getFavoriteCompanies: async (req, res, next) => {
+  getFavoritesCompanies: async (req, res, next) => {
     try {
-      const favorites = await User.find({ clerkId: req.auth.userId }).select('favorites')
-      return res.status(200).json({favorites})
+      const favorites = await User.find({ clerkId: req.auth.userId }).select('favoriteCompanies')
     } catch (error) {
       next(error)
     }
