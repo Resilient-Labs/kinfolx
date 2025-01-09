@@ -57,7 +57,7 @@ const reviewController = {
             }))
 
             console.log(reviewsWithCompanyName)
-            res.json(reviewsWithCompanyName) 
+            res.json(reviewsWithCompanyName.reverse()) 
         } catch (error) {
             next(error)
         }
