@@ -41,13 +41,23 @@ const reviewController = {
     },
     getAllCompanyReviews: async (req, res, next) => {
         try {
-            //maybe need the company id and review id
             //const { companyId } = req.params;
-            //get all reviews
-            const reviews = await Reviews.find({})
-            console.log(reviews)
-            //display it in the feed component for the reviews
-            res.json(reviews) // Send reviews as JSON response
+
+            //get all reviews + populate companyId with their Company doc
+            const reviews = await Reviews.find({}).populate({
+                    path: 'companyId',
+                    select: 'name',
+            })
+
+            // map reviews to include companyName
+
+            const reviewsWithCompanyName = reviews.map((review) => ({
+                ...review.toObject(), //https://stackoverflow.com/questions/7503450/how-do-you-turn-a-mongoose-document-into-a-plain-object
+                companyName: review.companyId.name,
+            }))
+
+            console.log(reviewsWithCompanyName)
+            res.json(reviewsWithCompanyName) 
         } catch (error) {
             next(error)
         }
