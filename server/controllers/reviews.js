@@ -41,13 +41,23 @@ const reviewController = {
     },
     getAllCompanyReviews: async (req, res, next) => {
         try {
-            //maybe need the company id and review id
             //const { companyId } = req.params;
-            //get all reviews
-            const reviews = await Reviews.find({})
-            console.log(reviews)
-            //display it in the feed component for the reviews
-            res.json(reviews) // Send reviews as JSON response
+
+            //get all reviews + populate companyId with their Company doc
+            const reviews = await Reviews.find({}).populate({
+                    path: 'companyId',
+                    select: 'name',
+            })
+
+            // map reviews to include companyName
+
+            const reviewsWithCompanyName = reviews.map((review) => ({
+                ...review.toObject(), //https://stackoverflow.com/questions/7503450/how-do-you-turn-a-mongoose-document-into-a-plain-object
+                companyName: review.companyId.name,
+            }))
+
+            console.log(reviewsWithCompanyName)
+            res.json(reviewsWithCompanyName.reverse()) 
         } catch (error) {
             next(error)
         }
@@ -77,7 +87,7 @@ const reviewController = {
         try {
             // NOTE: assuming we're getting companyId from src/components/ReviewList.jsx (POST fetch statement)
             const { companyId } = req.params
-            const { companyName, newRatings, comment, position } = req.body
+            const { newRatings, comment, position } = req.body
             // lookup clerkId to get userId
             const clerkId = req.auth.userId
             console.log('Clerk ID: ' + clerkId)
@@ -94,9 +104,8 @@ const reviewController = {
             const newReview = new Reviews({
                 userId,
                 companyId,
-                companyName,
+                position,
                 questions: {
-                    position,
                     accountability: newRatings.accountability,
                     representation: newRatings.representation,
                     workLifeBalance: newRatings.workLifeBalance,
@@ -109,7 +118,7 @@ const reviewController = {
             })
             await newReview.save()
             console.log('Review has been created!')
-            res.status(201).send('Review created successfully')
+            res.status(201).json({ message: 'Review created successfully', redirectTo: '/' });
         } catch (err) {
             console.log(err)
             res.status(500).send('Error creating review')
