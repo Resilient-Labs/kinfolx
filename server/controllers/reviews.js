@@ -22,7 +22,7 @@ const reviewController = {
             const userId = user[0]._id
 
             // Fetch user reviews and populate companyId to get companyName
-            const userReviews = await Review.find({ userId }).populate({
+            const userReviews = await Reviews.find({ userId }).populate({
                 path: 'companyId',
                 select: 'name',
             })
