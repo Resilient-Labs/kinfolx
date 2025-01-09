@@ -21,7 +21,7 @@ const reviewController = {
             //maybe need the company id and review id
             //const { companyId } = req.params;
             //get all reviews
-            const reviews = await Reviews.find({})
+            const reviews = await Reviews.find({})  //MAKE THIS POPULATE COMPANY DATA SO WE CAN GET THE NAME!
             console.log(reviews)
             //display it in the feed component for the reviews
             res.json(reviews) // Send reviews as JSON response
@@ -56,7 +56,8 @@ const reviewController = {
             const clerkId = req.auth.userId
             console.log('Clerk ID: ' + clerkId)
             const user = await User.findOne({ clerkId })
-            const userId = user[0]._id
+            console.log(user, 'user in create review');
+            const userId = user._id
             console.log('User ID: ' + userId)
             // Ensure company exists (when passed companyId in req.body) <---------------- bring back when done testing!
             const foundCompanyId = await Company.findById(companyId)
@@ -96,7 +97,7 @@ const reviewController = {
             const { newRatings, comment, position } = req.body
 
             // Edit review - Find review by ID and update
-            const updatedReview = await Review.findByIdAndUpdate(
+            const updatedReview = await Reviews.findByIdAndUpdate(
                 reviewId,
                 {
                     $set: {
