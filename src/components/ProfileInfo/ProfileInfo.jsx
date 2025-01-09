@@ -1,11 +1,10 @@
-// import React from 'react'
 import '../ProfileInfo/profileInfo.css'
-
-const ProfileInfo = () => {
+const ProfileInfo = ({ userImage, userName }) => {
+    console.log(userImage, 'image in Profile info')
     return (
         <section className="profile-info">
-            <div className="profile-pic">Profile Pic</div>
-            <div className="profile-username">Anon Username</div>
+            <img className="profile-pic" src={userImage} alt="user image" />
+            <div className="profile-username">{userName}</div>
         </section>
     )
 }
