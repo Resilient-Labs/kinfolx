@@ -22,8 +22,8 @@ export default function Feed() {
         },
         {
             companyName: 'Spotify',
-            role: 'Technical + Operations',
-            newRatings: {
+            position: 'Technical + Operations',
+            questions: {
                 accountability: 4,
                 representation: 5,
                 workLifeBalance: 3,
@@ -36,8 +36,8 @@ export default function Feed() {
         },
         {
             companyName: 'Google',
-            role: 'Leadership and Strategy',
-            newRatings: {
+            position: 'Leadership and Strategy',
+            questions: {
                 accountability: 5,
                 representation: 5,
                 workLifeBalance: 5,
@@ -50,8 +50,8 @@ export default function Feed() {
         },
         {
             companyName: 'Microsoft',
-            role: 'Technical + Operations',
-            newRatings: {
+            position: 'Technical + Operations',
+            questions: {
                 accountability: 4,
                 representation: 4,
                 workLifeBalance: 3,
@@ -64,8 +64,8 @@ export default function Feed() {
         },
         {
             companyName: 'Meta',
-            role: 'Client and Service Delivery',
-            newRatings: {
+            position: 'Client and Service Delivery',
+            questions: {
                 accountability: 3,
                 representation: 5,
                 workLifeBalance: 4,
@@ -79,8 +79,8 @@ export default function Feed() {
         },
         {
             companyName: 'Amazon',
-            role: 'Administration and Support',
-            newRatings: {
+            position: 'Administration and Support',
+            questions: {
                 accountability: 4,
                 representation: 3,
                 workLifeBalance: 2,
@@ -93,8 +93,8 @@ export default function Feed() {
         },
         {
             companyName: 'Netflix',
-            role: 'Leadership and Strategy',
-            newRatings: {
+            position: 'Leadership and Strategy',
+            questions: {
                 accountability: 5,
                 representation: 4,
                 workLifeBalance: 4,
@@ -107,8 +107,8 @@ export default function Feed() {
         },
         {
             companyName: 'Intel',
-            role: 'Technical + Operations',
-            newRatings: {
+            position: 'Technical + Operations',
+            questions: {
                 accountability: 3,
                 representation: 4,
                 workLifeBalance: 5,
@@ -121,8 +121,8 @@ export default function Feed() {
         },
         {
             companyName: 'Apple',
-            role: 'Administration and Support',
-            newRatings: {
+            position: 'Administration and Support',
+            questions: {
                 accountability: 4,
                 representation: 5,
                 workLifeBalance: 4,
@@ -141,11 +141,12 @@ export default function Feed() {
                 const response = await fetch(`/api/review/allCompanyReviews`)
                 if (!response.ok) throw new Error('Failed to fetch posts.')
                 const data = await response.json()
+                console.log(data, 'I AM DATA!!!! ');
                 if (data.length === 0) {
                     // If no reviews fetched, use fallback reviews
                     setReviews(fallbackReviews)
                 } else {
-                    setReviews(data)
+                    setReviews(data);
                 }
             } catch (error) {
                 console.error('Error fetching posts:', error)
@@ -161,10 +162,10 @@ export default function Feed() {
                 <div key={index} className="feed-item">
                     <h3 className="company-name">{review.companyName}</h3>
                     <p className="role">
-                        <strong>Role:</strong> {review.role}
+                        <strong>Position:</strong> {review.position}
                     </p>
                     <div className="ratings-grid">
-                        {Object.entries(review.newRatings).map(
+                        {Object.entries(review.questions).map(
                             ([category, value]) => (
                                 <div key={category} className="rating-cell">
                                     <span className="category-name">
