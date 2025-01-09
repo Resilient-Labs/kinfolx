@@ -50,3 +50,10 @@
 .action-btn:active {
     background-color: #282763;
 }
+
+.btn-wrapper {
+    display: flex;
+    gap: 2rem;
+    margin-top: 20px;
+    justify-content: center;
+}
