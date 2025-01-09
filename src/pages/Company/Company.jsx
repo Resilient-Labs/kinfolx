@@ -3,11 +3,13 @@ import './company.css'
 import CompanyBanner from '../../components/CompanyBanner/CompanyBanner.jsx'
 import CompanyOverview from '../../components/CompanyOverview/CompanyOverview.jsx'
 import CompanyReviewSummary from '../../components/CompanyReviewSummary/CompanyReviewSummary.jsx'
-import CompanySalaries from '../../components/CompanySalaries/CompanySalaries.jsx'
+// import CompanySalaries from '../../components/CompanySalaries/CompanySalaries.jsx'
 import { useState, useEffect } from 'react'
 
 const Company = () => {
     const [company, setCompany] = useState([])
+  
+
     let params = useParams()
     console.log({ params })
 
@@ -29,14 +31,16 @@ const Company = () => {
         fetchCompany()
     }, [params.id])
 
+      
+
     console.log(company)
     return (
         <main className="company-container">
-            <CompanyBanner companyName={company.name} />
+            <CompanyBanner {...company} />
             <section className="content">
                 <CompanyOverview {...company} />
                 <CompanyReviewSummary {...company} />
-                <CompanySalaries />
+                {/* <CompanySalaries /> */}
             </section>
         </main>
     )

@@ -1,11 +1,17 @@
 import './companyBanner.css'
+import AddReviewBtn from '../AddReviewBtn/AddReviewBtn'
 
 const CompanyBanner = (props) => {
+    console.log(props)
     return (
         <section className="company-info">
-            <div className="company-logo">Company Logo</div>
-            <h1 className="company-name">{props.companyName}</h1>
-            <nav className="company-tabs">
+            <img
+                alt={`${props.name} Logo`}
+                src={`/img${props.companyLogo} `}
+                className="company-logo"
+            />
+            <h1 className="company-name">{props.name}</h1>
+            {/* <nav className="company-tabs">
                 <a href="#overview" className="tab">
                     Overview
                 </a>
@@ -15,8 +21,8 @@ const CompanyBanner = (props) => {
                 <a href="#salaries" className="tab">
                     Salaries
                 </a>
-            </nav>
-            <button className="btn action-btn">Review This Company</button>
+            </nav> */}
+            <AddReviewBtn/>
         </section>
     )
 }
