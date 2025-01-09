@@ -30,3 +30,23 @@
 .review-list li:hover {
     background-color: #333;
 }
+/* Buttons */
+.action-btn {
+    border: none;
+    text-decoration: none;
+    padding: 1rem;
+    font-size: 1.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s;
+    font-family: inherit;
+    background-color: #9e1313;
+    color: white;
+    border-radius: 4px;
+}
+
+.action-btn:hover,
+.action-btn:active {
+    background-color: #282763;
+}
