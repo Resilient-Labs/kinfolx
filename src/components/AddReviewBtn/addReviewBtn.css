@@ -1,0 +1,20 @@
+/* Buttons */
+.review-btn {
+    border: none;
+    text-decoration: none;
+    padding: 1rem;
+    font-size: 1.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s;
+    font-family: inherit;
+    background-color: #413f9f;
+    color: white;
+    border-radius: 4px;
+}
+
+.review-btn:hover,
+.review-btn:active {
+    background-color: #282763;
+}
