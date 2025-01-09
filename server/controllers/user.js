@@ -24,30 +24,36 @@ const userController = {
         } catch (error) {
             next(error)
         }
-    },
-    getAllUsers: async (req, res, next) => {
-        try {
-            const allUsers = await User.find({})
-            console.log(allUsers)
-        } catch (error) {
-            next(error)
-        }
-    },
-    addFavoriteCompany: async (req, res, next) => {
-        try {
-        } catch (error) {
-            next(error)
-        }
-    },
-    getFavoritesCompanies: async (req, res, next) => {
-        try {
-            const favorites = await User.find({
-                clerkId: req.auth.userId,
-            }).select('favoriteCompanies')
-        } catch (error) {
-            next(error)
-        }
-    },
+  },
+  getAllUsers: async (req, res, next) => {
+    try {
+      const allUsers = await User.find({}); 
+      console.log(allUsers);
+    } catch (error) {
+      next(error)
+    }
+  },
+  addFavoriteCompany: async (req, res, next) => {
+    try {
+      const clerkId = req.auth.userId 
+      const user = await User.findOne({clerkId})
+      const companyId = req.params.companyId
+      user.favorites.push(companyId)
+      console.log(user._id)
+      console.log(favoriteCompany);
+      res.status(200).json({message : 'Company added to favorites'})
+    } catch (error) {
+      next(error)
+    }
+  },
+  getFavoritesCompanies: async (req, res, next) => {
+    try {
+      const favorites = await User.find({ clerkId: req.auth.userId }).select('favoriteCompanies')
+    } catch (error) {
+      next(error)
+    }
+  }
+
 }
 
 export default userController
