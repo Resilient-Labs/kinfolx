@@ -46,26 +46,29 @@ const userController = {
           }
           await User.findByIdAndUpdate(
             user._id,
-            { $push: { favorites: new mongoose.Types.ObjectId(companyId) } }
+            { $addToSet: { favorites: new mongoose.Types.ObjectId(companyId) } }
           );
       
           res.status(200).json({ message: 'Company added to favorites' });
         } catch (error) {
           next(error);
         }
-      },
+    },
     getFavoriteCompanies: async (req, res, next) => {
         try {
-            const favorites = await User.find({
-                clerkId: req.auth.userId,
-            }).select('favoriteCompanies')
-            console.log({ favorites } ,' I am in in get Favirte company')
-            res.status(200).json({ favorites })
+            const user = await User.findOne({ clerkId: req.auth.userId })
+                .populate('favorites', 'name _id');
+            if (!user) {
+                return res.status(404).json({ message: 'User not found' });
+            }
+            res.status(200).json(user.favorites.reverse());
+
         } catch (error) {
-            console.log(error)
-            res.status(500).json({ message: 'Failed to get favorites' })
+            console.error('Error fetching favorite companies:', error);
+            res.status(500).json({ message: 'Failed to get favorites' });
         }
-    },
+    }
+    
 }
 
 export default userController

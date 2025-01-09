@@ -10,9 +10,7 @@ const companyController = {
             next(error)
         }
     },
-
     //fetches a specific company (and all of its data):
-
     getCompany: async (req, res, next) => {
         try {
             const { id } = req.params // Get the company ID from the route parameters
@@ -27,7 +25,6 @@ const companyController = {
             next(error)
         }
     },
-
     // fetches top 5 companies from DB with the highest review scores:
     getBestCompanies: async (req, res, next) => {
         try {
@@ -60,7 +57,6 @@ const companyController = {
             next(error)
         }
     },
-
     //Fetches 5 worst companies, sorted in ascending order using mongoDB
     getWorstCompanies: async (req, res, next) => {
         try {
