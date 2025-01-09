@@ -153,7 +153,9 @@ const CompanyReviews = () => {
                                     <li>
                                         Accountability:{' '}
                                         <input
-                                            type="text"
+                                            type="number"
+                                            min="1"
+                                            max="5"
                                             placeholder="Enter a number from 1 to 5"
                                             defaultValue={
                                                 review.questions.accountability
@@ -165,7 +167,9 @@ const CompanyReviews = () => {
                                         {' '}
                                         Representation:{' '}
                                         <input
-                                            type="text"
+                                            type="number"
+                                            min="1"
+                                            max="5"
                                             placeholder="Enter a number from 1 to 5"
                                             defaultValue={
                                                 review.questions.representation
@@ -177,7 +181,9 @@ const CompanyReviews = () => {
                                         {' '}
                                         Work Life Balance:{' '}
                                         <input
-                                            type="text"
+                                            type="number"
+                                            min="1"
+                                            max="5"
                                             placeholder="Enter a number from 1 to 5"
                                             defaultValue={
                                                 review.questions.workLifeBalance
@@ -189,7 +195,9 @@ const CompanyReviews = () => {
                                         {' '}
                                         Career Growth:{' '}
                                         <input
-                                            type="text"
+                                            type="number"
+                                            min="1"
+                                            max="5"
                                             placeholder="Enter a number from 1 to 5"
                                             defaultValue={
                                                 review.questions.careerGrowth
@@ -201,7 +209,9 @@ const CompanyReviews = () => {
                                         {' '}
                                         Diversity Scale:{' '}
                                         <input
-                                            type="text"
+                                            type="number"
+                                            min="1"
+                                            max="5"
                                             placeholder="Enter a number from 1 to 5"
                                             defaultValue={
                                                 review.questions.diversityScale
@@ -213,7 +223,9 @@ const CompanyReviews = () => {
                                         {' '}
                                         Company Culture:{' '}
                                         <input
-                                            type="text"
+                                            type="number"
+                                            min="1"
+                                            max="5"
                                             placeholder="Enter a number from 1 to 5"
                                             defaultValue={
                                                 review.questions.companyCulture
@@ -225,7 +237,9 @@ const CompanyReviews = () => {
                                         {' '}
                                         Salary:{' '}
                                         <input
-                                            type="text"
+                                            type="number"
+                                            min="1"
+                                            max="5"
                                             placeholder="Enter a number from 1 to 5"
                                             ref={salaryRef}
                                             defaultValue={
