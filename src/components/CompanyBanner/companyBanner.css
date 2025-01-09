@@ -59,3 +59,12 @@
 .action-btn:hover {
     background-color: #282763;
 }
+.favImg{
+    width: 25px;
+    transition: transform 0.3s ease;
+    position: relative;
+    left: 310px;
+}
+.favImg:hover {
+    transform: scale(1.2); /*makes heart bigger on hover*/
+}

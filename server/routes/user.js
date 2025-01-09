@@ -7,4 +7,5 @@ userRouter.post('/', userController.addUser);
 userRouter.get('/', userController.getAllUsers);
 userRouter.get('/favorites', userController.getFavoriteCompanies) 
 userRouter.post('/favorites/:companyId', userController.addFavoriteCompany) 
+
 export default userRouter

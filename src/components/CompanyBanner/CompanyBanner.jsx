@@ -1,8 +1,28 @@
 import './companyBanner.css'
 import AddReviewBtn from '../AddReviewBtn/AddReviewBtn'
+import { useParams } from 'react-router'
 
 const CompanyBanner = (props) => {
     console.log(props)
+    let params = useParams()
+    async function addFavorite(){
+        try {
+            const response = await fetch(`/api/user/favorites/${params.id}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({id: params.id}),
+            })
+            if (!response.ok) {
+                throw new Error(`Response status: ${response.status}`)
+            }
+            const responseData = await response.json()
+            console.log(`Response received: ${responseData}`)
+        } catch (error) {
+            console.log(error)
+        }
+    }
     return (
         <section className="company-info">
             <img
@@ -22,6 +42,9 @@ const CompanyBanner = (props) => {
                     Salaries
                 </a>
             </nav> */}
+            <a onClick={addFavorite}>
+                <img className = "favImg" src="/img/red-heart.png" alt="" />
+            </a>
             <AddReviewBtn/>
         </section>
     )
