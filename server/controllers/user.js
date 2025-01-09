@@ -24,36 +24,40 @@ const userController = {
         } catch (error) {
             next(error)
         }
-  },
-  getAllUsers: async (req, res, next) => {
-    try {
-      const allUsers = await User.find({}); 
-      console.log(allUsers);
-    } catch (error) {
-      next(error)
-    }
-  },
-  addFavoriteCompany: async (req, res, next) => {
-    try {
-      const clerkId = req.auth.userId 
-      const user = await User.findOne({clerkId})
-      const companyId = req.params.companyId
-      user.favorites.push(companyId)
-      console.log(user._id)
-      console.log(favoriteCompany);
-      res.status(200).json({message : 'Company added to favorites'})
-    } catch (error) {
-      next(error)
-    }
-  },
-  getFavoriteCompanies: async (req, res, next) => {
-    try {
-      const favorites = await User.find({ clerkId: req.auth.userId }).select('favoriteCompanies')
-    } catch (error) {
-      next(error)
-    }
-  }
-
+    },
+    getAllUsers: async (req, res, next) => {
+        try {
+            const allUsers = await User.find({})
+            console.log(allUsers)
+        } catch (error) {
+            next(error)
+        }
+    },
+    //a new function is coming!
+    addFavoriteCompany: async (req, res, next) => {
+        try {
+            const clerkId = req.auth.userId
+            const user = await User.findOne({ clerkId })
+            const companyId = req.params.companyId
+            user.favorites.push(companyId)
+            console.log(user._id)
+            res.status(200).json({ message: 'Company added to favorites' })
+        } catch (error) {
+            next(error)
+        }
+    },
+    getFavoriteCompanies: async (req, res) => {
+        try {
+            const favorites = await User.find({
+                clerkId: req.auth.userId,
+            }).select('favoriteCompanies')
+            console.log({ favorites } ,' I am in in get Favirte company')
+            res.status(200).json({ favorites })
+        } catch (error) {
+            console.log(error)
+            res.status(500).json({ message: 'Failed to get favorites' })
+        }
+    },
 }
 
 export default userController
