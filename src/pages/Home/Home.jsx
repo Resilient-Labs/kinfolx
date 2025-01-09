@@ -1,5 +1,4 @@
 import './home.css'
-import LeftSidebar from '../../components/LeftSidebar/LeftSidebar'
 import Feed from '../../components/Feed/Feed'
 import RightSidebar from '../../components/RightSidebar/RightSidebar'
 import { useUser } from '@clerk/clerk-react'
@@ -12,7 +11,7 @@ function Home() {
         if (!isLoaded || !user) {
             return
         }
-
+        
         //add the user to the database
         const addUserToDataBase = async () => {
             try {
@@ -35,8 +34,7 @@ function Home() {
     }, [isLoaded, user])
 
     return (
-        <main className="home-container">
-            <LeftSidebar />
+        <main className="home_home-container">
             <Feed />
             <RightSidebar />
         </main>

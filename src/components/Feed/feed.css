@@ -1,4 +1,4 @@
-.feed {
+.feed_feed {
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -6,7 +6,7 @@
     overflow-y: auto;
 }
 
-.feed-item {
+.feed_feed-item {
     display: flex;
     flex-direction: column;
     background-color: #292929;
@@ -18,49 +18,49 @@
     box-sizing: border-box;
 }
 
-.company-name {
+.feed_company-name {
     font-size: 1.6rem;
     color: #ffc107;
     margin-bottom: 1rem;
 }
 
-.role {
+.feed_role {
     font-size: 1.2rem;
     color: #ccc;
     margin-bottom: 1rem;
 }
 
-.ratings-grid {
+.feed_ratings-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, 140px);
     gap: 1rem;
     margin-bottom: 1rem;
 }
 
-.rating-cell {
+.feed_rating-cell {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
 
-.category-name {
+.feed_category-name {
     font-size: 1.1rem;
     color: #e0e0e0;
     margin-bottom: 0.5rem;
 }
 
-.stars {
+.feed_stars {
     display: flex;
     gap: 0.2rem;
 }
 
-.star-img {
+.feed_star-img {
     width: 20px;
     height: 20px;
 }
 
-.comment {
+.feed_comment {
     margin-top: 1rem;
     font-size: 1.2rem;
     color: #aaa;

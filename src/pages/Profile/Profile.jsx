@@ -1,6 +1,7 @@
 import './profile.css'
 import ProfileInfo from '../../components/ProfileInfo/ProfileInfo.jsx'
 import CompanyReviews from '../../components/CompanyReviews/CompanyReviews.jsx'
+import LeftSidebar from '../../components/LeftSidebar/LeftSidebar'
 import { useUser } from '@clerk/clerk-react'
 import { useEffect, useState } from 'react'
 
@@ -29,10 +30,11 @@ function Profile() {
     //add an edit button for a review (TO DO!)
     //add a list of favorite companies
     return (
-        <main className="profile-container">
+        <main className="profile_profile-container">
             <ProfileInfo userImage={userImage} userName={userName} />
-            <section className="reviews">
+            <section className="profile_reviews">
                 <CompanyReviews />
+                <LeftSidebar />
             </section>
         </main>
     )

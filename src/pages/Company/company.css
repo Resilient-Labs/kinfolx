@@ -1,5 +1,5 @@
 /* Company Page */
-.company-container {
+.company_company-container {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -7,7 +7,7 @@
     padding: 1rem;
 }
 /* Content */
-.content {
+.company_content {
     display: flex;
     flex-direction: column;
     gap: 2rem;

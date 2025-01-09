@@ -1,12 +1,12 @@
 /* Flexbox Grid Layout */
-.company-grid {
+.companyListing_company-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     gap: 2rem;
 }
 
-.company-card {
+.companyListing_company-card {
     flex: 1 1 calc(25% - 2rem); /* Adjusts dynamically to screen size */
     max-width: 200px;
     background-color: #292929;
@@ -19,7 +19,7 @@
     cursor: pointer;
 }
 
-.company-card:hover {
+.companyListing_company-card:hover {
     transform: scale(1.05);
     background-color: #333;
 }

@@ -1,5 +1,5 @@
-.review-form-container textarea,
-.review-form-container button {
+.review_list_review-form-container textarea,
+.review_list_review-form-container button {
     width: 100%;
     padding: 0.8rem;
     margin-bottom: 1rem;
@@ -10,11 +10,11 @@
     color: #e0e0e0;
 }
 
-.review-form-container textarea {
+.review_list_review-form-container textarea {
     resize: none;
 }
 
-.review-form-container button {
+.review_list_review-form-container button {
     background-color: #413f9f;
     color: #fff;
     border: none;
@@ -22,24 +22,24 @@
     transition: background-color 0.3s;
 }
 
-.review-form-container button:hover {
+.review_list_review-form-container button:hover {
     background-color: #282763;
 }
 
 /* Star ratings */
-.rating-section {
+.review_list_rating-section {
     margin-bottom: 1rem;
 }
 
 /* Container for 5 stars + number rating */
-.star-rating {
+.review_list_star-rating {
     display: flex;
     align-items: center;
     gap: 0.5rem;
     margin-bottom: 1rem;
 }
 
-.star-rating img.star {
+.review_list_star-rating img.star {
     width: 32px;
     height: auto;
     cursor: pointer;
@@ -48,12 +48,12 @@
 }
 
 /* change to filled yellow star when clicked/hovered */
-.star-rating img.star.filled {
+.review_list_star-rating img.star.filled {
     opacity: 1;
     content: url('star-yellow.png');
 }
 
-.star-count {
+.review_list_star-count {
     margin-left: 0.5rem;
     font-weight: bold;
     min-width: 1ch;
