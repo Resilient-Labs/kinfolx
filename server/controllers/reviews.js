@@ -2,17 +2,40 @@ import Reviews from '../models/Reviews.js'
 import Company from '../models/Company.js'
 import User from '../models/User.js'
 const reviewController = {
+    // getUserReviews: async (req, res, next) => {
+    //     try {
+    //         const clerkId = req.auth.userId
+    //         const user = await User.find({ clerkId });
+    //         const userId = user[0]._id;
+    //         console.log({userId})
+    //         const userReviews = await Review.find({ userId })
+    //         res.json({ userReviews })
+    //     } catch (error) {
+    //         console.log('Error getting user reviews')
+    //         next(error)
+    //     }
+    // },
     getUserReviews: async (req, res, next) => {
         try {
             const clerkId = req.auth.userId
             const user = await User.find({ clerkId })
             const userId = user[0]._id
-            console.log({ userId })
 
-            const userReviews = await Reviews.find({ userId })
-            res.json({ userReviews })
+            // Fetch user reviews and populate companyId to get companyName
+            const userReviews = await Review.find({ userId }).populate({
+                path: 'companyId',
+                select: 'name',
+            })
+            // Transform the response to include companyName directly
+            const formattedReviews = userReviews.map((review) => ({
+                ...review.toObject(),
+                companyName: review.companyId?.name || null, 
+                companyId: review.companyId?._id, 
+            }))
+            console.log('I am formatted data', JSON.stringify(formattedReviews, null, 2))
+            res.json({ userReviews: formattedReviews })
         } catch (error) {
-            console.log('Error getting user reviews')
+            console.error('Error getting user reviews:', error)
             next(error)
         }
     },
@@ -21,7 +44,7 @@ const reviewController = {
             //maybe need the company id and review id
             //const { companyId } = req.params;
             //get all reviews
-            const reviews = await Reviews.find({})  //MAKE THIS POPULATE COMPANY DATA SO WE CAN GET THE NAME!
+            const reviews = await Review.find({})
             console.log(reviews)
             //display it in the feed component for the reviews
             res.json(reviews) // Send reviews as JSON response
@@ -33,11 +56,14 @@ const reviewController = {
         try {
             // extract reviewId
             const { reviewId } = req.params
+
             // find & delete review in db
-            const deletedReview = await Reviews.findByIdAndDelete(reviewId)
+            const deletedReview = await Review.findByIdAndDelete(reviewId)
+
             if (!deletedReview) {
                 return res.status(404).json({ message: 'Review not found' })
             }
+
             console.log(`Review ${reviewId} has been deleted`)
             res.status(200).json({ message: 'Review deleted successfully' })
         } catch (err) {
