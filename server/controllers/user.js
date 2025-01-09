@@ -46,7 +46,7 @@ const userController = {
       next(error)
     }
   },
-  getFavoritesCompanies: async (req, res, next) => {
+  getFavoriteCompanies: async (req, res, next) => {
     try {
       const favorites = await User.find({ clerkId: req.auth.userId }).select('favoriteCompanies')
     } catch (error) {
