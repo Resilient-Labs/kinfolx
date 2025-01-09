@@ -15,7 +15,7 @@ const CompanyReviewSummary = (props) => {
                 const response = await fetch(`/api/review/allCompanyReviews`)
                 if (!response.ok) throw new Error('Failed to fetch posts.')
                 const data = await response.json()
-                setReviews(data)
+                setReviews(data.filter((review) => review.companyId._id === params.id))
             } catch (error) {
                 console.error('Error fetching posts:', error)
             }
@@ -31,7 +31,7 @@ const CompanyReviewSummary = (props) => {
                 <h3>Summary of Reviews</h3>
                 {reviews && reviews.length > 0 ? (
                     reviews
-                        .filter((review) => review.companyId === params.id) // Filter reviews by companyId
+                        .filter((review) => review.companyId._id === params.id) // Filter reviews by companyId
                         .map((review, index) => (
                             <div key={index} className="feed-item">
                                 <h3 className="company-name">{companyName}</h3>
