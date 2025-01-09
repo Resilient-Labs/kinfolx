@@ -84,9 +84,11 @@ const ReviewList =  (props) => {
             if (!response.ok) {
                 console.log({reviewData})
                 throw new Error (`Response status: ${response.status}`)
+            } else {
+                const responseData = await response.json()
+                console.log(`Response: ${responseData}`)
+                window.location.href = '/'
             }
-            const responseData = await response.json()
-            console.log(`Response received: ${responseData}`);
         } catch (error) {
              console.log(error)
         }
