@@ -44,7 +44,7 @@ const reviewController = {
             //maybe need the company id and review id
             //const { companyId } = req.params;
             //get all reviews
-            const reviews = await Review.find({})
+            const reviews = await Reviews.find({})
             console.log(reviews)
             //display it in the feed component for the reviews
             res.json(reviews) // Send reviews as JSON response
