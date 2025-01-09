@@ -8,8 +8,8 @@ export default function Feed() {
     const fallbackReviews = [
         {
             companyName: 'Tesla',
-            role: 'Administration and Support',
-            newRatings: {
+            position: 'Administration and Support',
+            questions: {
                 accountability: 3,
                 representation: 3,
                 workLifeBalance: 4,
@@ -138,14 +138,14 @@ export default function Feed() {
     useEffect(() => {
         const fetchReviews = async () => {
             try {
-                const response = await fetch(`/api/review`)
+                const response = await fetch(`/api/review/allCompanyReviews`)
                 if (!response.ok) throw new Error('Failed to fetch posts.')
                 const data = await response.json()
-                if (data.UserReviews.length === 0) {
+                if (data.length === 0) {
                     // If no reviews fetched, use fallback reviews
                     setReviews(fallbackReviews)
                 } else {
-                    setReviews(data.UserReviews)
+                    setReviews(data)
                 }
             } catch (error) {
                 console.error('Error fetching posts:', error)
