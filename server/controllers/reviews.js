@@ -77,7 +77,7 @@ const reviewController = {
         try {
             // NOTE: assuming we're getting companyId from src/components/ReviewList.jsx (POST fetch statement)
             const { companyId } = req.params
-            const { companyName, newRatings, comment, position } = req.body
+            const { newRatings, comment, position } = req.body
             // lookup clerkId to get userId
             const clerkId = req.auth.userId
             console.log('Clerk ID: ' + clerkId)
@@ -94,9 +94,8 @@ const reviewController = {
             const newReview = new Reviews({
                 userId,
                 companyId,
-                companyName,
+                position,
                 questions: {
-                    position,
                     accountability: newRatings.accountability,
                     representation: newRatings.representation,
                     workLifeBalance: newRatings.workLifeBalance,
@@ -109,7 +108,7 @@ const reviewController = {
             })
             await newReview.save()
             console.log('Review has been created!')
-            res.status(201).send('Review created successfully')
+            res.status(201).json({ message: 'Review created successfully', redirectTo: '/' });
         } catch (err) {
             console.log(err)
             res.status(500).send('Error creating review')
