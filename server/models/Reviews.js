@@ -18,7 +18,6 @@ const ReviewSchema = new Schema(
             required: true,
         }, // Link to Company model
         position: { type: String, required: true }, //users job position
-        companyName: { type: String, required: true }, // not in main at time of creating this, but in a PR soon
         questions: {
             accountability: { type: Number, required: true }, // Scale 1-5
             representation: { type: Number, required: true }, // Scale 1-5
