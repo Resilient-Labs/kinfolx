@@ -7,12 +7,12 @@ export default function LeftSidebar() {
     useEffect(() => {
         const fetchFavoriteCompanies = async () => {
             try {
-                const response = await fetch('/api/user/favorite')
+                const response = await fetch('/api/user/favorites')
                 if (!response.ok)
                     throw new Error('Failed to fetch favorite companies.')
                 const data = await response.json()
-                console.log(data)
-                setFavoriteCompanies(data)
+                console.log(data.favorites)
+                setFavoriteCompanies(data.favorites)
             } catch (error) {
                 console.error('Error fetching favorite companies:', error)
             }
@@ -26,8 +26,8 @@ export default function LeftSidebar() {
             <section className="favorite-companies">
                 <h3>Favorite Companies</h3>
                 <ul className="favorite-list">
-                    {favoriteCompanies.slice(0, 5).map((favoriteCompanies) => (
-                        <li key={favoriteCompanies.name}>
+                    {favoriteCompanies.slice(0, 5).map((favoriteCompanies, index) => (
+                        <li key={`favoriteCompany${index}`}>
                             {favoriteCompanies.name}
                         </li>
                     ))}

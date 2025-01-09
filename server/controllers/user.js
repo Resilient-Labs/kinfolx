@@ -35,6 +35,7 @@ const userController = {
             next(error)
         }
     },
+    //a new function is coming!
     addFavoriteCompany: async (req, res, next) => {
         try {
           const clerkId = req.auth.userId;
@@ -58,8 +59,11 @@ const userController = {
             const favorites = await User.find({
                 clerkId: req.auth.userId,
             }).select('favoriteCompanies')
+            console.log({ favorites } ,' I am in in get Favirte company')
+            res.status(200).json({ favorites })
         } catch (error) {
-            next(error)
+            console.log(error)
+            res.status(500).json({ message: 'Failed to get favorites' })
         }
     },
 }
