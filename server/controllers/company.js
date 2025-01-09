@@ -33,64 +33,94 @@ const companyController = {
         try {
             const companies = await Company.aggregate([
                 {
-                    //Joins the reviews collection with the Company collection + stores the matching documents in the 'reviewsData' array.
-
+                    // Joins the reviews collection with the Company collection
                     $lookup: {
-                        from: 'reviews', // Collection that we want data to join
-                        localField: 'reviews', //first field in the current collection
-                        foreignField: '_id', // Other field in the other collection
-                        as: 'reviewsData', // New array field that is storing the joined data
+                        from: 'reviews', // Collection to join
+                        localField: '_id', // Match company ID
+                        foreignField: 'companyId', // Match review's companyId
+                        as: 'reviewsData', // Store joined data
                     },
                 },
                 {
+                    // Calculate the average of all questions for each company
                     $addFields: {
-                        averageRating: { $avg: '$reviewsData.companyCulture' }, // Calculate the average rating
+                        averageRating: {
+                            $avg: {
+                                $map: {
+                                    input: '$reviewsData', // Loop through reviewsData
+                                    as: 'review',
+                                    in: {
+                                        $avg: [
+                                            '$$review.questions.accountability',
+                                            '$$review.questions.representation',
+                                            '$$review.questions.workLifeBalance',
+                                            '$$review.questions.careerGrowth',
+                                            '$$review.questions.diversityScale',
+                                            '$$review.questions.companyCulture',
+                                            '$$review.questions.salary',
+                                        ],
+                                    },
+                                },
+                            },
+                        },
                     },
                 },
-                {
-                    $sort: { averageRating: -1 }, // Sort by averageRating in descending order
-                },
-                {
-                    $limit: 5, // Limits to top 5 companies
-                },
-            ])
-
-            res.status(200).json(companies)
+                { $sort: { averageRating: -1 } }, // Sort by highest averageRating
+                { $limit: 5 }, // Limit to top 5 companies
+            ]);
+    
+            console.log('Best Companies:', companies);
+            res.status(200).json(companies);
         } catch (error) {
-            next(error)
+            next(error);
         }
+   
     },
-
     //Fetches 5 worst companies, sorted in ascending order using mongoDB
     getWorstCompanies: async (req, res, next) => {
         try {
             const companies = await Company.aggregate([
                 {
-                    //Joins the reviews collection with the Company collection + stores the matching documents in the 'reviewsData' array.
-
+                    // Joins the reviews collection with the Company collection
                     $lookup: {
-                        from: 'reviews', // Collection that we want data to join
-                        localField: 'reviews', //first field in the current collection
-                        foreignField: '_id', // Other field in the other collection
-                        as: 'reviewsData', // New array field that is storing the joined data
+                        from: 'reviews', // Collection to join
+                        localField: '_id', // Match company ID
+                        foreignField: 'companyId', // Match review's companyId
+                        as: 'reviewsData', // Store joined data
                     },
                 },
                 {
+                    // Calculate the average of all questions for each company
                     $addFields: {
-                        averageRating: { $avg: '$reviewsData.companyCulture' }, // Calculate the average rating
+                        averageRating: {
+                            $avg: {
+                                $map: {
+                                    input: '$reviewsData', // Loop through reviewsData
+                                    as: 'review',
+                                    in: {
+                                        $avg: [
+                                            '$$review.questions.accountability',
+                                            '$$review.questions.representation',
+                                            '$$review.questions.workLifeBalance',
+                                            '$$review.questions.careerGrowth',
+                                            '$$review.questions.diversityScale',
+                                            '$$review.questions.companyCulture',
+                                            '$$review.questions.salary',
+                                        ],
+                                    },
+                                },
+                            },
+                        },
                     },
                 },
-                {
-                    $sort: { averageRating: 1 }, // Sort by averageRating in ascending order
-                },
-                {
-                    $limit: 5, // Limit to bottom 5 companies
-                },
-            ])
-
-            res.status(200).json(companies)
+                { $sort: { averageRating: 1 } }, // Sort by lowest averageRating
+                { $limit: 5 }, // Limit to bottom 5 companies
+            ]);
+    
+            console.log('Worst Companies:', companies);
+            res.status(200).json(companies);
         } catch (error) {
-            next(error)
+            next(error);
         }
     },
     searchCompany: async (req, res, next) => {
