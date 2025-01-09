@@ -1,78 +1,129 @@
-const cloudinary = require('../middleware/cloudinary')
-const Review = require('../models/Reviews')
-
+import Reviews from '../models/Reviews.js'
+import Company from '../models/Company.js'
+import User from '../models/User.js'
 const reviewController = {
-    getProfile: async (req, res) => {
+    getUserReviews: async (req, res, next) => {
         try {
-            const posts = await Post.find({ user: req.user.id })
-            res.render('profile.ejs', { posts: posts, user: req.user })
-        } catch (err) {
-            console.log(err)
-        }
-    },
-    getFeed: async (req, res) => {
-        try {
-            const posts = await Post.find().sort({ createdAt: 'desc' }).lean()
-            res.render('feed.ejs', { posts: posts })
-        } catch (err) {
-            console.log(err)
-        }
-    },
-    getPost: async (req, res) => {
-        try {
-            const post = await Post.findById(req.params.id)
-            res.render('post.ejs', { post: post, user: req.user })
-        } catch (err) {
-            console.log(err)
-        }
-    },
-    createPost: async (req, res) => {
-        try {
-            // Upload image to cloudinary
-            const result = await cloudinary.uploader.upload(req.file.path)
+            const clerkId = req.auth.userId
+            const user = await User.find({ clerkId })
+            const userId = user[0]._id
+            console.log({ userId })
 
-            await Post.create({
-                title: req.body.title,
-                image: result.secure_url,
-                cloudinaryId: result.public_id,
-                caption: req.body.caption,
-                likes: 0,
-                user: req.user.id,
+            const userReviews = await Reviews.find({ userId })
+            res.json({ userReviews })
+        } catch (error) {
+            console.log('Error getting user reviews')
+            next(error)
+        }
+    },
+    getAllCompanyReviews: async (req, res, next) => {
+        try {
+            //maybe need the company id and review id
+            //const { companyId } = req.params;
+            //get all reviews
+            const reviews = await Reviews.find({})
+            console.log(reviews)
+            //display it in the feed component for the reviews
+            res.json(reviews) // Send reviews as JSON response
+        } catch (error) {
+            next(error)
+        }
+    },
+    deleteReview: async (req, res) => {
+        try {
+            // extract reviewId
+            const { reviewId } = req.params
+            // find & delete review in db
+            const deletedReview = await Reviews.findByIdAndDelete(reviewId)
+            if (!deletedReview) {
+                return res.status(404).json({ message: 'Review not found' })
+            }
+            console.log(`Review ${reviewId} has been deleted`)
+            res.status(200).json({ message: 'Review deleted successfully' })
+        } catch (err) {
+            console.error('Error deleting review:', err)
+            res.status(500).json({
+                message: 'Server error while deleting review',
             })
-            console.log('Post has been added!')
-            res.redirect('/profile')
-        } catch (err) {
-            console.log(err)
         }
     },
-    likePost: async (req, res) => {
+    createReview: async (req, res) => {
         try {
-            await Post.findOneAndUpdate(
-                { _id: req.params.id },
-                {
-                    $inc: { likes: 1 },
+            // NOTE: assuming we're getting companyId from src/components/ReviewList.jsx (POST fetch statement)
+            const { companyId } = req.params
+            const { companyName, newRatings, comment, position } = req.body
+            // lookup clerkId to get userId
+            const clerkId = req.auth.userId
+            console.log('Clerk ID: ' + clerkId)
+            const user = await User.findOne({ clerkId })
+            const userId = user[0]._id
+            console.log('User ID: ' + userId)
+            // Ensure company exists (when passed companyId in req.body) <---------------- bring back when done testing!
+            const foundCompanyId = await Company.findById(companyId)
+            if (!foundCompanyId) {
+                return res.status(404).send('Company ID not found')
+            }
+            // Create new review
+            const newReview = new Reviews({
+                userId,
+                companyId,
+                companyName,
+                questions: {
+                    position,
+                    accountability: newRatings.accountability,
+                    representation: newRatings.representation,
+                    workLifeBalance: newRatings.workLifeBalance,
+                    careerGrowth: newRatings.careerGrowth,
+                    diversityScale: newRatings.diversityScale,
+                    companyCulture: newRatings.companyCulture,
+                    salary: newRatings.salaries,
                 },
-            )
-            console.log('Likes +1')
-            res.redirect(`/post/${req.params.id}`)
+                comment,
+            })
+            await newReview.save()
+            console.log('Review has been created!')
+            res.status(201).send('Review created successfully')
         } catch (err) {
             console.log(err)
+            res.status(500).send('Error creating review')
         }
     },
-    deletePost: async (req, res) => {
+    editReview: async (req, res) => {
         try {
-            // Find post by id
-            let post = await Post.findById({ _id: req.params.id })
-            // Delete image from cloudinary
-            await cloudinary.uploader.destroy(post.cloudinaryId)
-            // Delete post from db
-            await Post.remove({ _id: req.params.id })
-            console.log('Deleted Post')
-            res.redirect('/profile')
+            const { reviewId } = req.params
+
+            // NOTE: assuming we're getting companyId from src/components/ReviewList.jsx (POST fetch statement)
+            const { newRatings, comment, position } = req.body
+
+            // Edit review - Find review by ID and update
+            const updatedReview = await Review.findByIdAndUpdate(
+                reviewId,
+                {
+                    $set: {
+                        'questions.position': position,
+                        'questions.accountability': newRatings.accountability,
+                        'questions.representation': newRatings.representation,
+                        'questions.workLifeBalance': newRatings.workLifeBalance,
+                        'questions.careerGrowth': newRatings.careerGrowth,
+                        'questions.diversityScale': newRatings.diversityScale,
+                        'questions.companyCulture': newRatings.companyCulture,
+                        'questions.salary': newRatings.salaries,
+                        comment,
+                    },
+                },
+                { new: true }, // Return the updated document
+            )
+
+            if (!updatedReview) {
+                return res.status(404).send('Review not found')
+            }
+
+            console.log('Review has been edited!')
+            res.status(201).send('Review edited successfully')
         } catch (err) {
-            res.redirect('/profile')
+            console.log(err)
+            res.status(500).send('Error updating review')
         }
     },
 }
-
 export default reviewController

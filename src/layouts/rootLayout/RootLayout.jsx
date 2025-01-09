@@ -18,9 +18,9 @@ if (!PUBLISHABLE_KEY) {
 const RootLayout = () => {
     return (
         <div className="rootLayout">
-            <Header/>
-            <Outlet /> 
-            <Footer/>
+            <Header />
+            <Outlet />
+            <Footer />
         </div>
     )
 }
