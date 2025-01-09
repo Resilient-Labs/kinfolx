@@ -40,7 +40,7 @@ const ReviewList =  (props) => {
     }
 
     const handleSubmit = async () => {
-        const companyName = props.company
+        const companyId = props.company
         const position = props.position
         let newRatings = {}
         for(let rating in ratings){
@@ -52,13 +52,13 @@ const ReviewList =  (props) => {
         console.log(newRatings)
         
         const reviewData = {
-            companyName,
+            companyId,
             position,
             newRatings,
             comment,
         };
         
-        if (!companyName || !position) {
+        if (!companyId || !position) {
             alert('Please select or add a company name and role.')
             return
         }
@@ -74,7 +74,7 @@ const ReviewList =  (props) => {
 
 
         try {
-            const response = await fetch(`/api/review/${companyName}`, {
+            const response = await fetch(`/api/review/${companyId}`, {
                  method: 'POST',
                  headers: {
                      'Content-Type': 'application/json',
