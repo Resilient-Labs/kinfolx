@@ -108,14 +108,13 @@ const companyController = {
                     },
                 },
             ])
-            // if (companies.length === 1) {
-            //     // If exactly one company matches, return it
-            //     res.json({ redirect: true, company: companies[0] });
-            // } else {
-            //     // Otherwise, return the list of companies
-            //     res.json({ redirect: false, companies });
-            // }
-            res.json(companies) // Send the companies data as JSON response
+            if (companies.length === 1) {
+                // If exactly one company matches, return it
+                res.json({ redirect: true, company: companies[0] });
+            } else {
+                // Otherwise, return the list of companies
+                res.json({ redirect: false, companies });
+            }
         } catch (error) {
             next(error) // Handle errors appropriately
         }
