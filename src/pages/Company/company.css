@@ -16,11 +16,15 @@
 #overview {
     background-color: #896346;
 }
+
+#overview > div {
+    margin-top: 10px;
+}
 .content-box div h3{
     color:#313030;
     }
 .content-box div span{
-    color:#d2d1cf;
+    color:white;
     font-size: 1.3rem;
 }
 #reviews{

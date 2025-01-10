@@ -43,13 +43,18 @@ function Profile() {
 
     return (
         <main className="profile_profile-container">
-            <ProfileInfo userImage={userImage} userName={userName} />
-
+            <div className="profile_top">
+                <div className="profile_info">
+                    <ProfileInfo userImage={userImage} userName={userName} />
+                </div>
+                <div className="left_sidebar">
+                    <LeftSidebar />
+                </div>
+            </div>
             <h3 className="profile_center">
                 Reviews You have Left (Only Visible to You)
             </h3>
             <section className="profile_reviews">
-                <LeftSidebar />
                 {userReviews.map((review, index) => (
                     <CompanyReviews
                         key={`userCompanyReview${index}`}
