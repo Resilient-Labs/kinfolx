@@ -51,3 +51,9 @@
 .header_search-btn:active {
     background-color: #3d2c1f;
 }
+@media (max-width:600px)  {
+    .header_search-form {
+        display: none;
+    }
+
+}

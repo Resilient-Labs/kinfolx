@@ -9,9 +9,9 @@
 }
 @media (max-width:600px)  {
     .home_home-container {
-        flex-direction: row;
+        /* flex-direction: row; */
     }
     .home_home-container {
-        background-color: white;
+        /* background-color: white; */
     }
 }

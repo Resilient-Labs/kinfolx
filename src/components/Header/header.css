@@ -57,3 +57,8 @@
 .auth-links a:hover {
     text-decoration: underline;
 }
+@media (max-width:600px)  {
+    .header_home, .header_home a {
+        display: none;
+    }
+}
