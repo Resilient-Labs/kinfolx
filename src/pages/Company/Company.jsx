@@ -35,9 +35,9 @@ const Company = () => {
 
     console.log(company)
     return (
-        <main className="company-container">
+        <main className="company_company-container">
             <CompanyBanner {...company} />
-            <section className="content">
+            <section className="company_content">
                 <CompanyOverview {...company} />
                 <CompanyReviewSummary {...company} />
                 {/* <CompanySalaries /> */}

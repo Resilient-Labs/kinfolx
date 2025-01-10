@@ -1,5 +1,6 @@
 /* Company Page */
-.company-container {
+
+.company_company-container {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -7,8 +8,27 @@
     padding: 1rem;
 }
 /* Content */
-.content {
+.company_content {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+}
+#overview {
+    background-color: #896346;
+}
+.content-box div h3{
+    color:#313030;
+    }
+.content-box div span{
+    color:#d2d1cf;
+    font-size: 1.3rem;
+}
+#reviews{
+    background-color: #896346;
+}
+div.feed-item {
+    background-color: #6b4a30
+}
+section.company-info {
+    background-color: #6b482f
 }

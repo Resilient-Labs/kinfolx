@@ -1,11 +1,11 @@
-.reviews {
+.profile_reviews {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
 }
 
 /* Profile Info */
-.profile-info {
+.profile_profile-info {
     display: flex;
     align-items: center;
     gap: 2rem;
@@ -17,4 +17,5 @@
 
 .profile_center{
     text-align: center;
+    color:#292929;
 }

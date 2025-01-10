@@ -96,12 +96,12 @@ const ReviewList =  (props) => {
     }
     return (
         <div>
-            <div className="rating-section">
+            <div className="review_list_rating-section">
                 {Object.entries(categories).map(([category, caption]) => (
-                    <div key={category} className="rating-category">
+                    <div key={category} className="review_list_rating-category">
                         <label>{category.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/^./, str => str.toUpperCase())}:</label>
-                        <p className="sub-caption">{caption}</p>
-                        <div className="star-rating">
+                        <p className="review_list_sub-caption">{caption}</p>
+                        <div className="review_list_star-rating">
                             {[1, 2, 3, 4, 5].map((value) => (
                                 <img
                                     key={value}
@@ -113,7 +113,7 @@ const ReviewList =  (props) => {
                                             : './img/star-white-transp.png'
                                     }
                                     alt="star"
-                                    className="star"
+                                    className="review_list_star"
                                     onMouseOver={() =>
                                         handleMouseOver(category, value)
                                     }
@@ -127,7 +127,7 @@ const ReviewList =  (props) => {
                     </div>
                 ))}
             </div>
-
+            <div className="review_list_review-form-container"> 
             <textarea
                 id="comment"
                 rows="5"
@@ -139,6 +139,8 @@ const ReviewList =  (props) => {
             <button id="submit-review" onClick={handleSubmit}>
                 Submit
             </button>
+            </div>
+
         </div>
     )
 };

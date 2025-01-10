@@ -30,7 +30,7 @@ const CompanyBanner = (props) => {
                 src={`/img${props.companyLogo} `}
                 className="company-logo"
             />
-            <h1 className="company-name">{props.name}</h1>
+            <h1 className="companyBanner-name">{props.name}</h1>
             {/* <nav className="company-tabs">
                 <a href="#overview" className="tab">
                     Overview
@@ -42,10 +42,12 @@ const CompanyBanner = (props) => {
                     Salaries
                 </a>
             </nav> */}
-            <a onClick={addFavorite}>
-                <img className = "favImg" src="/img/red-heart.png" alt="" />
-            </a>
-            <AddReviewBtn/>
+            <div className="companyBanner_buttons">
+                <a onClick={addFavorite}>
+                    <img className = "favImg" src="/img/red-heart.png" alt="" />
+                </a>
+                <AddReviewBtn/>
+            </div>
         </section>
     )
 }

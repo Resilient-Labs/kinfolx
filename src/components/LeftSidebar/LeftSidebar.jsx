@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import './leftSidebar.css'
-import AddReviewBtn from '../AddReviewBtn/AddReviewBtn'
 
 export default function LeftSidebar() {
     const [favoriteCompanies, setFavoriteCompanies] = useState([])
@@ -22,12 +21,11 @@ export default function LeftSidebar() {
     }, [])
 
     return (
-        <aside className="left-sidebar">
-            <AddReviewBtn />
-            <section className="favorite-companies">
+        <aside className="leftSideBar_left-sidebar">
+            <section className="leftSideBar_favorite-companies">
                 <h3>Favorite Companies</h3>
-                <ul className="favorite-list">
-                    {favoriteCompanies.slice(0,5).map((company, index) => (
+                <ul className="leftSideBar_favorite-list">
+                    {favoriteCompanies.slice(0,6).map((company, index) => (
                         <li key={`favoriteCompany${index}`}>
                             {company.name}
                         </li>

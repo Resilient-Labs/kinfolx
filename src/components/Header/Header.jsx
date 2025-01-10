@@ -14,9 +14,9 @@ export default function Header() {
                 <div className="logo">
                     <a href="/">Kinfolx</a>
                 </div>
-                <SearchBar />
+                <SearchBar className="header_search" />
                 <ul className="nav-links">
-                    <li>
+                    <li className="header_home">
                         <a href="/">Home</a>
                     </li>
                     <li>
@@ -27,16 +27,12 @@ export default function Header() {
                     </li>
                 </ul>
                 <div className="auth-links">
-                    {/* <a href="/signup">Sign Up</a>
-                    <a href="/login">Login</a> */}
-                    {/* <div className="user"> */}
                     <SignedOut>
                         <SignInButton />
                     </SignedOut>
                     <SignedIn>
                         <UserButton />
                     </SignedIn>
-                    {/* </div> */}
                 </div>
             </nav>
         </header>

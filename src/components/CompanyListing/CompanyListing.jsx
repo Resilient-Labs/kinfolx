@@ -23,9 +23,9 @@ const CompanyListing = () => {
         fetchCompanies()
     }, [])
     return (
-        <section className="company-grid">
+        <section className="companyListing_company-grid">
             {companies.map((company) => (
-                <div className="company-card" key={company._id}>
+                <div className="companyListing_company-card" key={company._id}>
                     <Link to={`/company/${company._id}`}>{company.name}</Link>
                 </div>
             ))}

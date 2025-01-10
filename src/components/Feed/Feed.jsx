@@ -141,7 +141,7 @@ export default function Feed() {
                 const response = await fetch(`/api/review/allCompanyReviews`)
                 if (!response.ok) throw new Error('Failed to fetch posts.')
                 const data = await response.json()
-                console.log(data, 'I AM DATA!!!! ');
+
                 if (data.length === 0) {
                     // If no reviews fetched, use fallback reviews
                     setReviews([])
@@ -157,23 +157,23 @@ export default function Feed() {
     }, [])
 
     return (
-        <section className="feed">
+        <section className="feed_feed">
             {reviews.map((review, index) => (
-                <div key={index} className="feed-item">
-                    <h3 className="company-name">{review.companyName}</h3>
-                    <p className="role">
+                <div key={index} className="feed_feed-item">
+                    <h3 className="feed_company-name">{review.companyName}</h3>
+                    <p className="feed_role">
                         <strong>Position:</strong> {review.position}
                     </p>
-                    <div className="ratings-grid">
+                    <div className="feed_ratings-grid">
                         {Object.entries(review.questions).map(
                             ([category, value]) => (
-                                <div key={category} className="rating-cell">
-                                    <span className="category-name">
+                                <div key={category} className="feed_rating-cell">
+                                    <span className="feed_category-name">
                                         {category
                                             .replace(/([A-Z])/g, ' $1')
                                             .toLowerCase()}
                                     </span>
-                                    <div className="stars">
+                                    <div className="feed_stars">
                                         {[1, 2, 3, 4, 5].map((star) => (
                                             <img
                                                 key={star}
@@ -183,7 +183,7 @@ export default function Feed() {
                                                         : '/img/star-white-transp.png'
                                                 }
                                                 alt={`${star <= value ? 'Filled' : 'Empty'} Star`}
-                                                className="star-img"
+                                                className="feed_star-img"
                                             />
                                         ))}
                                     </div>
@@ -192,7 +192,7 @@ export default function Feed() {
                         )}
                     </div>
                     {review.comment && (
-                        <p className="comment">
+                        <p className="feed_comment">
                             <strong>Comment:</strong> {review.comment}
                         </p>
                     )}
