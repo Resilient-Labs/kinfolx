@@ -1,10 +1,8 @@
-import { useEffect, useState, useRef } from 'react'
+import { useState, useRef } from 'react'
 import './companyReviews.css'
-// import { Link } from 'react-router'
+import validateRatings from '../../utils/validateRatings'
 
-const CompanyReviews = () => {
-    //do a fetch request and populate the company reviews!
-    const [userReviews, setUserReviews] = useState([])
+const CompanyReviews = ({review, setReviews}) => {
     const [isEditing, setIsEditing] = useState(false)
 
     const positionRef = useRef()
@@ -17,26 +15,8 @@ const CompanyReviews = () => {
     const salaryRef = useRef()
     const commentRef = useRef()
 
-    console.log(userReviews, 'userReviews in Company Reviews')
-
-    useEffect(() => {
-        const getUserReviews = async () => {
-            try {
-                const response = await fetch('/api/review')
-                if (!response.ok) console.log(response.statusText)
-                const reviews = await response.json()
-
-                console.log(reviews, 'userReviews')
-                setUserReviews(reviews.userReviews)
-            } catch (error) {
-                console.error(`Error getting a user's reviews, ${error}`)
-            }
-        }
-        getUserReviews()
-    }, [])
 
     async function handleDeleteReview(reviewId) {
-        console.log({ reviewId })
         const response = await fetch(`/api/review/${reviewId}`, {
             method: 'DELETE',
             headers: {
@@ -45,7 +25,7 @@ const CompanyReviews = () => {
         })
         if (response.ok) {
             // set state to filtered list of reviews without that of deleted ID
-            setUserReviews((currentReviews) =>
+            setReviews((currentReviews) =>
                 currentReviews.filter((review) => review._id !== reviewId),
             )
         } else {
@@ -53,16 +33,13 @@ const CompanyReviews = () => {
         }
     }
 
-    async function handleEditReview(reviewId) {
-        console.log({ reviewId })
+    async function handleEditReview() {
         setIsEditing(true)
     }
 
     async function handleSave(reviewId) {
         setIsEditing(false)
-        console.log(positionRef.current.value)
-        console.log(accountabilityRef.current.value)
-        console.log(commentRef.current.value)
+         console.log(validateRatings(salaryRef.current.value))
         const response = await fetch(`/api/review/${reviewId}`, {
             method: 'PUT',
             headers: {
@@ -70,13 +47,13 @@ const CompanyReviews = () => {
             },
             body: JSON.stringify({
                 newRatings: {
-                    accountability: accountabilityRef.current.value,
-                    representation: representationRef.current.value,
-                    workLifeBalance: workLifeBalanceRef.current.value,
-                    careerGrowth: careerGrowthRef.current.value,
-                    diversityScale: diversityScaleRef.current.value,
-                    companyCulture: companyCultureRef.current.value,
-                    salary: salaryRef.current.value,
+                    accountability: validateRatings(accountabilityRef.current.value),
+                    representation: validateRatings(representationRef.current.value),
+                    workLifeBalance: validateRatings(workLifeBalanceRef.current.value),
+                    careerGrowth: validateRatings(careerGrowthRef.current.value),
+                    diversityScale: validateRatings(diversityScaleRef.current.value),
+                    companyCulture: validateRatings(companyCultureRef.current.value),
+                    salary: validateRatings(salaryRef.current.value),
                 },
                 comment: commentRef.current.value,
                 position: positionRef.current.value,
@@ -87,7 +64,7 @@ const CompanyReviews = () => {
                 const updatedResponse = await fetch('/api/review')
                 if (updatedResponse.ok) {
                     const updatedReviews = await updatedResponse.json()
-                    setUserReviews(updatedReviews.userReviews)
+                    setReviews(updatedReviews.userReviews)
                 } else {
                     console.error(
                         'Failed to fetch updated reviews:',
@@ -107,11 +84,9 @@ const CompanyReviews = () => {
     }
 
     return (
-        <div className="review">
-            <h3>Reviews You have Left (Only Visible to You)</h3>
+        <div className="review"> 
             <ul className="review-list">
-                {userReviews.map((review, index) => (
-                    <li key={`review${index}`}>
+                    <li>
                         {!isEditing ? (
                             <ul>
                                 <li>{`Company Name: ${review.companyName}`}</li>
@@ -301,7 +276,6 @@ const CompanyReviews = () => {
                             )}
                         </div>
                     </li>
-                ))}
             </ul>
         </div>
     )
