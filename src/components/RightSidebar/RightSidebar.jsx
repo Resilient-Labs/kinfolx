@@ -13,7 +13,7 @@ export default function RightSidebar() {
                 if (!response.ok)
                     throw new Error('Failed to fetch best companies.')
                 const data = await response.json()
-                console.log(data)
+                console.log('Best Companies:', data)
                 setBestCompanies(data)
             } catch (error) {
                 console.error('Error fetching best companies:', error)
@@ -26,7 +26,7 @@ export default function RightSidebar() {
                 if (!response.ok)
                     throw new Error('Failed to fetch worst companies.')
                 const data = await response.json()
-                console.log(data)
+                console.log('Worst Companies:', data)
                 setWorstCompanies(data)
             } catch (error) {
                 console.error('Error fetching worst companies:', error)

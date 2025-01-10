@@ -9,31 +9,52 @@ function Profile() {
     const { isLoaded, user } = useUser()
     const [userName, setUserName] = useState()
     const [userImage, setUserImage] = useState()
-    console.log(userName, userImage); 
+    const [userReviews, setUserReviews] = useState([])
 
     useEffect(() => {
         if (!isLoaded || !user) {
-            return 
+            return
         } else {
             setUserImage(user.imageUrl)
             setUserName(user.username)
         }
     }, [isLoaded, user])
 
+    //do a fetch request and populate the company reviews!
+    useEffect(() => {
+        const getUserReviews = async () => {
+            try {
+                const response = await fetch('/api/review')
+                if (!response.ok) console.log(response.statusText)
+                const reviews = await response.json()
+
+                setUserReviews(reviews.userReviews)
+            } catch (error) {
+                console.error(`Error getting a user's reviews, ${error}`)
+            }
+        }
+        getUserReviews()
+    }, [])
+
     if (!isLoaded || !user) {
-        return <div>....Loading</div> //make this look pretty like a loading bar or something 
+        return <div>....Loading</div> //make this look pretty like a loading bar or something
     }
-    //load a user's reviews (done)
-    //delete button for a review (done)
-    //load the profile pic (done)
-    //load the userName (done)
-    //add an edit button for a review (TO DO!)
-    //add a list of favorite companies
+
     return (
         <main className="profile_profile-container">
             <ProfileInfo userImage={userImage} userName={userName} />
+
+            <h3 className="profile_center">
+                Reviews You have Left (Only Visible to You)
+            </h3>
             <section className="profile_reviews">
-                <CompanyReviews />
+                {userReviews.map((review, index) => (
+                    <CompanyReviews
+                        key={`userCompanyReview${index}`}
+                        review={review}
+                        setReviews={setUserReviews}
+                    />
+                ))}
                 <LeftSidebar />
             </section>
         </main>

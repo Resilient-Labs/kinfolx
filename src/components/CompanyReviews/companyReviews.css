@@ -26,9 +26,11 @@
     font-size: 1.6rem;
     color: #aaa;
     transition: background-color 0.3s;
+    margin-bottom: 0.5rem;
 }
 .companyReviews_review-list li:hover {
     background-color: #333;
+   
 }
 /* Buttons */
 .companyReviews_action-btn {
@@ -54,6 +56,6 @@
 .companyReviews_btn-wrapper {
     display: flex;
     gap: 2rem;
-    margin-top: 20px;
+    margin-top: 1rem;
     justify-content: center;
 }
