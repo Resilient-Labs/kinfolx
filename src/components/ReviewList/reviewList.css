@@ -48,7 +48,7 @@
 }
 
 /* change to filled yellow star when clicked/hovered */
-.review_list_star-rating img.review_list_star.filled {
+.review_list_star-rating img.star.filled {
     opacity: 1;
     content: url('star-yellow.png');
 }

@@ -127,7 +127,7 @@ const ReviewList =  (props) => {
                     </div>
                 ))}
             </div>
-
+            <div className="review_list_review-form-container"> 
             <textarea
                 id="comment"
                 rows="5"
@@ -139,6 +139,8 @@ const ReviewList =  (props) => {
             <button id="submit-review" onClick={handleSubmit}>
                 Submit
             </button>
+            </div>
+
         </div>
     )
 };
