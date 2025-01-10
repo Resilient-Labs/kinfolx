@@ -1,16 +1,16 @@
-.left-sidebar {
+.leftSideBar_left-sidebar {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
 
-.favorite-companies {
+.leftSideBar_favorite-companies {
     background-color: #292929;
     padding: 1rem;
     border: 1px solid #444;
     border-radius: 4px;
 }
-.favorite-list {
+.leftSideBar_favorite-list {
     color: #aaa;
     list-style: none;
     display: flex;
@@ -20,7 +20,7 @@
     /* overflow-y: auto;  */
     /* height: 500px; */
 }
-.favorite-list li {
+.leftSideBar_favorite-list li {
     border: 1px solid black;
     border-radius: 4px;
     background-color: #161616;

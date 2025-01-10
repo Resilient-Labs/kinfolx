@@ -107,9 +107,9 @@ const CompanyReviews = () => {
     }
 
     return (
-        <div className="review">
+        <div className="companyReviews_review">
             <h3>Reviews You have Left (Only Visible to You)</h3>
-            <ul className="review-list">
+            <ul className="companyReviews_review-list">
                 {userReviews.map((review, index) => (
                     <li key={`review${index}`}>
                         {!isEditing ? (
@@ -263,14 +263,14 @@ const CompanyReviews = () => {
                             </form>
                         )}
 
-                        <div className="btn-wrapper">
+                        <div className="companyReviews_btn-wrapper">
                             {!isEditing ? (
                                 <>
                                     <button
                                         onClick={() =>
                                             handleEditReview(review._id)
                                         }
-                                        className="action-btn edit-review"
+                                        className="companyReviews_action-btn companyReviews_edit-review"
                                     >
                                         Edit Review
                                     </button>
@@ -278,7 +278,7 @@ const CompanyReviews = () => {
                                         onClick={() =>
                                             handleDeleteReview(review._id)
                                         }
-                                        className="action-btn delete-review"
+                                        className="companyReviews_action-btn companyReviews_delete-review"
                                     >
                                         Delete Review
                                     </button>
@@ -287,13 +287,13 @@ const CompanyReviews = () => {
                                 <>
                                     <button
                                         onClick={() => handleSave(review._id)}
-                                        className="action-btn edit-review"
+                                        className="companyReviews_action-btn companyReviews_edit-review"
                                     >
                                         Save
                                     </button>
                                     <button
                                         onClick={() => handleCancel(review._id)}
-                                        className="action-btn delete-review"
+                                        className="companyReviews_action-btn companyReviews_delete-review"
                                     >
                                         Cancel
                                     </button>

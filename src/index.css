@@ -139,7 +139,7 @@ html {
     height: 100%;
     font-family: 'Consolas', 'Courier New', 'Lucida Console', Arial, Helvetica,
         sans-serif;
-    background-color: #121212;
+    background-color: #E4D4C8;
     color: #e0e0e0;
 }
 
@@ -164,10 +164,10 @@ body,
     width: 8px;
 }
 *::-webkit-scrollbar-track {
-    background: #1f1f1f;
+    background:  #d0b49f;
 }
 *::-webkit-scrollbar-thumb {
-    background: #444;
+    background: #523a28;
     border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {

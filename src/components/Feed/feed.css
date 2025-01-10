@@ -9,7 +9,7 @@
 .feed_feed-item {
     display: flex;
     flex-direction: column;
-    background-color: #292929;
+    background-color: #D0B49F;
     padding: 1.5rem;
     border: 1px solid #444;
     border-radius: 8px;
@@ -20,13 +20,13 @@
 
 .feed_company-name {
     font-size: 1.6rem;
-    color: #ffc107;
+    color: #954535;
     margin-bottom: 1rem;
 }
 
 .feed_role {
     font-size: 1.2rem;
-    color: #ccc;
+    color: #432f21;
     margin-bottom: 1rem;
 }
 
@@ -46,7 +46,7 @@
 
 .feed_category-name {
     font-size: 1.1rem;
-    color: #e0e0e0;
+    color: #432f21;
     margin-bottom: 0.5rem;
 }
 
@@ -63,5 +63,5 @@
 .feed_comment {
     margin-top: 1rem;
     font-size: 1.2rem;
-    color: #aaa;
+    color: #432f21;
 }

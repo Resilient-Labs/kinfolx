@@ -42,6 +42,12 @@
     background-color: #444;
 }
 
+.companyBanner-name {
+   font-size: 1.6rem;
+   color: #ffc107;
+   margin-bottom: 1rem;
+}
+
 .action-btn {
     border: none;
     padding: 1rem 2rem;

@@ -39,7 +39,7 @@
     margin-bottom: 1rem;
 }
 
-.review_list_star-rating img.star {
+.review_list_star-rating img.review_list_star {
     width: 32px;
     height: auto;
     cursor: pointer;
@@ -48,7 +48,7 @@
 }
 
 /* change to filled yellow star when clicked/hovered */
-.review_list_star-rating img.star.filled {
+.review_list_star-rating img.review_list_star.filled {
     opacity: 1;
     content: url('star-yellow.png');
 }

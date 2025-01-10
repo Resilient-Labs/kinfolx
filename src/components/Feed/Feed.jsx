@@ -192,7 +192,7 @@ export default function Feed() {
                         )}
                     </div>
                     {review.comment && (
-                        <p className="comment">
+                        <p className="feed_comment">
                             <strong>Comment:</strong> {review.comment}
                         </p>
                     )}
