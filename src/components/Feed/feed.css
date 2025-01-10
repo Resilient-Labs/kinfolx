@@ -20,12 +20,14 @@
 
 .feed_company-name {
     font-size: 1.6rem;
+    font-weight: 700;
     color: #954535;
     margin-bottom: 1rem;
 }
 
 .feed_role {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    font-weight: 700;
     color: #432f21;
     margin-bottom: 1rem;
 }
@@ -45,7 +47,8 @@
 }
 
 .feed_category-name {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    font-weight: 700;
     color: #432f21;
     margin-bottom: 0.5rem;
 }
@@ -63,5 +66,6 @@
 .feed_comment {
     margin-top: 1rem;
     font-size: 1.2rem;
+    font-weight: 700;
     color: #432f21;
 }

@@ -16,7 +16,7 @@
 }
 .rightSidebar_top-list,
 .rightSidebar_worst-list {
-    color: #aaa;
+    color: white;
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -36,7 +36,7 @@
 
 .rightSidebar_top-list,
 .rightSidebar_worst-list {
-    color: #aaa;
+    color: white;
     text-align: center;
     padding: 1rem;
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import "./searchBar.css"
 
 const SearchBar = () => {
     const [searchTerm, setSearchTerm] = useState('')
@@ -28,14 +29,15 @@ const SearchBar = () => {
 
     return (
         <div>
-            <form onSubmit={handleSearch}>
+            <form onSubmit={handleSearch} className="header_search-form">
                 <input
                     type="text"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     placeholder="Search for a company"
+                    className="header_search-input"
                 />
-                <button type="submit">Search</button>
+                <button type="submit" className="header_search-btn">Search</button>
             </form>
             {/* <div>
                 {results.length > 0 ? (
