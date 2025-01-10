@@ -39,7 +39,7 @@ const CompanyReviews = ({review, setReviews}) => {
 
     async function handleSave(reviewId) {
         setIsEditing(false)
-        
+         console.log(validateRatings(salaryRef.current.value))
         const response = await fetch(`/api/review/${reviewId}`, {
             method: 'PUT',
             headers: {
