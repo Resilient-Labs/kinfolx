@@ -3,6 +3,7 @@ import ProfileInfo from '../../components/ProfileInfo/ProfileInfo.jsx'
 import CompanyReviews from '../../components/CompanyReviews/CompanyReviews.jsx'
 import { useUser } from '@clerk/clerk-react'
 import { useEffect, useState } from 'react'
+import Spinner from '../../components/LoadingSpinner/Spinner.jsx'
 
 function Profile() {
     const { isLoaded, user } = useUser()
@@ -36,7 +37,7 @@ function Profile() {
     }, [])
 
     if (!isLoaded || !user) {
-        return <div>....Loading</div> //make this look pretty like a loading bar or something
+       return <Spinner />
     }
 
     return (
@@ -57,6 +58,7 @@ function Profile() {
             </section>
         </main>
     )
+
 }
 
 export default Profile
