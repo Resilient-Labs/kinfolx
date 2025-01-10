@@ -43,8 +43,8 @@
 }
 
 .companyBanner-name {
-   font-size: 1.6rem;
-   color: #ffc107;
+   font-size: 2.5rem;
+   color: white;
    margin-bottom: 1rem;
 }
 
@@ -68,9 +68,12 @@
 .favImg{
     width: 25px;
     transition: transform 0.3s ease;
-    position: relative;
-    left: 310px;
 }
 .favImg:hover {
     transform: scale(1.2); /*makes heart bigger on hover*/
+}
+.companyBanner_buttons{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
 }

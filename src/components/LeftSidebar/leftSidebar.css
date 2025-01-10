@@ -5,13 +5,13 @@
 }
 
 .leftSideBar_favorite-companies {
-    background-color: #292929;
+    background-color: #a47551;
     padding: 1rem;
     border: 1px solid #444;
     border-radius: 4px;
 }
 .leftSideBar_favorite-list {
-    color: #aaa;
+    color: white;
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -23,7 +23,7 @@
 .leftSideBar_favorite-list li {
     border: 1px solid black;
     border-radius: 4px;
-    background-color: #161616;
+    background-color: #523a28;
     padding: 1rem;
     font-size: 1.6rem;
     border-radius: 4px;

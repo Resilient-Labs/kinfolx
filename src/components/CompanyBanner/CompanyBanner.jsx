@@ -42,10 +42,12 @@ const CompanyBanner = (props) => {
                     Salaries
                 </a>
             </nav> */}
-            <a onClick={addFavorite}>
-                <img className = "favImg" src="/img/red-heart.png" alt="" />
-            </a>
-            <AddReviewBtn/>
+            <div className="companyBanner_buttons">
+                <a onClick={addFavorite}>
+                    <img className = "favImg" src="/img/red-heart.png" alt="" />
+                </a>
+                <AddReviewBtn/>
+            </div>
         </section>
     )
 }

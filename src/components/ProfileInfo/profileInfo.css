@@ -15,9 +15,9 @@
     align-items: center;
     gap: 2rem;
     padding: 2rem;
-    background-color: #292929;
+    background-color: #e4d4c8;
     border-radius: 4px;
-    border: 1px solid #444;
+    /* border: 1px solid #444; */
 }
 .profileInfo_profile-pic {
     width: 8rem;
@@ -33,5 +33,5 @@
 }
 .profileInfo_profile-username {
     font-size: 2rem;
-    color: #e0e0e0;
+    color: #523a28;
 }

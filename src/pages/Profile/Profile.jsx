@@ -48,6 +48,7 @@ function Profile() {
                 Reviews You have Left (Only Visible to You)
             </h3>
             <section className="profile_reviews">
+                <LeftSidebar />
                 {userReviews.map((review, index) => (
                     <CompanyReviews
                         key={`userCompanyReview${index}`}
@@ -55,7 +56,6 @@ function Profile() {
                         setReviews={setUserReviews}
                     />
                 ))}
-                <LeftSidebar />
             </section>
         </main>
     )

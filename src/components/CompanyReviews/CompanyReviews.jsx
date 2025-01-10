@@ -86,7 +86,6 @@ const CompanyReviews = ({review, setReviews}) => {
     return (
         <div className="companyReviews_review"> 
             <ul className="companyReviews_review-list">
-                    <li>
                         {!isEditing ? (
                             <ul>
                                 <li>{`Company Name: ${review.companyName}`}</li>
@@ -275,7 +274,7 @@ const CompanyReviews = ({review, setReviews}) => {
                                 </>
                             )}
                         </div>
-                    </li>
+
             </ul>
         </div>
     )

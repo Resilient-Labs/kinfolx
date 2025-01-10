@@ -1,13 +1,13 @@
 /* Reviews */
 .companyReviews_review {
     padding: 2rem;
-    background-color: #292929;
+    background-color: #a47551;
     border-radius: 4px;
     border: 1px solid #444;
 }
 .companyReviews_review h3 {
     margin-bottom: 1.5rem;
-    color: #e0e0e0;
+    color: white;
     font-size: 1.8rem;
 }
 .companyReviews_review-list {
@@ -20,11 +20,11 @@
 }
 .companyReviews_review-list li {
     padding: 1rem;
-    background-color: #161616;
+    background-color: #523a28;
     border: 1px solid #333;
     border-radius: 4px;
     font-size: 1.6rem;
-    color: #aaa;
+    color: white;
     transition: background-color 0.3s;
     margin-bottom: 0.5rem;
 }
@@ -33,7 +33,7 @@
    
 }
 /* Buttons */
-.companyReviews_action-btn {
+.companyReviews_edit-review {
     border: none;
     text-decoration: none;
     padding: 1rem;
@@ -43,14 +43,28 @@
     text-align: center;
     transition: background-color 0.2s;
     font-family: inherit;
-    background-color: #9e1313;
+    background-color: #1d1956;
+    color: white;
+    border-radius: 4px;
+}
+.companyReviews_delete-review {
+    border: none;
+    text-decoration: none;
+    padding: 1rem;
+    font-size: 1.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s;
+    font-family: inherit;
+    background-color: #610505;
     color: white;
     border-radius: 4px;
 }
 
 .companyReviews_action-btn:hover,
 .companyReviews_action-btn:active {
-    background-color: #282763;
+    background-color: #38281b;
 }
 
 .companyReviews_btn-wrapper {
