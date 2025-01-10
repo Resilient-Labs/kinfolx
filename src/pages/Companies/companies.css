@@ -24,7 +24,7 @@ body {
 }
 
 /* Header */
-.header {
+.companies_header {
     background-color: #1f1f1f;
     color: #e0e0e0;
     padding: 1rem 2rem;
@@ -33,20 +33,20 @@ body {
     justify-content: space-between;
 }
 
-.navbar {
+.companies_navbar {
     display: flex;
     align-items: center;
     justify-content: space-around;
     width: 100%;
 }
 
-.logo {
+.companies_logo {
     margin-right: 1rem;
     font-size: 1.8rem;
     font-weight: bold;
 }
 
-.search-bar {
+.companies_search-bar {
     display: flex;
     flex: 1;
     max-width: 30rem;
@@ -57,8 +57,8 @@ body {
     font-size: 1.6rem;
 }
 
-.nav-links,
-.auth-links {
+.companies_nav-links,
+.companies_auth-links {
     display: flex;
     gap: 5rem;
     list-style: none;
@@ -66,20 +66,20 @@ body {
     padding: 0;
 }
 
-.nav-links a,
-.auth-links a {
+.companies_nav-links a,
+.companies_auth-links a {
     color: #e0e0e0;
     text-decoration: none;
     font-size: 1.6rem;
 }
 
-.nav-links a:hover,
-.auth-links a:hover {
+.companies_nav-links a:hover,
+.companies_auth-links a:hover {
     text-decoration: underline;
 }
 
 /* Footer */
-.footer {
+.companies_footer {
     background-color: #1f1f1f;
     color: #e0e0e0;
     text-align: center;
@@ -88,7 +88,7 @@ body {
 }
 
 /* Main Content */
-.companies-container {
+.companies_companies-container {
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
@@ -96,23 +96,24 @@ body {
     height: 100%;
 }
 
-.page-title {
+.companies_page-title {
     font-size: 2.4rem;
     font-weight: bold;
     margin-bottom: 2rem;
     text-align: center;
+    color: #954535;
 }
 
 /* Flexbox Grid Layout */
-.company-grid {
+.companies_company-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     gap: 2rem;
 }
 
-.company-card {
-    flex: 1 1 calc(25% - 2rem); /* Adjusts dynamically to screen size */
+.companies_company-card {
+    flex: 1 1 calc(25% - 2rem); 
     max-width: 200px;
     background-color: #292929;
     padding: 2rem;
@@ -124,7 +125,7 @@ body {
     cursor: pointer;
 }
 
-.company-card:hover {
+.companies_company-card:hover {
     transform: scale(1.05);
     background-color: #333;
 }

@@ -1,5 +1,5 @@
 /* Profile Container */
-.profile-container {
+.profileInfo_profile-container {
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -10,16 +10,16 @@
 }
 
 /* Profile Info */
-.profile-info {
+.profileInfo_profile-info {
     display: flex;
     align-items: center;
     gap: 2rem;
     padding: 2rem;
-    background-color: #292929;
+    background-color: #e4d4c8;
     border-radius: 4px;
-    border: 1px solid #444;
+    /* border: 1px solid #444; */
 }
-.profile-pic {
+.profileInfo_profile-pic {
     width: 8rem;
     height: 8rem;
     background-color: #444;
@@ -31,7 +31,7 @@
     color: #e0e0e0;
     /* border: 2px solid #555; */
 }
-.profile-username {
+.profileInfo_profile-username {
     font-size: 2rem;
-    color: #e0e0e0;
+    color: #523a28;
 }

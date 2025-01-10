@@ -42,6 +42,12 @@
     background-color: #444;
 }
 
+.companyBanner-name {
+   font-size: 2.5rem;
+   color: white;
+   margin-bottom: 1rem;
+}
+
 .action-btn {
     border: none;
     padding: 1rem 2rem;
@@ -62,9 +68,12 @@
 .favImg{
     width: 25px;
     transition: transform 0.3s ease;
-    position: relative;
-    left: 310px;
 }
 .favImg:hover {
     transform: scale(1.2); /*makes heart bigger on hover*/
+}
+.companyBanner_buttons{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
 }

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './rightSidebar.css'
+import AddReviewBtn from '../AddReviewBtn/AddReviewBtn'
 
 export default function RightSidebar() {
     const [bestCompanies, setBestCompanies] = useState([])
@@ -37,19 +38,20 @@ export default function RightSidebar() {
     }, [])
 
     return (
-        <aside className="right-sidebar">
-            <section className="top-companies">
+        <aside className="rightSidebar_right-sidebar">
+            <AddReviewBtn />
+            <section className="rightSidebar_top-companies">
                 <h3>Best Rated Companies</h3>
-                <ul className="top-list">
-                    {bestCompanies.slice(0, 3).map((bestCompany) => (
+                <ul className="rightSidebar_top-list">
+                    {bestCompanies.slice(0, 4).map((bestCompany) => (
                         <li key={bestCompany.name}>{bestCompany.name}</li>
                     ))}
                 </ul>
             </section>
-            <section className="worst-companies">
+            <section className="rightSidebar_worst-companies">
                 <h3>Worst Rated Companies</h3>
-                <ul className="worst-list">
-                    {worstCompanies.slice(0, 3).map((worstCompany) => (
+                <ul className="rightSidebar_worst-list">
+                    {worstCompanies.slice(0, 4).map((worstCompany) => (
                         <li key={worstCompany.name}>{worstCompany.name}</li>
                     ))}
                 </ul>

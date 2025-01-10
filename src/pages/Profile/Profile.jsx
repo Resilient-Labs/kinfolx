@@ -1,6 +1,7 @@
 import './profile.css'
 import ProfileInfo from '../../components/ProfileInfo/ProfileInfo.jsx'
 import CompanyReviews from '../../components/CompanyReviews/CompanyReviews.jsx'
+import LeftSidebar from '../../components/LeftSidebar/LeftSidebar'
 import { useUser } from '@clerk/clerk-react'
 import { useEffect, useState } from 'react'
 import Spinner from '../../components/LoadingSpinner/Spinner.jsx'
@@ -41,13 +42,14 @@ function Profile() {
     }
 
     return (
-        <main className="profile-container">
+        <main className="profile_profile-container">
             <ProfileInfo userImage={userImage} userName={userName} />
 
             <h3 className="profile_center">
                 Reviews You have Left (Only Visible to You)
             </h3>
-            <section className="reviews">
+            <section className="profile_reviews">
+                <LeftSidebar />
                 {userReviews.map((review, index) => (
                     <CompanyReviews
                         key={`userCompanyReview${index}`}

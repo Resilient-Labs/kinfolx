@@ -1,6 +1,6 @@
 /* Header */
 .header {
-    background-color: #1f1f1f;
+    background-color: #523a28;
     color: #e0e0e0;
     padding: 1rem 2rem;
     display: flex;
@@ -56,4 +56,9 @@
 .nav-links a:hover,
 .auth-links a:hover {
     text-decoration: underline;
+}
+@media (max-width:600px)  {
+    .header_home, .header_home a {
+        display: none;
+    }
 }
