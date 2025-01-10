@@ -4,6 +4,7 @@ import CompanyReviews from '../../components/CompanyReviews/CompanyReviews.jsx'
 import LeftSidebar from '../../components/LeftSidebar/LeftSidebar'
 import { useUser } from '@clerk/clerk-react'
 import { useEffect, useState } from 'react'
+import Spinner from '../../components/LoadingSpinner/Spinner.jsx'
 
 function Profile() {
     const { isLoaded, user } = useUser()
@@ -37,18 +38,23 @@ function Profile() {
     }, [])
 
     if (!isLoaded || !user) {
-        return <div>....Loading</div> //make this look pretty like a loading bar or something
+       return <Spinner />
     }
 
     return (
         <main className="profile_profile-container">
-            <ProfileInfo userImage={userImage} userName={userName} />
-
+            <div className="profile_top">
+                <div className="profile_info">
+                    <ProfileInfo userImage={userImage} userName={userName} />
+                </div>
+                <div className="left_sidebar">
+                    <LeftSidebar />
+                </div>
+            </div>
             <h3 className="profile_center">
                 Reviews You have Left (Only Visible to You)
             </h3>
             <section className="profile_reviews">
-                <LeftSidebar />
                 {userReviews.map((review, index) => (
                     <CompanyReviews
                         key={`userCompanyReview${index}`}
@@ -59,6 +65,7 @@ function Profile() {
             </section>
         </main>
     )
+
 }
 
 export default Profile

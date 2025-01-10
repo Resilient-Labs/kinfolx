@@ -23,7 +23,7 @@ export default function LeftSidebar() {
     return (
         <aside className="leftSideBar_left-sidebar">
             <section className="leftSideBar_favorite-companies">
-                <h3>Favorite Companies</h3>
+                <h3 className="leftSideBar_h3">Favorite Companies</h3>
                 <ul className="leftSideBar_favorite-list">
                     {favoriteCompanies.slice(0,6).map((company, index) => (
                         <li key={`favoriteCompany${index}`}>

@@ -16,7 +16,8 @@ const ReviewList =  (props) => {
     const [ratings, setRatings] = useState({})
     const [comment, setComment] = useState('')
     
-    console.log(ratings)
+    
+    console.log(ratings, 'I am ratings')
 
     const handleMouseOver = (category, value) => {
         setRatings((prev) => ({
@@ -49,8 +50,7 @@ const ReviewList =  (props) => {
 
             }
         }
-        console.log(newRatings)
-        
+ 
         const reviewData = {
             companyId,
             position,
@@ -99,30 +99,32 @@ const ReviewList =  (props) => {
             <div className="review_list_rating-section">
                 {Object.entries(categories).map(([category, caption]) => (
                     <div key={category} className="review_list_rating-category">
-                        <label>{category.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/^./, str => str.toUpperCase())}:</label>
-                        <p className="review_list_sub-caption">{caption}</p>
-                        <div className="review_list_star-rating">
-                            {[1, 2, 3, 4, 5].map((value) => (
-                                <img
-                                    key={value}
-                                    src={
-                                        value <=
-                                        (ratings[`${category}-hover`] ||
-                                            ratings[category])
-                                            ? './img/star-yellow.png'
-                                            : './img/star-white-transp.png'
-                                    }
-                                    alt="star"
-                                    className="review_list_star"
-                                    onMouseOver={() =>
-                                        handleMouseOver(category, value)
-                                    }
-                                    onMouseLeave={() =>
-                                        handleMouseLeave(category)
-                                    }
-                                    onClick={() => handleClick(category, value)}
-                                />
-                            ))}
+                        <div className="star_wrapper">
+                            <label>{category.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/^./, str => str.toUpperCase())}:</label>
+                            <p className="review_list_sub-caption">{caption}</p>
+                            <div className="review_list_star-rating">
+                                {[1, 2, 3, 4, 5].map((value) => (
+                                    <img
+                                        key={value}
+                                        src={
+                                            value <=
+                                            (ratings[`${category}-hover`] ||
+                                                ratings[category])
+                                                ? './img/star-yellow.png'
+                                                : './img/star-white-transp.png'
+                                        }
+                                        alt="star"
+                                        className="review_list_star"
+                                        onMouseOver={() =>
+                                            handleMouseOver(category, value)
+                                        }
+                                        onMouseLeave={() =>
+                                            handleMouseLeave(category)
+                                        }
+                                        onClick={() => handleClick(category, value)}
+                                    />
+                                ))}
+                            </div>
                         </div>
                     </div>
                 ))}
