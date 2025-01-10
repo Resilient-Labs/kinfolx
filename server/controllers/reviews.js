@@ -143,7 +143,7 @@ const reviewController = {
                         'questions.careerGrowth': newRatings.careerGrowth,
                         'questions.diversityScale': newRatings.diversityScale,
                         'questions.companyCulture': newRatings.companyCulture,
-                        'questions.salary': newRatings.salaries,
+                        'questions.salary': newRatings.salary,
                         comment,
                     },
                 },
