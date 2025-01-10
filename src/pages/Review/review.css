@@ -3,23 +3,35 @@
     padding: 2rem;
     background-color: #1f1f1f;
     border: 1px solid #444;
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 2rem;
     width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
     text-align: center;
+    max-width: 800px;
+    margin: 3rem auto;
+    box-shadow: 0 4px 10px rgba(135, 132, 132, 0.1);
 }
 
 .review-form-container h1 {
     font-size: 2rem;
     margin-bottom: 1rem;
 }
+.review-form-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem; 
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.review_form-group{
+    margin-bottom: 0.2rem;
+}
 
 .review-form-container label {
     display: block;
     text-align: left;
-    margin: 1rem 0 0.5rem;
+    font-weight: bold;
+    margin: 1rem 0.5rem 0.5rem;
 }
 .review-form-container input,
 .review-form-container select {
@@ -27,7 +39,7 @@
     padding: 0.8rem;
     margin-bottom: 1rem;
     font-size: 1rem;
-    border-radius: 4px;
+    border-radius: 5px;
     border: 1px solid #444;
     background-color: #292929;
     color: #e0e0e0;
