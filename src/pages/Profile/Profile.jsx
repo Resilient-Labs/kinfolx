@@ -27,7 +27,6 @@ function Profile() {
                 if (!response.ok) console.log(response.statusText)
                 const reviews = await response.json()
 
-                console.log(reviews, 'userReviews')
                 setUserReviews(reviews.userReviews)
             } catch (error) {
                 console.error(`Error getting a user's reviews, ${error}`)
