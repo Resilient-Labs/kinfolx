@@ -1,37 +1,31 @@
 # Global options
 {
-    admin off                          # There's no need for the admin API in Railway's environment
-    persist_config off                 # Storage isn't persistent anyway
-    auto_https off                     # Railway handles HTTPS for us, this would cause issues if left enabled
+    admin off
+    persist_config off
+    auto_https off
 
-    # Runtime logs
     log {
-        format json                    # Set runtime log format to JSON mode
+        format json
     }
 
-    # Server options
     servers {
-        trusted_proxies static private_ranges 100.0.0.0/8 # Trust Railway's proxy
+        trusted_proxies static private_ranges 100.0.0.0/8
     }
 }
 
 # Site block, listens on the $PORT environment variable, automatically assigned by Railway
 :{$PORT:3000} {
-    # Access logs
     log {
-        format json                    # Set access log format to JSON mode
+        format json
     }
 
-    # Health check for Railway
     rewrite /health /*
 
-    # Serve from the 'dist' folder (Vite builds into the 'dist' folder)
+    # Serve from the 'build' folder (React builds into the 'build' folder)
     root * dist
 
-    # Enable gzipping responses
     encode gzip
 
-    # Serve files from 'dist'
     file_server
 
     # If path doesn't exist, redirect it to 'index.html' for client-side routing
