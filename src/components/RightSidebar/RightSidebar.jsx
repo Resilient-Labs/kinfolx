@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router'
 import './rightSidebar.css'
 import AddReviewBtn from '../AddReviewBtn/AddReviewBtn'
 
@@ -43,16 +44,25 @@ export default function RightSidebar() {
             <section className="rightSidebar_top-companies">
                 <h3>Best Rated Companies</h3>
                 <ul className="rightSidebar_top-list">
-                    {bestCompanies.slice(0, 4).map((bestCompany) => (
-                        <li key={bestCompany.name}>{bestCompany.name}</li>
+
+                    {bestCompanies.slice(0, 4).map((company) => (
+                        // create a link for each of the companies in this section
+                        <Link to={`/company/${company._id}`} key={company._id}>
+                            <li key={company.name}>
+                                <>{company.name}</>
+                            </li>
+                        </Link>
+
                     ))}
                 </ul>
             </section>
             <section className="rightSidebar_worst-companies">
                 <h3>Worst Rated Companies</h3>
                 <ul className="rightSidebar_worst-list">
-                    {worstCompanies.slice(0, 4).map((worstCompany) => (
-                        <li key={worstCompany.name}>{worstCompany.name}</li>
+                    {worstCompanies.slice(0, 4).map((company) => (
+                        <Link to={`/company/${company._id}`} key={company.id}>
+                            <li key={company.name}>{company.name}</li>
+                        </Link>
                     ))}
                 </ul>
             </section>
