@@ -5,12 +5,14 @@ import LeftSidebar from '../../components/LeftSidebar/LeftSidebar'
 import { useUser } from '@clerk/clerk-react'
 import { useEffect, useState } from 'react'
 import Spinner from '../../components/LoadingSpinner/Spinner.jsx'
+import ReviewContainer from '../../components/Containers/ReviewContainer.jsx'
 
 function Profile() {
     const { isLoaded, user } = useUser()
     const [userName, setUserName] = useState()
     const [userImage, setUserImage] = useState()
     const [userReviews, setUserReviews] = useState([])
+    const header = 'Hello Waskar'
 
     useEffect(() => {
         if (!isLoaded || !user) {
@@ -52,7 +54,7 @@ function Profile() {
                 </div>
             </div>
             <h3 className="profile_center">
-                Reviews You have Left (Only Visible to You)
+                Your Reviews
             </h3>
             <section className="profile_reviews">
                 {userReviews.map((review, index) => (
@@ -62,7 +64,8 @@ function Profile() {
                         setReviews={setUserReviews}
                     />
                 ))}
-            </section>
+                <ReviewContainer text={header}/>
+            </section>            
         </main>
     )
 
