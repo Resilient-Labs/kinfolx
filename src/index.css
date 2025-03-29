@@ -2,8 +2,25 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 @import "tailwindcss";
+
+/* Our custom Tailwind theme */
+@theme {
+    /* Custom colors */
+    --color-teal-600: #3D8D7A;
+    --color-teal-300: #A3D1C6;
+    --color-peach:#DE6B48;
+    --color-chocolate:#523A28;
+    --color-dark-gray:#D3D3D3;
+    --color-light-gray: #F9F9F9;
+
+    /* Custom fonts */
+    --font-poppins: "Poppins", "sans-serif";
+    --font-source-code: "Source Code Pro", "monospace";
+    --font-roboto: "Roboto Condensed", "sans-serif";
+}
+
 html,
 body,
 div,
@@ -89,7 +106,7 @@ video {
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
+    /* font: inherit; */
     vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -139,9 +156,6 @@ table {
 html {
     font-size: 62.5%;
     height: 100%;
-    /* font-family: 'Consolas', 'Courier New', 'Lucida Console', Arial, Helvetica,
-        sans-serif; */
-        font-family: Poppins;
     background-color: #E4D4C8;
     color: #e0e0e0;
 }
