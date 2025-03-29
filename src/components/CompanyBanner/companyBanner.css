@@ -10,10 +10,9 @@
 }
 
 .company-logo {
-    width: 8rem;
-    height: 8rem;
-    background-color: #444;
-    border-radius: 50%;
+    width: 28rem;
+    height: 14rem;
+    border-radius: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
