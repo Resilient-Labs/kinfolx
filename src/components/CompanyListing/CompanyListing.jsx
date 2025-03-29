@@ -25,12 +25,15 @@ const CompanyListing = () => {
     return (
         <section className="companyListing_company-grid">
             {companies.map((company) => (
-                <div className="companyListing_company-card" key={company._id}>
-                    <Link to={`/company/${company._id}`}>{company.name}</Link>
-                </div>
+                <Link to={`/company/${company._id}`} key={company._id} className="companyListing_company-card">
+                    <div>
+                        {company.name}
+                    </div>
+                </Link>
             ))}
         </section>
     )
 }
 
 export default CompanyListing
+
