@@ -3,10 +3,12 @@
     flex-direction: column;
     gap: 1.5rem;
 }
+
 .rightSidebar_top-companies h3,
 .rightSidebar_worst-companies h3 {
-    color: #954535
+    color: #954535;
 }
+
 .rightSidebar_top-companies,
 .rightSidebar_worst-companies {
     background-color: #D0B49F;
@@ -14,6 +16,7 @@
     border: 1px solid #444;
     border-radius: 4px;
 }
+
 .rightSidebar_top-list,
 .rightSidebar_worst-list {
     color: white;
@@ -22,7 +25,9 @@
     flex-direction: column;
     gap: 1rem;
     padding: 1rem;
+    text-align: center;
 }
+
 .rightSidebar_top-list li,
 .rightSidebar_worst-list li {
     border: 1px solid black;
@@ -30,13 +35,70 @@
     background-color: #523a28;
     padding: 1rem;
     font-size: 1.6rem;
-    border-radius: 4px;
     transition: background-color 0.3s;
 }
 
-.rightSidebar_top-list,
-.rightSidebar_worst-list {
-    color: white;
-    text-align: center;
+.rightSidebar_news {
+    background-color: #1f1f1f;
     padding: 1rem;
+    border: 1px solid #444;
+    border-radius: 4px;
+}
+
+.rightSidebar_news h3 {
+    color: #fff;
+    background-color: #3a8f85;
+    padding: 0.5rem;
+    font-size: 1.3rem;
+    text-align: center;
+    margin: -1rem -1rem 1rem -1rem;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    font-weight: 600;
+}
+
+.rightSidebar_news-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: #eaeaea;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.rightSidebar_news-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    position: relative;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #444;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.rightSidebar_news-list li:last-child {
+    border-bottom: none;
+}
+
+.rightSidebar_news-list li::before {
+    content: '▪';
+    color: #3a8f85;
+    font-size: 0.9rem;
+    margin-top: 0.4rem;
+    flex-shrink: 0;
+}
+
+.rightSidebar_news-list a {
+    color: #eaeaea;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+}
+
+.rightSidebar_news-list a:hover {
+    text-decoration: underline;
 }

@@ -146,7 +146,7 @@ export default function Feed() {
                     // If no reviews fetched, use fallback reviews
                     setReviews([])
                 } else {
-                    setReviews(data);
+                    setReviews(data)
                 }
             } catch (error) {
                 console.error('Error fetching posts:', error)
@@ -167,7 +167,10 @@ export default function Feed() {
                     <div className="feed_ratings-grid">
                         {Object.entries(review.questions).map(
                             ([category, value]) => (
-                                <div key={category} className="feed_rating-cell">
+                                <div
+                                    key={category}
+                                    className="feed_rating-cell"
+                                >
                                     <span className="feed_category-name">
                                         {category
                                             .replace(/([A-Z])/g, ' $1')
