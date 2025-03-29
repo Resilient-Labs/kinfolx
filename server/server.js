@@ -21,7 +21,8 @@ const PORT = process.env.PORT || 3000
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(logger('dev'))
-app.use(requireAuth())
+// Remove global requireAuth() - app.use(requireAuth())
+
 
 // EXAMPLES FOR HOW TO USE CLERK MIDDLEWARE
 // Use a custom sign-in URL instead of the environment variable
