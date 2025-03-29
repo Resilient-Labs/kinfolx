@@ -8,6 +8,8 @@ import connectDB from './config/database.js'
 import companyRouter from './routes/company.js'
 import userRouter from './routes/user.js'
 import reviewRouter from './routes/reviews.js'
+import newsRouter from './routes/news.js'
+
 
 //config file and connect database
 config({ path: './config/.env' })
@@ -38,6 +40,8 @@ app.get(
 app.use('/api/company', companyRouter)
 app.use('/api/review', reviewRouter)
 app.use('/api/user', requireAuth({ signInUrl: '/sign-in' }), userRouter)
+app.use('/api/news', newsRouter)
+
 
 app.listen(PORT, () => {
     console.log(`[server]: Server is running at http://localhost:${PORT}`)
