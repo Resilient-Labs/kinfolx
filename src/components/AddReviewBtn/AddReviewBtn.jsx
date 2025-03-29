@@ -3,7 +3,7 @@ import './addReviewBtn.css'
 
 const AddReviewBtn = () => {
     return (
-        <Link className="review-btn" to="/review">
+        <Link className="review-btn bg-blue-500" to="/review">
             Add a Review
         </Link>
     )
