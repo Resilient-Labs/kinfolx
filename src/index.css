@@ -174,7 +174,7 @@ body,
 
 @font-face {
     font-family: 'Ahsing';
-    src: url('../public/ahsing-regular.otf') format("otf");
+    src: url('/ahsing-regular.otf') format("opentype");
     font-style: normal;
     font-weight: 700;
     font-display: swap;
