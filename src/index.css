@@ -19,6 +19,7 @@
     --font-poppins: "Poppins", "sans-serif";
     --font-source-code: "Source Code Pro", "monospace";
     --font-roboto: "Roboto Condensed", "sans-serif";
+    --font-ahsing: 'Ahsing', "sans-serif";
 }
 
 html,
@@ -173,7 +174,10 @@ body,
 
 @font-face {
     font-family: 'Ahsing';
-    src: 'public/ahsing-regular.otf';
+    src: url('../public/ahsing-regular.otf') format("otf");
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
 }
 
 /* Scrollbar */
