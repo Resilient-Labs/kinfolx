@@ -12,7 +12,7 @@ export default function Header() {
         <header className="header">
             <nav className="navbar">
                 <div className="logo">
-                    <a href="/">Kinfolx</a>
+                    <a href="/" className="font-ahsing">Kinfolx</a>
                 </div>
                 <SearchBar className="header_search" />
                 <ul className="nav-links">
