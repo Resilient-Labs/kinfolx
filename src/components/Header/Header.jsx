@@ -23,6 +23,9 @@ export default function Header() {
                         <a href="/companies">Companies</a>
                     </li>
                     <li>
+                        <a href="/about">About Us</a>
+                    </li>
+                    <li>
                         <a href="/profile">Profile</a>
                     </li>
                 </ul>

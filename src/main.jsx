@@ -15,6 +15,7 @@ import Companies from './pages/Companies/Companies.jsx'
 import Company from './pages/Company/Company.jsx'
 
 import './index.css'
+import AboutPage from './pages/About/AboutPage.jsx'
 
 //this is related to clerk
 // Import your Publishable Key
@@ -40,6 +41,7 @@ const router = createBrowserRouter([
             { path: '/companies', element: <Companies /> },
             // { path: '/company', element: <Company /> },
             { path: '/company/:id', element: <Company /> },
+            { path: '/about', element: <AboutPage /> },
             { path: '/review', element: <Review /> },
         ],
     },
