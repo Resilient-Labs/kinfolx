@@ -1,4 +1,4 @@
-.teamBlurb {
+/* .teamBlurb {
     text-align: center;
     background: linear-gradient(180deg, #0b9f6e8a, #ffeb92);
     padding: 4rem 15rem;
@@ -7,3 +7,79 @@
 .teamBlurb h1 {
   font-weight: 700;
 }
+.memberCardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 2rem 2%;
+}
+
+.memberCard {
+  text-align: center;
+  border: 1px solid black;
+  width: 30%;
+  max-width: 400px;
+  height: 700px;
+  border-radius: 15px;
+  border: 0.1px solid rgb(66, 66, 66);
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  flex: 0 0 calc(33.333% - 20px);
+  margin: 10px;
+}
+
+.teamBlurb {
+  text-align: center;
+  background: linear-gradient(180deg, #0b9f6e8a, #ffeb92);
+  padding: 4rem 15rem;
+}
+
+.teamBlurb h1,
+.communityBoard--blurb h1 {
+  font-weight: 700;
+}
+
+.memberCard--header {
+  background: linear-gradient(45deg, #ffde5b, #ffffa9);
+  text-align: center;
+  font-size: 1.1rem;
+  padding: 1rem;
+}
+
+.memberCard--header h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.memberText {
+  height: 250px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: #047a5554;
+}
+
+.memberText::-webkit-scrollbar {
+  width: 12px;
+}
+
+.memberText::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 98, 59, 0.1);
+  border-radius: 6px;
+}
+
+.memberSocials img {
+  display: inline-block;
+  max-height: 45px;
+  padding-top: 1rem;
+  margin-right: 0.5rem;
+}
+
+.memberSocials img:hover {
+  max-height: 48px;
+}
+
+.memberCard p {
+  padding: 1rem;
+  text-align: left;
+} */

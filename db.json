@@ -1,29 +1,70 @@
 {
     "getTeam": [
-      {
-        "id": "1",
-        "content": "HTML is easy",
-        "important": true
-      },
-      {
-        "id": "2",
-        "content": "Browser can execute only JavaScript",
-        "important": false
-      },
-      {
-        "id": "3",
-        "content": "GET and POST are the most important methods of HTTP protocol",
-        "important": true
-      },
-      {
-        "id": "14c3",
-        "content": "hello",
-        "important": true
-      },
-      {
-        "id": "e155",
-        "content": "yello",
-        "important": false
-      }
+        {
+            "_id": "1",
+            "firstName": "Waskar",
+            "lastName": "Paulino",
+            "role": "Full Stack Developer",
+            "profilePhoto": "/img/profilePics/Waskar.png",
+            "email": "waskar.paulino@gmail.com",
+            "github": "https://github.com/traksaw",
+            "linkedin": "https://www.linkedin.com/in/waskar-m-paulino/",
+            "bio": ""
+        },
+        {
+            "_id": "2",
+            "firstName": "Franceska",
+            "lastName": "Rouzard",
+            "role": "Full Stack Developer",
+            "profilePhoto": "/img/profilePics/French.png",
+            "email": "jane.smith@example.com",
+            "github": "https://github.com/fullstackfrench",
+            "linkedin": "https://www.linkedin.com/in/franceska-rouzard/",
+            "bio": ""
+        },
+        {
+            "_id": "3",
+            "firstName": "Erik",
+            "lastName": "Jacome",
+            "role": "Full Stack Developer",
+            "profilePhoto": "/img/profilePics/Erik.png",
+            "email": "mike.johnson@example.com",
+            "github": "https://github.com/erikenrique?tab=overview&from=2025-04-01&to=2025-04-01",
+            "linkedin": "https://www.linkedin.com/in/erik-jacome/",
+            "bio": ""
+        },
+        {
+            "_id": "4",
+            "firstName": "Angel",
+            "lastName": "Morris",
+            "role": "Full Stack Developer",
+            "profilePhoto": "/img/profilePics/Angel.png",
+            "email": "angel.morris920@gmail.com",
+            "github": "https://github.com/SofterEnginuity",
+            "linkedin": "https://www.linkedin.com/in/angel-morris/",
+            "bio": ""
+        },
+        {
+            "_id": "5",
+            "firstName": "Alexandra",
+            "lastName": "Akinyemi",
+            "role": "Full Stack Developer",
+            "profilePhoto": "/img/profilePics/Alexandra.jpg",
+            "email": "aakinyemi.dev@gmail.com",
+            "github": "https://github.com/AOA19",
+            "linkedin": "https://www.linkedin.com/in/alexandraak/",
+            "bio": ""
+        },
+        {
+            "_id": "6",
+            "firstName": "Zaria",
+            "lastName": "Hallager",
+            "role": "Full Stack Developer",
+            "profilePhoto": "/img/profilePics/Zaria.png",
+            "email": "zariahallager@outlook.com",
+            "github": "https://github.com/ZariaHallager",
+            "linkedin": "https://www.linkedin.com/in/zariahallager/",
+            "bio": ""
+        }
     ]
-  }
+}
