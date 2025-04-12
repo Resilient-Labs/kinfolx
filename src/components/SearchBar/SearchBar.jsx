@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import "./searchBar.css"
 
 const SearchBar = () => {
     const [searchTerm, setSearchTerm] = useState('')
@@ -34,10 +33,17 @@ const SearchBar = () => {
                     type="text"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    placeholder="Search for a company"
-                    className="header_search-input"
+                    placeholder=" Search"
+                    className="h-15 w-110 mb-5 font-poppins text-2xl border-2 border-solid border-teal-600 rounded-md focus:outline-none focus:border-teal-600 text-black"
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                            handleSearch(e) // Trigger search when Enter is pressed
+                        }
+                    }}
                 />
-                <button type="submit" className="header_search-btn">Search</button>
+                {/* <button type="submit" className="header_search-btn">
+                    Search
+                </button> */}
             </form>
             {/* <div>
                 {results.length > 0 ? (

@@ -21,7 +21,8 @@
     "env": "^0.0.2",
     "express": "^4.21.2",
     "mongoose": "^8.9.3",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "react-router-dom": "^7.4.1"
   },
   "type": "module"
 }

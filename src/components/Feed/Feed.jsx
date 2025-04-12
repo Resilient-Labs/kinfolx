@@ -158,8 +158,11 @@ export default function Feed() {
 
     return (
         <section className="feed_feed">
+            <h2 className="text-chocolate font-poppins font-bold text-3xl">
+                Latest Reviews{' '}
+            </h2>
             {reviews.map((review, index) => (
-                <div key={index} className="feed_feed-item">
+                <div key={index} className="feed_feed-item bg-dark-gray m-50px">
                     <h3 className="feed_company-name">{review.companyName}</h3>
                     <p className="feed_role">
                         <strong>Position:</strong> {review.position}
