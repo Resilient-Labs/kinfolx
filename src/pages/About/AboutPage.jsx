@@ -3,59 +3,44 @@ import teamData from '/Users/waskarpaulino/Desktop/Personal/Resilient Coders/fin
 
 const AboutPage = () => {
     return (
-        <div className="min-h-screen flex flex-col items-center justify-start">
-            <div className="container w-full mx-auto px-4 py-8">
-                <div className="text-center mb-12 flex flex-col items-center justify-start">
+        <div className="min-h-screen w-full">
+            <div className="w-full px-4 py-8">
+                <div className="text-center mb-12 flex flex-col items-center justify-start w-full">
                     <h1 className="text-lg font-extrabold text-gray-900 mb-6 tracking-wider">About Us</h1>
-                    <p className="text-xs text-gray-600 w-full px-4 py-6 font-light">
-                        We started Kinfolx because we know what it feels like to be the <span className=''>"only one"</span> in the room.
+                    <p className="text-sm/9 text-gray-800 w-full px-4 py-6 font-light">
+                        We started Kinfolx because we know what it feels like to be the <span className='font-extrabold'>&quot;only one&quot;</span> in the room.
 
-                        We've worked in environments where diversity was a checkbox and inclusion felt conditional. Despite the promises, not much changed for Black and POC employees. So when companies started pulling back their DEI efforts, it didn't shock us—it fueled us.
+                        We&apos;ve worked in environments where diversity was a checkbox and inclusion felt conditional. Despite the promises, not much changed for Black and POC employees. So when companies started pulling back their DEI efforts, it didn&apos;t shock us-it fueled us.
 
-                        Kinfolx is a space created by people who've lived it. A space to share stories, hold companies accountable, and connect with a broader community that understands the weight of navigating these challenges. Our goal is simple: to affirm, support, and amplify voices that deserve to be heard.
+                        Kinfolx is a space created by people who&apos;ve lived it. A space to share stories, hold companies accountable, and connect with a broader community that understands the weight of navigating these challenges. Our goal is simple: to affirm, support, and amplify voices that deserve to be heard.
                     </p>
                 </div>
                 <div className='mb-20'>
                     <div className='text-center mb-12 flex flex-col items-center justify-start'>
-                    <h1 className='text-center font-extrabold text-gray-900 tracking-wider pb-12 mb-12'>Maintenance Team</h1>
+                        <h1 className='text-center font-extrabold text-gray-900 tracking-wider pb-12 mb-12'>Maintenance Team</h1>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         {teamData.getTeam
                             .slice()
                             .sort((a, b) => a.firstName.localeCompare(b.firstName))
                             .map((member) => (
-                                <div key={member._id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                                    <div className="p-6">
-                                        <div className="flex flex-col items-center">
-                                            <div className="relative mb-4">
-                                                <img
-                                                    src={member.profilePhoto}
-                                                    alt={`${member.firstName}'s profile`}
-                                                    className="w-32 h-32 rounded-full object-cover border-4 border-gray-200"
-                                                />
-                                            </div>
-                                            <div className="text-center">
-                                                <h3 className="text-2xl font-bold text-gray-900 mb-2 tracking-tight">
-                                                    {member.firstName} {member.lastName}
-                                                </h3>
-                                                <p className="text-lg text-indigo-600 font-medium mb-4">{member.role}</p>
-                                                <p className="text-gray-600 mb-6 leading-relaxed">{member.bio}</p>
-                                                <div className="flex justify-center space-x-4">
-                                                    <a href={`mailto:${member.email}`} className="hover:opacity-75 transition-opacity">
-                                                        <img src="/img/icons/icons8-email-50.png" alt="Email" className="w-8 h-8" />
-                                                    </a>
-                                                    <a href={member.github} target="_blank" rel="noopener noreferrer" className="hover:opacity-75 transition-opacity">
-                                                        <img src="/img/icons/icons8-github-50.png" alt="GitHub" className="w-8 h-8" />
-                                                    </a>
-                                                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="hover:opacity-75 transition-opacity">
-                                                        <img src="/img/icons/icons8-linkedin-50.png" alt="LinkedIn" className="w-8 h-8" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div key={member._id} className="max-w-lg mx-auto my-10 bg-white rounded-lg shadow-md p-5">
+                                <img className="w-32 h-32 rounded-full mx-auto" src={member.profilePhoto} alt={member.firstName} />
+                                <h2 className="text-center text-2xl font-semibold mt-3">{member.firstName}</h2>
+                                <p className="text-center text-gray-600 mt-1">Software Engineer</p>
+                                <div className="flex justify-center mt-5">
+                                  <a href={member.twitter} className="text-blue-500 hover:text-blue-700 mx-3">X</a>
+                                  <a href={member.linkedin} className="text-blue-500 hover:text-blue-700 mx-3">LinkedIn</a>
+                                  <a href={member.github} className="text-blue-500 hover:text-blue-700 mx-3">GitHub</a>
+                                  <a href={member.github} className="text-blue-500 hover:text-blue-700 mx-3">Portfolio</a>
                                 </div>
+                                <div className="mt-5">
+                                  <h3 className="text-xl font-semibold">Bio</h3>
+                                  <p className="text-gray-600 mt-2">{member.bio}</p>
+                                </div>
+                              </div>
                             ))}
+       
                     </div>
                 </div>
             </div>

@@ -9,7 +9,9 @@
             "email": "waskar.paulino@gmail.com",
             "github": "https://github.com/traksaw",
             "linkedin": "https://www.linkedin.com/in/waskar-m-paulino/",
-            "bio": ""
+            "twitter": "https://x.com/r_ksaw",
+            "portfolio": "https://waskarmiguelpaulino.netlify.app/",
+            "bio": "First-born son of Dominican immigrants turned self-taught full-stack engineer. From teaching to tech at Apple, I now build tools that empower others. Passionate, resilient, and mission-driven—let’s connect and build something impactful together."
         },
         {
             "_id": "2",
@@ -20,7 +22,9 @@
             "email": "jane.smith@example.com",
             "github": "https://github.com/fullstackfrench",
             "linkedin": "https://www.linkedin.com/in/franceska-rouzard/",
-            "bio": ""
+            "twitter": "https://x.com/fullstackfrench",
+            "portfolio": "https://fullstackfrench.netlify.app/",
+            "bio": "Full-stack software engineer with demonstrated skill in architecting user-focused, intuitive front-end interfaces (React, Next.js) with scalable, production-ready back-end technologies (Node.js, Express, PostgreSQL, AWS), scaling cloud infrastructure to meet ever-evolving business needs."
         },
         {
             "_id": "3",
@@ -31,6 +35,8 @@
             "email": "mike.johnson@example.com",
             "github": "https://github.com/erikenrique?tab=overview&from=2025-04-01&to=2025-04-01",
             "linkedin": "https://www.linkedin.com/in/erik-jacome/",
+            "twitter": "https://x.com/eirikpls",
+            "portfolio": "https://erikjacome.netlify.app/",
             "bio": ""
         },
         {
@@ -42,6 +48,8 @@
             "email": "angel.morris920@gmail.com",
             "github": "https://github.com/SofterEnginuity",
             "linkedin": "https://www.linkedin.com/in/angel-morris/",
+            "twitter": "https://x.com/SofterEnginuity",
+            "portfolio": "https://softerenginuity.netlify.app/",
             "bio": ""
         },
         {
@@ -53,6 +61,8 @@
             "email": "aakinyemi.dev@gmail.com",
             "github": "https://github.com/AOA19",
             "linkedin": "https://www.linkedin.com/in/alexandraak/",
+            "twitter": "https://x.com/TechLex6",
+            "portfolio": "https://alexandraakinyemi.netlify.app/",
             "bio": ""
         },
         {
@@ -64,6 +74,8 @@
             "email": "zariahallager@outlook.com",
             "github": "https://github.com/ZariaHallager",
             "linkedin": "https://www.linkedin.com/in/zariahallager/",
+            "twitter": "https://x.com/ZariaHallager",
+            "portfolio": "https://zariahallager.netlify.app/",
             "bio": ""
         }
     ]
